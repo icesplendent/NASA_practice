@@ -11,17 +11,19 @@ import App from "./App.vue";
 
 createApp(App).mount("#app");
 
+let container = document.getElementById("scene-container");
+const width = container.clientWidth;
+const height = container.clientHeight;
 let imgData = "/world1.jpg";
 let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 1, 2000);
+let camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
 camera.position.set(0.5, 0.5, 1).setLength(14);
 let renderer = new THREE.WebGLRenderer({
   antialias: true,
 });
-renderer.setSize(innerWidth, innerHeight);
+renderer.setSize(width, height);
 renderer.setClearColor(0xaaffaa);
 
-const container = document.getElementById("scene-container");
 container.appendChild(renderer.domElement);
 
 // document.body.appendChild(renderer.domElement);
@@ -300,9 +302,13 @@ renderer.setAnimationLoop(() => {
 });
 
 function onWindowResize() {
-  camera.aspect = innerWidth / innerHeight;
+  let container = document.getElementById("scene-container");
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(innerWidth, innerHeight);
-  labelRenderer.setSize(innerWidth, innerHeight);
+  renderer.setSize(width, height);
+  labelRenderer.setSize(width, height);
 }
