@@ -14,9 +14,10 @@ createApp(App).mount("#app");
 let container = document.getElementById("scene-container");
 const width = container.clientWidth;
 const height = container.clientHeight;
-let imgData = "/world1.jpg";
+let imgData = "/world1.jpeg";
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(45, width / height, 1, 2000);
+const axesHelper = new THREE.AxesHelper(5);
 camera.position.set(0.5, 0.5, 1).setLength(14);
 let renderer = new THREE.WebGLRenderer({
   antialias: true,
@@ -32,7 +33,8 @@ let labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(width, height);
 labelRenderer.domElement.style.position = "absolute";
 labelRenderer.domElement.style.top = "0px";
-document.body.appendChild(labelRenderer.domElement);
+container.appendChild(labelRenderer.domElement);
+// document.body.appendChild(labelRenderer.domElement);
 
 window.addEventListener("resize", onWindowResize);
 
@@ -41,7 +43,7 @@ controls.enablePan = false;
 controls.minDistance = 6;
 controls.maxDistance = 15;
 controls.enableDamping = true;
-controls.autoRotate = true;
+controls.autoRotate = false;
 controls.autoRotateSpeed *= 0.25;
 
 let globalUniforms = {
@@ -49,18 +51,19 @@ let globalUniforms = {
 };
 
 // <Sphere>
-// const geometry = new THREE.SphereGeometry(5, 32, 16);
-// const texture = new THREE.TextureLoader().load(imgData);
-// const material = new THREE.MeshBasicMaterial({ map: texture });
-// const sphere = new THREE.Mesh(geometry, material);
-// scene.add(sphere);
+const geometry = new THREE.SphereGeometry(3, 32, 16);
+const texture = new THREE.TextureLoader().load(imgData);
+const material = new THREE.MeshBasicMaterial({ map: texture });
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+scene.add(axesHelper);
 
 // </sphere>
 
 // <GLOBE>
 // https://web.archive.org/web/20120107030109/http://cgafaq.info/wiki/Evenly_distributed_points_on_sphere#Spirals
 let counter = 200000;
-let rad = 5;
+let rad = 3;
 let sph = new THREE.Spherical();
 
 let r = 0;
@@ -86,6 +89,7 @@ for (let i = 0; i < counter; i++) {
   long = long + dlong;
 
   c.setHSL(0.45, 0.5, Math.random() * 0.25 + 0.25);
+  // c.setO();
   c.toArray(clr, i * 3);
 
   sph.setFromVector3(p);
@@ -98,44 +102,47 @@ g.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
 let m = new THREE.PointsMaterial({
   size: 0.1,
   vertexColors: true,
+  //TODO: makes it no color (opacity & transparency both needed)
+  opacity: 0,
+  transparent: true,
   onBeforeCompile: (shader) => {
     shader.uniforms.globeTexture = {
       value: new THREE.TextureLoader().load(imgData),
     };
-    shader.vertexShader = `
-    	uniform sampler2D globeTexture;
-      varying float vVisibility;
-      varying vec3 vNormal;
-      varying vec3 vMvPosition;
-      ${shader.vertexShader}
-    `.replace(
-      `gl_PointSize = size;`,
-      `
-      	vVisibility = texture(globeTexture, uv).g; // get value from texture
-        gl_PointSize = size * (vVisibility < 0.5 ? 1. : 0.75); // size depends on the value
-        vNormal = normalMatrix * normalize(position);
-        vMvPosition = -mvPosition.xyz;
-        gl_PointSize *= 0.4 + (dot(normalize(vMvPosition), vNormal) * 0.6); // size depends position in camera space
-      `
-    );
+    // shader.vertexShader = `
+    // 	uniform sampler2D globeTexture;
+    //   varying float vVisibility;
+    //   varying vec3 vNormal;
+    //   varying vec3 vMvPosition;
+    //   ${shader.vertexShader}
+    // `.replace(
+    //   `gl_PointSize = size;`,
+    //   `
+    //   	vVisibility = texture(globeTexture, uv).g; // get value from texture
+    //     gl_PointSize = size * (vVisibility < 0.5 ? 1. : 0.75); // size depends on the value
+    //     vNormal = normalMatrix * normalize(position);
+    //     vMvPosition = -mvPosition.xyz;
+    //     gl_PointSize *= 0.4 + (dot(normalize(vMvPosition), vNormal) * 0.6); // size depends position in camera space
+    //   `
+    // );
     //console.log(shader.vertexShader);
-    shader.fragmentShader = `
-    	varying float vVisibility;
-      varying vec3 vNormal;
-      varying vec3 vMvPosition;
-      ${shader.fragmentShader}
-    `.replace(
-      `vec4 diffuseColor = vec4( diffuse, opacity );`,
-      `
-      	bool circ = length(gl_PointCoord - 0.5) > 0.5; // make points round
-        bool vis = dot(vMvPosition, vNormal) < 0.; // visible only on the front side of the sphere
-      	if (circ || vis) discard;
-        
-        vec3 col = diffuse + (vVisibility > 0.5 ? 0.5 : 0.); // make oceans brighter
-        
-        vec4 diffuseColor = vec4( col, opacity );
-      `
-    );
+    // shader.fragmentShader = `
+    // 	varying float vVisibility;
+    //   varying vec3 vNormal;
+    //   varying vec3 vMvPosition;
+    //   ${shader.fragmentShader}
+    // `.replace(
+    //   `vec4 diffuseColor = vec4( diffuse, opacity );`,
+    //   `
+    //   	bool circ = length(gl_PointCoord - 0.5) > 0.5; // make points round
+    //     bool vis = dot(vMvPosition, vNormal) < 0.; // visible only on the front side of the sphere
+    //   	if (circ || vis) discard;
+
+    //     vec3 col = diffuse + (vVisibility > 0.5 ? 0.5 : 0.); // make oceans brighter
+
+    //     vec4 diffuseColor = vec4( col, opacity );
+    //   `
+    // );
     //console.log(shader.fragmentShader);
   },
 });
@@ -259,15 +266,27 @@ scene.add(label);
 // <Interaction>
 let pointer = new THREE.Vector2();
 let raycaster = new THREE.Raycaster();
+let bar = document.getElementById("bar");
+let bar_width = bar.clientWidth;
 let intersections;
 let divID = document.getElementById("idNum");
 let divMag = document.getElementById("magnitude");
 let divCrd = document.getElementById("coordinates");
 window.addEventListener("pointerdown", (event) => {
-  pointer.x = (event.clientX / width) * 2 - 1;
+  // pointer.x = ((event.clientX - (innerWidth - width) / 2) / innerWidth) * 2 - 1;
+  pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
   pointer.y = -(event.clientY / height) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
+  scene.add(
+    new THREE.ArrowHelper(
+      raycaster.ray.direction,
+      raycaster.ray.origin,
+      300,
+      0xff0000
+    )
+  );
   intersections = raycaster.intersectObject(markers).filter((m) => {
+    // console.log(m);
     return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
   });
   console.log(intersections);
