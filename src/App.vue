@@ -10,6 +10,7 @@ import HelloWorld from "./components/HelloWorld.vue";
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
+  <div id="scene-container"></div>
 </template>
 
 <style scoped></style>

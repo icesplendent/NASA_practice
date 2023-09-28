@@ -20,7 +20,11 @@ let renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(innerWidth, innerHeight);
 renderer.setClearColor(0xaaffaa);
-document.body.appendChild(renderer.domElement);
+
+const container = document.getElementById("scene-container");
+container.appendChild(renderer.domElement);
+
+// document.body.appendChild(renderer.domElement);
 
 let labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(window.innerWidth, window.innerHeight);
