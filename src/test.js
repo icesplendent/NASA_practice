@@ -5,7 +5,6 @@ import {
   CSS2DObject,
 } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/renderers/CSS2DRenderer.js";
 
-// vue setup
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
