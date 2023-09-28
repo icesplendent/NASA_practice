@@ -29,7 +29,7 @@ container.appendChild(renderer.domElement);
 // document.body.appendChild(renderer.domElement);
 
 let labelRenderer = new CSS2DRenderer();
-labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.setSize(width, height);
 labelRenderer.domElement.style.position = "absolute";
 labelRenderer.domElement.style.top = "0px";
 document.body.appendChild(labelRenderer.domElement);
@@ -264,13 +264,13 @@ let divID = document.getElementById("idNum");
 let divMag = document.getElementById("magnitude");
 let divCrd = document.getElementById("coordinates");
 window.addEventListener("pointerdown", (event) => {
-  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  pointer.x = (event.clientX / width) * 2 - 1;
+  pointer.y = -(event.clientY / height) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
   intersections = raycaster.intersectObject(markers).filter((m) => {
     return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
   });
-  //console.log(intersections);
+  console.log(intersections);
   if (intersections.length > 0) {
     let iid = intersections[0].instanceId;
     let mi = markerInfo[iid];
