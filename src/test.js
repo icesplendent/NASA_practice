@@ -48,6 +48,15 @@ let globalUniforms = {
   time: { value: 0 },
 };
 
+// <Sphere>
+// const geometry = new THREE.SphereGeometry(5, 32, 16);
+// const texture = new THREE.TextureLoader().load(imgData);
+// const material = new THREE.MeshBasicMaterial({ map: texture });
+// const sphere = new THREE.Mesh(geometry, material);
+// scene.add(sphere);
+
+// </sphere>
+
 // <GLOBE>
 // https://web.archive.org/web/20120107030109/http://cgafaq.info/wiki/Evenly_distributed_points_on_sphere#Spirals
 let counter = 200000;
