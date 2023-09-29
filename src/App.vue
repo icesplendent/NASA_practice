@@ -2,10 +2,10 @@
   <!-- <label></label> -->
   <nav_com @change_pic="changePic" />
   <div class="flex flex-row w-screen h-screen">
-    <div id="bar" class="basis-1/4 shrink-0"></div>
-    <div class="flex flex-col basis-[75%] shrink-0">
+    <div id="bar" class="w-0 shrink-0"></div>
+    <div class="flex flex-col basis-[100%] shrink-0">
       <!-- <div id="scene-container" class="w-full basis-[75%]"></div> -->
-      <canva />
+      <canva ref="canvaRef" :imgData="img" />
       <div class="basis-1/4"></div>
     </div>
   </div>
@@ -22,11 +22,19 @@
 <style scoped></style>
 
 <script setup>
+import { ref } from "vue";
 import label from "/src/components/label.vue";
 import nav_com from "/src/components/nav_com.vue";
 import canva from "/src/components/canva.vue";
 
+const canvaRef = ref(null);
+const img = ref("world1.jpeg");
+let index = ref(0);
+const imgs = ["world1.jpeg", "world2.jpeg"];
+
 const changePic = () => {
-  console.log("change");
+  index.value = (index.value + 1) % imgs.length;
+  img.value = imgs[index.value];
+  canvaRef.value.changeTexture(img.value);
 };
 </script>

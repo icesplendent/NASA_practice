@@ -1,9 +1,9 @@
 <template>
-  <div ref="container" class="w-full h-full"></div>
+  <div :img="imgData" ref="container" class="w-full h-full"></div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
 import {
@@ -14,7 +14,7 @@ import {
 const container = ref(null);
 const width = ref(0);
 const height = ref(0);
-let imgData = "/world1.jpeg";
+// let imgData = "/world1.jpeg";
 
 // scene
 const scene = new THREE.Scene();
@@ -30,12 +30,42 @@ let renderer = new THREE.WebGLRenderer({
 // label renderer
 let labelRenderer = new CSS2DRenderer();
 
+// sphere object
+let sphere;
+
+// Props
+const props = defineProps({
+  imgData: {
+    type: String,
+    default: "",
+  },
+});
+
+// load new texture
+const changeTexture = (img) => {
+  let newTexture = new THREE.TextureLoader().load(img);
+  sphere.material.map = newTexture;
+  renderer.render(scene, camera);
+};
+
+// define functions needed to be exposed
+defineExpose({
+  changeTexture,
+});
+
 // onMounted
 onMounted(() => {
+  canva_setup();
+
+  // resize listener
+  window.addEventListener("resize", (event) => onWindowResize(event, sphere));
+});
+
+const canva_setup = () => {
   container.value.classList.add("test");
   width.value = container.value.clientWidth;
   height.value = container.value.clientHeight;
-  console.log(width.value, height.value, container.value);
+  //   console.log(width.value, height.value, container.value);
 
   // update camera
   camera = new THREE.PerspectiveCamera(45, width.value / height.value, 1, 2000);
@@ -53,9 +83,6 @@ onMounted(() => {
   labelRenderer.domElement.style.top = "0px";
   container.value.appendChild(labelRenderer.domElement);
 
-  // resize listener
-  window.addEventListener("resize", (event) => onWindowResize(event, sphere));
-
   //   control the camera view point
   let controls = new OrbitControls(camera, labelRenderer.domElement);
   controls.enablePan = false;
@@ -71,11 +98,11 @@ onMounted(() => {
 
   // <Sphere>
   const geometry = new THREE.SphereGeometry(3, 32, 16);
-  const texture = new THREE.TextureLoader().load(imgData);
+  const texture = new THREE.TextureLoader().load(props.imgData);
   const material = new THREE.MeshBasicMaterial({ map: texture });
-  const sphere = new THREE.Mesh(geometry, material);
+  sphere = new THREE.Mesh(geometry, material);
   scene.add(sphere);
-  scene.add(axesHelper);
+  //   scene.add(axesHelper);
 
   // <GLOBE>
   // https://web.archive.org/web/20120107030109/http://cgafaq.info/wiki/Evenly_distributed_points_on_sphere#Spirals
@@ -122,11 +149,11 @@ onMounted(() => {
     //TODO: makes it no color (opacity & transparency both needed)
     opacity: 0,
     transparent: true,
-    onBeforeCompile: (shader) => {
-      shader.uniforms.globeTexture = {
-        value: new THREE.TextureLoader().load(imgData),
-      };
-    },
+    // onBeforeCompile: (shader) => {
+    //   shader.uniforms.globeTexture = {
+    //     value: new THREE.TextureLoader().load(props.imgData),
+    //   };
+    // },
   });
   let globe = new THREE.Points(g, m);
   scene.add(globe);
@@ -203,7 +230,6 @@ onMounted(() => {
   let labelDiv = document.getElementById("markerLabel");
   let closeBtn = document.getElementById("closeButton");
 
-  console.log("label", closeBtn);
   closeBtn.addEventListener("pointerdown", (event) => {
     labelDiv.classList.add("hidden");
   });
@@ -253,24 +279,24 @@ onMounted(() => {
     let bar = document.getElementById("bar").getBoundingClientRect();
     const { width, height } = container.value.getBoundingClientRect();
     let bar_width = bar.width;
-    console.log("bar_width", bar_width);
+    // console.log("bar_width", bar_width);
 
     pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    scene.add(
-      new THREE.ArrowHelper(
-        raycaster.ray.direction,
-        raycaster.ray.origin,
-        300,
-        0xff0000
-      )
-    );
+    // scene.add(
+    //   new THREE.ArrowHelper(
+    //     raycaster.ray.direction,
+    //     raycaster.ray.origin,
+    //     300,
+    //     0xff0000
+    //   )
+    // );
     intersections = raycaster.intersectObject(markers).filter((m) => {
       // console.log(m);
       return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
     });
-    console.log(intersections);
+    // console.log(intersections);
     if (intersections.length > 0) {
       let iid = intersections[0].instanceId;
       let mi = markerInfo[iid];
@@ -311,16 +337,12 @@ onMounted(() => {
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
   });
-});
+};
 
 const onWindowResize = (sphere) => {
-  //   let container = document.getElementById("scene-container");
   const { width, height } = container.value.getBoundingClientRect();
-  // const width = container.clientWidth;
-  // const height = container.clientHeight;
 
-  console.log("onWindowResize", width, height);
-
+  // update camera
   camera.aspect = width / height;
   camera.position.set(0.5, 0.5, 1).setLength(14);
   camera.updateProjectionMatrix();
