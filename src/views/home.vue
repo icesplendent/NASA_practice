@@ -16,7 +16,6 @@
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
-  <!-- <div id="scene-container" class="w-screen h-screen"></div> -->
 </template>
 
 <style scoped></style>
