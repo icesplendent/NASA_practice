@@ -151,11 +151,11 @@ let globe = new THREE.Points(g, m);
 scene.add(globe);
 
 // <ICOSAHEDRON>
-let icshdrn = new THREE.Mesh(
-  new THREE.IcosahedronGeometry(rad, 1),
-  new THREE.MeshBasicMaterial({ color: 0x647f7f, wireframe: true })
-);
-globe.add(icshdrn);
+// let icshdrn = new THREE.Mesh(
+//   new THREE.IcosahedronGeometry(rad, 1),
+//   new THREE.MeshBasicMaterial({ color: 0x647f7f, wireframe: true })
+// );
+// globe.add(icshdrn);
 // </ICOSAHEDRON>
 // </GLOBE>
 
@@ -190,12 +190,12 @@ let mMarker = new THREE.MeshBasicMaterial({
       float lenUv = length(lUv);
       val = max(val, 1. - step(0.25, lenUv)); // central circle
       val = max(val, step(0.4, lenUv) - step(0.5, lenUv)); // outer circle
-      
+
       float tShift = fract(time * 0.5 + vPhase);
       val = max(val, step(0.4 + (tShift * 0.6), lenUv) - step(0.5 + (tShift * 0.5), lenUv)); // ripple
-      
+
       if (val < 0.5) discard;
-      
+
       vec4 diffuseColor = vec4( diffuse, opacity );`
     );
     //console.log(shader.fragmentShader)

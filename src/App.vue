@@ -4,7 +4,8 @@
   <div class="flex flex-row w-screen h-screen">
     <div id="bar" class="basis-1/4 shrink-0"></div>
     <div class="flex flex-col basis-[75%] shrink-0">
-      <div id="scene-container" class="w-full basis-[75%]"></div>
+      <!-- <div id="scene-container" class="w-full basis-[75%]"></div> -->
+      <canva />
       <div class="basis-1/4"></div>
     </div>
   </div>
@@ -23,6 +24,7 @@
 <script setup>
 import label from "/src/components/label.vue";
 import nav_com from "/src/components/nav_com.vue";
+import canva from "/src/components/canva.vue";
 
 const changePic = () => {
   console.log("change");
