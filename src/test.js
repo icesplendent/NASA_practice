@@ -56,7 +56,7 @@ const texture = new THREE.TextureLoader().load(imgData);
 const material = new THREE.MeshBasicMaterial({ map: texture });
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
-scene.add(axesHelper);
+// scene.add(axesHelper);
 
 // </sphere>
 
@@ -277,14 +277,14 @@ window.addEventListener("pointerdown", (event) => {
   pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
   pointer.y = -(event.clientY / height) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
-  scene.add(
-    new THREE.ArrowHelper(
-      raycaster.ray.direction,
-      raycaster.ray.origin,
-      300,
-      0xff0000
-    )
-  );
+  // scene.add(
+  //   new THREE.ArrowHelper(
+  //     raycaster.ray.direction,
+  //     raycaster.ray.origin,
+  //     300,
+  //     0xff0000
+  //   )
+  // );
   intersections = raycaster.intersectObject(markers).filter((m) => {
     // console.log(m);
     return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
@@ -333,6 +333,8 @@ function onWindowResize() {
   let container = document.getElementById("scene-container");
   const width = container.clientWidth;
   const height = container.clientHeight;
+
+  console.log(width, height);
 
   camera.aspect = width / height;
   camera.updateProjectionMatrix();

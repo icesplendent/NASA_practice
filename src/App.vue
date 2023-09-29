@@ -1,9 +1,11 @@
 <script setup>
 import label from "/src/components/label.vue";
+import nav_com from "/src/components/nav_com.vue";
 </script>
 
 <template>
   <!-- <label></label> -->
+  <nav_com />
   <div class="flex flex-row w-screen h-screen">
     <div id="bar" class="basis-1/4"></div>
     <div class="flex flex-col basis-[75%]">
