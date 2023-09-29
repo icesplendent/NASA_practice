@@ -36,7 +36,8 @@ labelRenderer.domElement.style.top = "0px";
 container.appendChild(labelRenderer.domElement);
 // document.body.appendChild(labelRenderer.domElement);
 
-window.addEventListener("resize", onWindowResize);
+// window.addEventListener("resize", onWindowResize);
+window.addEventListener("resize", (event) => onWindowResize(event, sphere));
 
 let controls = new OrbitControls(camera, labelRenderer.domElement);
 controls.enablePan = false;
@@ -266,14 +267,20 @@ scene.add(label);
 // <Interaction>
 let pointer = new THREE.Vector2();
 let raycaster = new THREE.Raycaster();
-let bar = document.getElementById("bar");
-let bar_width = bar.clientWidth;
+// let bar = document.getElementById("bar");
+// let bar_width = bar.clientWidth;
 let intersections;
 let divID = document.getElementById("idNum");
 let divMag = document.getElementById("magnitude");
 let divCrd = document.getElementById("coordinates");
 window.addEventListener("pointerdown", (event) => {
   // pointer.x = ((event.clientX - (innerWidth - width) / 2) / innerWidth) * 2 - 1;
+  // const { width, height } = container.getBoundingClientRect();
+  let bar = document.getElementById("bar").getBoundingClientRect();
+  const { width, height } = container.getBoundingClientRect();
+  let bar_width = bar.width;
+  console.log(bar_width);
+
   pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
   pointer.y = -(event.clientY / height) * 2 + 1;
   raycaster.setFromCamera(pointer, camera);
@@ -329,14 +336,16 @@ renderer.setAnimationLoop(() => {
   labelRenderer.render(scene, camera);
 });
 
-function onWindowResize() {
+function onWindowResize(sphere) {
   let container = document.getElementById("scene-container");
-  const width = container.clientWidth;
-  const height = container.clientHeight;
+  const { width, height } = container.getBoundingClientRect();
+  // const width = container.clientWidth;
+  // const height = container.clientHeight;
 
   console.log(width, height);
 
   camera.aspect = width / height;
+  camera.position.set(0.5, 0.5, 1).setLength(14);
   camera.updateProjectionMatrix();
 
   renderer.setSize(width, height);
