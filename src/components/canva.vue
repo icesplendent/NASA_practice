@@ -1,5 +1,6 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
+  <button @click="vueSize">TEST</button>
 </template>
 
 <script setup>
@@ -12,8 +13,16 @@ import {
 } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/renderers/CSS2DRenderer.js";
 
 const container = ref(null);
-const width = ref(0);
-const height = ref(0);
+import { useWindowSize } from "@vueuse/core";
+
+const { width, height } = useWindowSize();
+
+const vueSize = () => {
+  console.log(width.value, height.value);
+};
+
+// const width = ref(0);
+// const height = ref(0);
 // let imgData = "/world1.jpeg";
 
 // scene
@@ -62,9 +71,11 @@ onMounted(() => {
 });
 
 const canva_setup = () => {
-  container.value.classList.add("test");
-  width.value = container.value.clientWidth;
-  height.value = container.value.clientHeight;
+  // width.value = container.value.clientWidth;
+  // height.value = container.value.clientHeight;
+
+  // Use inner window as width
+
   //   console.log(width.value, height.value, container.value);
 
   // update camera
@@ -281,7 +292,8 @@ const canva_setup = () => {
     let bar_width = bar.width;
     // console.log("bar_width", bar_width);
 
-    pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
+    // pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
+    pointer.x = (event.clientX / width) * 2 - 1;
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     // scene.add(
@@ -340,15 +352,17 @@ const canva_setup = () => {
 };
 
 const onWindowResize = (sphere) => {
-  const { width, height } = container.value.getBoundingClientRect();
+  // const { width, height } = container.value.getBoundingClientRect();
 
   // update camera
-  camera.aspect = width / height;
+  camera.aspect = width.value / height.value;
   camera.position.set(0.5, 0.5, 1).setLength(14);
   camera.updateProjectionMatrix();
 
-  renderer.setSize(width, height);
-  labelRenderer.setSize(width, height);
+  renderer.setSize(width.value, height.value);
+  labelRenderer.setSize(width.value, height.value);
+
+  console.log(width.value, height.value);
 };
 </script>
 
