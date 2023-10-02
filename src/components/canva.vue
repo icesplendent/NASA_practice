@@ -6,6 +6,7 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
+import * as TWEEN from "https://cdn.skypack.dev/@tweenjs/tween.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
 import {
   CSS2DRenderer,
@@ -254,6 +255,14 @@ let markersData = [
 
   closeBtn.addEventListener("pointerdown", (event) => {
     labelDiv.classList.add("hidden");
+    const targetPosition = new THREE.Vector3();
+    targetPosition.copy(intersections[0].point);
+    targetPosition.normalize().multiplyScalar(camera.position.length() + 5);
+    new TWEEN.Tween(camera.position)
+      .to(targetPosition, 1000)
+      .easing(TWEEN.Easing.Cubic.Out)
+      .start();
+    controls.autoRotate = true;
   });
   let label = new CSS2DObject(labelDiv);
   label.userData = {
@@ -346,6 +355,14 @@ let markersData = [
         }
       );
       label.element.classList.remove("hidden");
+      const targetPosition = new THREE.Vector3();
+      targetPosition.copy(intersections[0].point);
+      targetPosition.normalize().multiplyScalar(camera.position.length() - 5);
+      new TWEEN.Tween(camera.position)
+        .to(targetPosition, 1500)
+        .easing(TWEEN.Easing.Cubic.Out)
+        .start();
+      controls.autoRotate = false;
     }
   });
   // </Interaction>
@@ -359,6 +376,7 @@ let markersData = [
     controls.update();
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
+    TWEEN.update();
   });
 };
 
