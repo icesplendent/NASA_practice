@@ -1,11 +1,11 @@
 <template>
   <navbar />
-  <div class="relative h-screen w-screen">
+  <div class="relative h-screen w-screen overflow-y-auto">
     <div class="h-20"></div>
     <div class="flex justify-center">
       <h1>Home</h1>
     </div>
-    <div class="container mx-auto overflow-y-scroll">
+    <div class="container mx-auto">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem vel
       maiores incidunt magni pariatur velit, amet, earum minima quo quos ex
       recusandae dolorum sapiente dolor eligendi nobis voluptatibus, nam
