@@ -11,7 +11,14 @@ export default {
         'background': '#3f3f3f',
         'cythiablue': '#0E2DD1'
       },
+      fontFamily: {
+        sans: ["ui-sans-serif", "system-ui"],
+        serif: ["ui-serif", "Georgia"],
+        mono: ["ui-monospace", "SFMono-Regular"],
+        jura: ["Jura", "ui-serif"],
+      },
     },
-  },
-  plugins: [require("tw-elements/dist/plugin.cjs")],
+    plugins: [require("tw-elements/dist/plugin.cjs")],
+  }
 };
+
