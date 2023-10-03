@@ -218,6 +218,9 @@
       Animi ex perferendis velit quae nisi. Voluptas, vel iste molestiae dolores
       consequatur rem nam?
     </div>
+    <h2>
+      <RouterLink to="/game" class=""> Game </RouterLink>
+    </h2>
   </div>
 </template>
 
