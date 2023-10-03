@@ -685,7 +685,7 @@ const team = [
     words: "let's go ocean garden",
   },
   {
-    name: "happying",
+    name: "happy_ying",
     img: "/girl.svg",
     dept: "Computer Science",
     words: "let's go ocean garden",
