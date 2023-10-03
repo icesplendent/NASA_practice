@@ -6,7 +6,9 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.cjs",
   ],
   theme: {
-    extend: {},
+    extend: {
+      jura: ["Jura", "system-ui"],
+    },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
 };
