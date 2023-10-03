@@ -6,8 +6,11 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.cjs",
   ],
   theme: {
-    extend: {
-      jura: ["Jura", "system-ui"],
+    fontFamily: {
+      sans: ["ui-sans-serif", "system-ui"],
+      serif: ["ui-serif", "Georgia"],
+      mono: ["ui-monospace", "SFMono-Regular"],
+      jura: ["Jura", "ui-serif"],
     },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],

@@ -25,7 +25,7 @@
       <div class="flex flex-row w-full justify-center z-20">
         <div class="min-w-[4rem] h-full"></div>
         <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1]">
+          <p class="text-[#0E2DD1] font-jura">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
             sapiente nisi, veniam necessitatibus maiores deleniti, vitae
             corrupti voluptates tempore quasi fuga reprehenderit est blanditiis
@@ -49,13 +49,13 @@
         class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-fit h-fit rounded-r-3xl"
       >
         <h1 class="hidden md:block text-white text-5xl font-jura">
-          Know More about ProjectName
+          More about ProjectName
         </h1>
         <h1 class="hidden md:block invisible text-white text-5xl">
-          Know More about ProjectName
+          More about ProjectName
         </h1>
         <h1 class="hidden md:block invisible text-white text-5xl">
-          Know More about ProjectName
+          More about ProjectName
         </h1>
         <h1 class="md:hidden text-white text-5xl font-jura">ProjectName</h1>
         <h1 class="invisible md:hidden text-white text-5xl">ProjectName</h1>
@@ -65,8 +65,8 @@
       <div class="flex flex-row w-full justify-center z-20">
         <div class="min-w-[4rem] h-full"></div>
         <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1]">
-            To raise people’s awareness about how important are ocean and
+          <p class="text-[#0E2DD1] font-jura">
+            To raise people‘s awareness about how important are ocean and
             phytoplankton in our everyday life, our team integrates solid
             knowledge with interactive games. We depict the marine ecosystem as
             a garden and engage players in a “treasure hunt game” that
@@ -115,13 +115,13 @@
                   <h3
                     class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
                   >
-                    <a href="#">{{ mate.name }}</a>
+                    <a href="#" class="font-jura">{{ mate.name }}</a>
                   </h3>
                   <span class="text-gray-500 dark:text-gray-400">{{
                     mate.dept
                   }}</span>
                   <p
-                    class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400"
+                    class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400 font-jura"
                   >
                     {{ mate.words }}
                   </p>
@@ -151,13 +151,12 @@
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                       >
                         <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 50 50"
                           class="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
                         >
                           <path
-                            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                            d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
                           />
                         </svg>
                       </a>
@@ -187,13 +186,8 @@
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                       >
                         <svg
-                          class="w-5 h-5"
+                          class="p-[1.42px] w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
-                          shape-rendering="geometricPrecision"
-                          text-rendering="geometricPrecision"
-                          image-rendering="optimizeQuality"
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
                           viewBox="0 0 512 512"
                         >
                           <path

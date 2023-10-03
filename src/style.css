@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Jura;
-  src: url("/src/assets/fonts/Jura.ttf") format("opentype");
+  font-family: "Jura";
+  src: url("@/assets/fonts/Jura.ttf");
 }
 
 @media screen and (min-width: 768px) {
