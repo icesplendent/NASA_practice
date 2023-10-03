@@ -1,7 +1,7 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
   <button @click="vueSize">TEST</button>
-  <popup/>
+  <popup />
 </template>
 
 <script setup>
@@ -18,7 +18,7 @@ const container = ref(null);
 import { useWindowSize } from "@vueuse/core";
 
 const { width, height } = useWindowSize();
-import popup from './popup.vue';
+import popup from "./popup.vue";
 const vueSize = () => {
   console.log(width.value, height.value);
 };
@@ -218,16 +218,25 @@ const canva_setup = () => {
   let dummy = new THREE.Object3D();
   let phase = [];
 
-let markersData = [
-  { position: new THREE.Vector3(4, 0, 0), mag: "X" },
-  { position: new THREE.Vector3(0, 4, 0), mag: "Y" },
-  { position: new THREE.Vector3(0, 0, 4), mag: "Z" },
-  { position: new THREE.Vector3(-1.75, 2.4, 2.75), mag: "coastal California" },
-  { position: new THREE.Vector3(0.8, 3.85, -0.75), mag: "Barents Sea" },
-  { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea" },
-  { position: new THREE.Vector3(2.85, 0.25, 2.81), mag: "Equatorial Atlantic Ocean" },
-  { position: new THREE.Vector3(3.65, -1.6, -0.47), mag: "Ocean near Kalahari Desert" },
-];
+  let markersData = [
+    { position: new THREE.Vector3(4, 0, 0), mag: "X" },
+    { position: new THREE.Vector3(0, 4, 0), mag: "Y" },
+    { position: new THREE.Vector3(0, 0, 4), mag: "Z" },
+    {
+      position: new THREE.Vector3(-1.75, 2.4, 2.75),
+      mag: "coastal California",
+    },
+    { position: new THREE.Vector3(0.8, 3.85, -0.75), mag: "Barents Sea" },
+    { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea" },
+    {
+      position: new THREE.Vector3(2.85, 0.25, 2.81),
+      mag: "Equatorial Atlantic Ocean",
+    },
+    {
+      position: new THREE.Vector3(3.65, -1.6, -0.47),
+      mag: "Ocean near Kalahari Desert",
+    },
+  ];
   for (let i = 0; i < markerCount; i++) {
     //dummy.position.randomDirection().setLength(rad + 0.1);
     dummy.position.copy(markersData[i].position);
