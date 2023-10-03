@@ -85,7 +85,7 @@ const canva_setup = () => {
   camera.position.set(0.5, 0.5, 1).setLength(14);
 
   renderer.setSize(width.value, height.value);
-  renderer.setClearColor(0xaaffaa);
+  renderer.setClearColor(0x212121);
   // console.log("test", container.value);
   container.value.appendChild(renderer.domElement);
 

@@ -8,7 +8,7 @@
       <a href="/" class="flex items-center">
         <img src="/meichu_logo.svg" class="h-8 mr-3" alt="MeichuHackathon" />
         <span
-          class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          class="font-jura self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
           >OGforOG</span
         >
       </a>
@@ -107,4 +107,8 @@ const changePic = () => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.font-jura {
+  font-family: "Jura";
+}
+</style>

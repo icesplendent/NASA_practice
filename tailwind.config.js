@@ -6,7 +6,12 @@ export default {
     "./node_modules/tw-elements/dist/js/**/*.cjs",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'background': '#3f3f3f',
+        'cythiablue': '#0E2DD1'
+      },
+    },
   },
   plugins: [require("tw-elements/dist/plugin.cjs")],
 };
