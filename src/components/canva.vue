@@ -327,47 +327,24 @@ const canva_setup = () => {
   // <Interaction>
   let pointer = new THREE.Vector2();
   let raycaster = new THREE.Raycaster();
-  // let bar = document.getElementById("bar");
-  // let bar_width = bar.clientWidth;
   let intersections;
-  let divID = document.getElementById("idNum");
-  let divMag = document.getElementById("magnitude");
-  let divCrd = document.getElementById("coordinates");
   window.addEventListener("pointerdown", (event) => {
-    // pointer.x = ((event.clientX - (innerWidth - width) / 2) / innerWidth) * 2 - 1;
-    // const { width, height } = container.getBoundingClientRect();
-    let bar = document.getElementById("bar").getBoundingClientRect();
     const { width, height } = container.value.getBoundingClientRect();
-    let bar_width = bar.width;
-    // console.log("bar_width", bar_width);
-
-    // pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
     pointer.x = (event.clientX / width) * 2 - 1;
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    // scene.add(
-    //   new THREE.ArrowHelper(
-    //     raycaster.ray.direction,
-    //     raycaster.ray.origin,
-    //     300,
-    //     0xff0000
-    //   )
-    // );
     intersections = raycaster.intersectObject(markers).filter((m) => {
-      // console.log(m);
       return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
     });
-    // console.log(intersections);
+    isPopupVisible.value = true;
     if (intersections.length > 0) {
       const targetPosition = new THREE.Vector3();
       targetPosition.copy(intersections[0].point);
-      targetPosition.normalize().multiplyScalar(camera.position.length() - 5);
+      targetPosition.normalize().multiplyScalar(camera.position.length());
       new TWEEN.Tween(camera.position)
         .to(targetPosition, 1500)
         .easing(TWEEN.Easing.Cubic.Out)
         .start();
-      controls.autoRotate = false;
-      isPopupVisible.value = true;
     }
   });
   // </Interaction>

@@ -67,13 +67,13 @@ export default {
   },
   methods: {
     select_ans(index) {
-      console.log("Method triggered", index); // For debugging
-      console.log("Method triggered", this.data.options[index].show); // Corrected line
       if (this.data.options[index].is_ans) {
         this.data.state = 2; // Corrected line
       } else {
         this.data.options[index].show = true; // Corrected line
       }
+      console.log("Method triggered", this.data.options[index].is_ans); // For debugging
+      console.log("Method triggered show", this.data.options[index].show); // Corrected line
     },
   },
 };
