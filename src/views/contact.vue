@@ -46,7 +46,7 @@
         <div class="min-w-[4rem] h-full"></div>
       </div>
     </section>
-    <section class="relative relative my-10 h-fit w-screen">
+    <section class="relative my-10 h-fit w-screen">
       <div
         id="title2"
         class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-fit h-fit rounded-r-3xl"
@@ -85,7 +85,7 @@
         <div class="min-w-[4rem] h-full"></div>
       </div>
     </section>
-    <section class="relative relative my-10 h-fit w-screen">
+    <section class="relative my-10 h-fit w-screen">
       <div
         id="title3"
         class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-fit h-fit rounded-r-3xl"
@@ -412,7 +412,7 @@
       </div>
     </section>
 
-    <section class="relative relative my-10 h-fit w-screen">
+    <section class="relative my-10 h-fit w-screen">
       <div
         id="title3"
         class="py-5 pl-5 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-fit h-fit rounded-r-3xl"
