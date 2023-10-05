@@ -1,7 +1,7 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
   <button @click="vueSize">TEST</button>
-  <!-- <popup /> -->
+  <popup />
 </template>
 
 <script setup>

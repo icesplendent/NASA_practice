@@ -1,5 +1,6 @@
 <template>
-	<div class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] bg-gray-200 z-100 fixed justify-center items-center rounded-3xl">
+	<div class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw]  z-300 fixed justify-center items-center rounded-3xl">
+        <img src='../assets/arrow.svg' class='h-[5%]'>
 		<div class="flex h-full rounded-3xl">
             <div class="w-[70%] h-full px-10 py-5 bg-white rounded-l-3xl">
                 <div v-if='state==0'>
