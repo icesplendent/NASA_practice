@@ -336,7 +336,6 @@ const canva_setup = () => {
     intersections = raycaster.intersectObject(markers).filter((m) => {
       return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
     });
-    isPopupVisible.value = true;
     if (intersections.length > 0) {
       const targetPosition = new THREE.Vector3();
       targetPosition.copy(intersections[0].point);
@@ -345,6 +344,7 @@ const canva_setup = () => {
         .to(targetPosition, 1500)
         .easing(TWEEN.Easing.Cubic.Out)
         .start();
+      isPopupVisible.value = true;
     }
   });
   // </Interaction>
