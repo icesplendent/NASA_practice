@@ -1,8 +1,9 @@
 <template>
   <div
+    v-if="this.showPopup"
     class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw]   z-100 fixed justify-center items-center rounded-3xl"
   >
-    <div class='h-[5%]' @click='close_popup()'>
+    <div class='h-[5%]' @click='closePopup()'>
             <img src='../assets/arrow.svg' class='h-full'>
     </div>
     <div class="flex h-full rounded-3xl">
@@ -67,6 +68,7 @@ export default {
   props: {
     data: Object,
     default: () => {},
+    showPopup: Boolean,
   },
   data(){
     return{

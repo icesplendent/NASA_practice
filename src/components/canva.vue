@@ -1,8 +1,8 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
   <button @click="vueSize">TEST</button>
-  <div v-if="isPopupVisible">
-    <popup :data="DataSrc" />
+  <div >
+    <popup :data="DataSrc" :showPopup="isPopupVisible" @closePopup="closeChildPopup" />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ import {
 
 const isPopupVisible = ref(false);
 
+
 const container = ref(null);
 import { useWindowSize } from "@vueuse/core";
 
@@ -26,7 +27,10 @@ import popup from "./popup.vue";
 const vueSize = () => {
   console.log(width.value, height.value);
 };
-
+const closeChildPopup = () =>{
+  console.log("emit")
+      isPopupVisible.value = false;
+}
 // scene
 const scene = new THREE.Scene();
 
