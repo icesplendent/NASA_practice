@@ -7,10 +7,10 @@
     </div>
     <div class="flex h-full rounded-3xl">
       <div class="w-[70%] h-full px-10 py-5 bg-white rounded-l-3xl">
-        <div v-if="data.state == 0">
+        <div v-if="my_data.state == 0">
           <h1 class="text-3xl">answer correction</h1>
         </div>
-        <div v-if="data.state == 1">
+        <div v-if="my_data.state == 1">
           <h1 class="text-3xl">here is the popup</h1>
           <p class="my-5">
             Q：Diatoms are a significant group of phytoplankton in California
@@ -18,10 +18,10 @@
             are not true about phtoplankton like diatoms playing indispensable
             role in world's ecosystems and the overall health of the planet？
           </p>
-          <div v-if="data.need_selected" class="mt-10">
+          <div v-if="my_data.need_selected" class="mt-10">
             <ul>
               <li
-                v-for="(item, index) in data.options"
+                v-for="(item, index) in my_data.options"
                 :key="index"
                 class="w-[90%] h-auto bg-gray-300 rounded-full my-6 flex text-2xl relative"
               >
@@ -68,19 +68,22 @@ export default {
     data: Object,
     default: () => {},
   },
-  methods: {
-    select_ans(index) {
-      if (this.data.options[index].is_ans) {
-        this.data.state = 2; // Corrected line
-      } else {
-        this.data.options[index].show = true; // Corrected line
-      }
-      console.log("Method triggered", this.data.options[index].is_ans); // For debugging
-      console.log("Method triggered show", this.data.options[index].show); // Corrected line
-    },close_popup(){
-        this.$emit('close_popup')
-        console.log('close_popup')
+  data(){
+    return{
+        my_data:this.data
     }
+  },methods: {
+    select_ans(index) {
+      if (this.my_data.options[index].is_ans) {
+        this.my_data.state = 2; // Corrected line
+      } else {
+        this.my_data.options[index].show = true; // Corrected line
+      }
+      console.log("Method triggered", this.my_data.options[index].is_ans); // For debugging
+      console.log("Method triggered show", this.my_data.options[index].show); // Corrected line
+    },closePopup() {
+      this.$emit('closePopup');
+    },
   },
 };
 </script>
