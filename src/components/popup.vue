@@ -1,7 +1,7 @@
 <template>
-	<div class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw]  z-300 fixed justify-center items-center rounded-3xl">
-        <img src='../assets/arrow.svg' class='h-[5%]'>
-		<div class="flex h-full rounded-3xl">
+	<div class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] bg-gray-200 z-100 fixed justify-center items-center rounded-3xl">
+		<img src='../assets/arrow.svg' class='h-[5%]'>
+        <div class="flex h-full rounded-3xl">
             <div class="w-[70%] h-full px-10 py-5 bg-white rounded-l-3xl">
                 <div v-if='state==0'>
                   <h1 class="text-3xl"> answer correction </h1>
@@ -46,28 +46,22 @@
 
 <script>
 export default {
-    data() {
-        return {
-            state: 1,//0: not spot 1: select  2: answer is right
-            need_selected: true,
-            options:[
-                {description: "It is responsible for a significant portion of the Earth's carbon fixation through photosynthesis", is_ans: false, show: false},
-                {description: "It forms the base of marine food chains", is_ans: false, show: false},
-                {description: "Algal bloom, dense aquatic population of phytoplankton, only have positive effects on ocean ecosystem", is_ans: true, show:false},        
-            ]
-        }
-    },methods: {
-        select_ans(index){
-            if(this.options[index].is_ans){
-                this.state = 2;
-                // 要改腳色狀態
-            }else{
-                this.options[index].show = true
-            }
-        }
-    }
-}
-
+  props: {
+    data: Object,
+    default: () => {},
+  },
+  methods: {
+    select_ans(index) {
+      if (this.data.options[index].is_ans) {
+        this.data.state = 2; // Corrected line
+      } else {
+        this.data.options[index].show = true; // Corrected line
+      }
+      console.log("Method triggered", this.data.options[index].is_ans); // For debugging
+      console.log("Method triggered show", this.data.options[index].show); // Corrected line
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -83,5 +77,4 @@ export default {
   height: 50%;
   z-index: 999; /* Ensure the popup is above other content */
 }
-
 </style>

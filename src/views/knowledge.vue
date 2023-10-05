@@ -1,13 +1,18 @@
 <template>
   <navbar />
-  <div id="com" class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black">
+  <div
+    id="com"
+    class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black"
+  >
     <div class="relative my-10 h-fit mx-[4rem]">
       <div class="flex flex-row">
         <h1 class="hidden md:block text-white text-5xl font-jura">
           Collections
         </h1>
         <div class="flex-grow"></div>
-        <h1 class="hidden md:block text-white text-5xl text-right font-jura">1 / 3</h1>
+        <h1 class="hidden md:block text-white text-5xl text-right font-jura">
+          1 / 3
+        </h1>
       </div>
       <div class="flex flex-row mt-[1rem]">
         <p class="text-white font-jura">
@@ -18,46 +23,48 @@
           <div class="progress-bar" id="progress-bar"></div>
         </div>
       </div>
-      <hr class="mt-[1rem] mb-[0.5rem]">
-      <button @click="increaseProgress()"
-              class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-4 py-2 text-center">
-              UPUP
+      <hr class="mt-[1rem] mb-[0.5rem]" />
+      <button
+        @click="increaseProgress()"
+        class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-4 py-2 text-center"
+      >
+        UPUP
       </button>
       <!-- <div class="gallery flex flex-row gap-10 my-[2rem]"> -->
       <div class="gallery flex flex-row gap-10 my-[2rem]">
         <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="">
+          <img src="/gallery1.png" class="" />
         </div>
         <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="">
+          <img src="/gallery1.png" class="" />
         </div>
         <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="">
+          <img src="/gallery1.png" class="" />
         </div>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script setup>
 import navbar from "../components/nav.vue";
 import "../style.css";
+
 let progress = 0;
 
 const increaseProgress = () => {
-  progress += 10; 
+  progress += 10;
   if (progress > 100) {
-    progress = 100; 
+    progress = 100;
   }
   // console.log("click");
   updateProgressBar(progress);
-}
+};
 
 const updateProgressBar = (progress) => {
-  const progressBar = document.getElementById('progress-bar');
-  progressBar.style.width = progress + '%';
-}
-
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.width = progress + "%";
+};
 </script>
 
 <!-- <template>

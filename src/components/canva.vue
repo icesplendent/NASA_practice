@@ -1,7 +1,9 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
   <button @click="vueSize">TEST</button>
-  <popup />
+  <div v-if="isPopupVisible">
+    <popup :data="DataSrc" />
+  </div>
 </template>
 
 <script setup>
@@ -14,6 +16,8 @@ import {
   CSS2DObject,
 } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/renderers/CSS2DRenderer.js";
 
+const isPopupVisible = ref(false);
+
 const container = ref(null);
 import { useWindowSize } from "@vueuse/core";
 
@@ -22,10 +26,6 @@ import popup from "./popup.vue";
 const vueSize = () => {
   console.log(width.value, height.value);
 };
-
-// const width = ref(0);
-// const height = ref(0);
-// let imgData = "/world1.jpeg";
 
 // scene
 const scene = new THREE.Scene();
@@ -58,16 +58,38 @@ const changeTexture = (img) => {
   sphere.material.map = newTexture;
   renderer.render(scene, camera);
 };
-
+const DataSrc = {
+  state: 1, //0: not spot 1: select  2: answer is right
+  need_selected: true,
+  options: [
+    {
+      description:
+        "It is responsible for a significant portion of the Earth's carbon fixation through photosynthesis",
+      is_ans: false,
+      show: false,
+    },
+    {
+      description: "It forms the base of marine food chains",
+      is_ans: false,
+      show: false,
+    },
+    {
+      description:
+        "Algal bloom, dense aquatic population of phytoplankton, only have positive effects on ocean ecosystem",
+      is_ans: true,
+      show: false,
+    },
+  ],
+};
 // define functions needed to be exposed
 defineExpose({
   changeTexture,
+  isPopupVisible,
 });
 
 // onMounted
 onMounted(() => {
   canva_setup();
-
   // resize listener
   window.addEventListener("resize", (event) => onWindowResize(event, sphere));
 });
@@ -172,7 +194,7 @@ const canva_setup = () => {
   scene.add(globe);
 
   // <Markers>
-  const markerCount = 8;
+  const markerCount = 5;
   let markerInfo = []; // information on markers
   let gMarker = new THREE.PlaneGeometry();
   let mMarker = new THREE.MeshBasicMaterial({
@@ -219,9 +241,6 @@ const canva_setup = () => {
   let phase = [];
 
   let markersData = [
-    { position: new THREE.Vector3(4, 0, 0), mag: "X" },
-    { position: new THREE.Vector3(0, 4, 0), mag: "Y" },
-    { position: new THREE.Vector3(0, 0, 4), mag: "Z" },
     {
       position: new THREE.Vector3(-1.75, 2.4, 2.75),
       mag: "coastal California",
@@ -308,71 +327,24 @@ const canva_setup = () => {
   // <Interaction>
   let pointer = new THREE.Vector2();
   let raycaster = new THREE.Raycaster();
-  // let bar = document.getElementById("bar");
-  // let bar_width = bar.clientWidth;
   let intersections;
-  let divID = document.getElementById("idNum");
-  let divMag = document.getElementById("magnitude");
-  let divCrd = document.getElementById("coordinates");
   window.addEventListener("pointerdown", (event) => {
-    // pointer.x = ((event.clientX - (innerWidth - width) / 2) / innerWidth) * 2 - 1;
-    // const { width, height } = container.getBoundingClientRect();
-    let bar = document.getElementById("bar").getBoundingClientRect();
     const { width, height } = container.value.getBoundingClientRect();
-    let bar_width = bar.width;
-    // console.log("bar_width", bar_width);
-
-    // pointer.x = ((event.clientX - bar_width) / width) * 2 - 1;
     pointer.x = (event.clientX / width) * 2 - 1;
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
-    // scene.add(
-    //   new THREE.ArrowHelper(
-    //     raycaster.ray.direction,
-    //     raycaster.ray.origin,
-    //     300,
-    //     0xff0000
-    //   )
-    // );
     intersections = raycaster.intersectObject(markers).filter((m) => {
-      // console.log(m);
       return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
     });
-    // console.log(intersections);
     if (intersections.length > 0) {
-      let iid = intersections[0].instanceId;
-      let mi = markerInfo[iid];
-      divID.innerHTML = `ID: <b>${mi.id}</b>`;
-      divMag.innerHTML = `Mag: <b>${mi.mag}</b>`;
-      divCrd.innerHTML = `X: <b>${mi.crd.x.toFixed(
-        2
-      )}</b>; Y: <b>${mi.crd.y.toFixed(2)}</b>; Z: <b>${mi.crd.z.toFixed(
-        2
-      )}</b>`;
-      label.position.copy(mi.crd);
-      label.element.animate(
-        [
-          { width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px" },
-          {
-            width: "230px",
-            height: "50px",
-            marginTop: "-25px",
-            maginLeft: "120px",
-          },
-        ],
-        {
-          duration: 250,
-        }
-      );
-      label.element.classList.remove("hidden");
       const targetPosition = new THREE.Vector3();
       targetPosition.copy(intersections[0].point);
-      targetPosition.normalize().multiplyScalar(camera.position.length() - 5);
+      targetPosition.normalize().multiplyScalar(camera.position.length());
       new TWEEN.Tween(camera.position)
         .to(targetPosition, 1500)
         .easing(TWEEN.Easing.Cubic.Out)
         .start();
-      controls.autoRotate = false;
+      isPopupVisible.value = true;
     }
   });
   // </Interaction>
