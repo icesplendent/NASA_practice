@@ -17,7 +17,11 @@
     <div class="text" id="coordinates"></div>
   </div>
   <img src="/chlor_a_color.jpg" class="fixed right-[2%] bottom-[1%] h-14">
-  <sliderbar class="fixed right-0 bottom-0" @sliderChange="changePicBySlider" @seasonChange="handleSeasonChange"/>
+  <sliderbar class="fixed right-0 bottom-0" 
+    @sliderChange="changePicBySlider" 
+    @changeToSummer="handleSeasonChange"
+    @changeToWinter="handleSeasonChange"
+  />
 </template>
 
 <script setup>
@@ -32,6 +36,7 @@ const img = ref("img/summer/2023.png");
 let index = ref(0);
 let summer = true;  // decide to get summer/winter picture
 
+// TODO: fix image resolution
 // summer images
 const imgs = ["2002.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.png",
 "2008.png", "2009.png", "2010.png", "2011.png", "2012.png", "2013.png",
@@ -39,7 +44,7 @@ const imgs = ["2002.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.
 "2020.png", "2021.png", "2022.png", "2023.png"];  // summer
               
 const imgw = ref("w1.png");
-const imgsw = ["2002.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.png",
+const imgsw = ["2003.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.png",
 "2008.png", "2009.png", "2010.png", "2011.png", "2012.png", "2013.png",
 "2014.png", "2015.png", "2016.png", "2017.png", "2018.png", "2019.png",
 "2020.png", "2021.png", "2022.png", "2023.png"];  // winter
@@ -56,7 +61,7 @@ const changePicBySlider = (newValue) => {
   index.value = newValue % 2000 - 2; 
   if(summer) {
     img.value = "/img/summer/" + imgs[index.value];
-    // console.log(img.value);
+    // console.log("img.value = ", img.value);
     canvaRef.value.changeTexture(img.value);
   } 
   else {
@@ -67,15 +72,19 @@ const changePicBySlider = (newValue) => {
 
 const handleSeasonChange = (newSeason) => {
   summer = newSeason;
+
   if(summer) {
     img.value = "/img/summer/" + imgs[index.value];
+    console.log("img.value = ", img.value);
     canvaRef.value.changeTexture(img.value);
   } 
   else {
     imgw.value = "/img/winter/" + imgsw[index.value];
+    console.log("imgw.value = ", imgw.value);
     canvaRef.value.changeTexture(imgw.value);
   }
-  // console.log("New season:", newSeason);
+  console.log("New season:", newSeason);
+  console.log("\n");
 }
 </script>
 
