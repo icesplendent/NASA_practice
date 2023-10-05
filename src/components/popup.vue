@@ -6,20 +6,21 @@
     <div class='h-[5%]' @click='closePopup()'>
             <img src='../assets/arrow.svg' class='h-full'>
     </div>
-    <div class="flex h-full rounded-3xl">
+    <div class="flex h-full rounded-3xl absolute w-full">
       <div class="w-[70%] h-full px-10 py-5 bg-white rounded-l-3xl">
-        <div v-if="my_data.state == 0">
-          <h1 class="text-3xl">answer correction</h1>
+        <div v-if="my_data.state == 0" class='relative h-[100%] w-full'>
+          <h1 class="text-3xl m-5 mt-10">{{data.state_0_title}}</h1>
+          <p class='bg-gray-300 h-auto w-[80%] p-5 m-5 rounded-full'>I’m not the one you are looking for.</p>
+          <p class="text-xl m-5 mr-[40%]">{{data.state_0_content}}</p>
+           <img src='../assets/character.jpg' class='absolute right-0 bottom-0 w-[30%]'/>
         </div>
+        
         <div v-if="my_data.state == 1">
-          <h1 class="text-3xl">here is the popup</h1>
+          <h1 class="text-3xl">{{my_data.state_1_title}}</h1>
           <p class="my-5">
-            Q：Diatoms are a significant group of phytoplankton in California
-            waters and also largest species of phytoplankton in the world. Which
-            are not true about phtoplankton like diatoms playing indispensable
-            role in world's ecosystems and the overall health of the planet？
+            {{my_data.state_1_question}}
           </p>
-          <div v-if="my_data.need_selected" class="mt-10">
+          <div  class="mt-10">
             <ul>
               <li
                 v-for="(item, index) in my_data.options"
@@ -51,8 +52,16 @@
             </ul>
           </div>
         </div>
-        <div v-if="data.state == 2">
+        <div v-if="data.state == 2" class='relative h-[100%] w-full'>
           <h1 class="text-3xl">answer correction</h1>
+          <p class='bg-gray-300 h-auto w-[70%] p-5 m-5 text-xl' >{{my_data.state_2_answer}}</p>
+          <p class='bg-gray-300 h-auto w-[70%] p-5 m-5 text-2xl' >💡 Interesting Facts：</p>
+          <p class='bg-gray-300 h-auto w-[70%] p-5 m-5 text-xl' >{{my_data.state_2_fact}}</p>
+          <div class='absolute right-0 bottom-0 w-[30%]'>
+           <img :src=my_data.state_2_prize_src />
+  
+           <img src='../assets/character.jpg' />
+          </div>
         </div>
       </div>
       <img
@@ -78,6 +87,7 @@ export default {
     select_ans(index) {
       if (this.my_data.options[index].is_ans) {
         this.my_data.state = 2; // Corrected line
+        this.$emit('update_data', this.my_data);
       } else {
         this.my_data.options[index].show = true; // Corrected line
       }
