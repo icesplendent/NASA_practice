@@ -23,7 +23,6 @@
               class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-4 py-2 text-center">
               UPUP
       </button>
-      <!-- <div class="gallery flex flex-row gap-10 my-[2rem]"> -->
       <div class="gallery flex flex-row gap-10 my-[2rem]">
         <div class="bg-blue-700 p-[1rem] rounded-lg">
           <img src="/gallery1.png" class="">
