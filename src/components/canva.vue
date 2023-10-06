@@ -13,6 +13,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from "vue";
+import { useCollectionStore } from "../stores/collection";
 import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
 import * as TWEEN from "https://cdn.skypack.dev/@tweenjs/tween.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
@@ -31,15 +32,22 @@ import popup from "./popup.vue";
 const vueSize = () => {
   console.log(width.value, height.value);
 };
+
 const closeChildPopup = () => {
   console.log("emit");
   isPopupVisible.value = false;
 };
+
 const update_data = (my_data) => {
-  console.log("emit update");
+  console.log("receive the emit update @ parent canva");
   DataSrc.value = my_data;
-  console.log(DataSrc);
-  console.log("finish update");
+  // if (!collected.value.includes(current_point.value))
+  //   collected.value.push(current_point.value);
+  // console.log(DataSrc, collected.value); // debug
+
+  if (!collectionStore.collection.includes(current_point.value))
+    collectionStore.addCollection(current_point.value);
+  console.log(collectionStore.collection);
 };
 // scene
 const scene = new THREE.Scene();
@@ -75,6 +83,9 @@ const changeTexture = (img) => {
 
 // current point 0: california, 1: Barents Sea 2: redsea 3, 4: other points
 const current_point = ref(0);
+const collected = ref([]);
+
+const collectionStore = useCollectionStore();
 
 const DataSrc = [
   {
