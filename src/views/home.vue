@@ -77,7 +77,7 @@
             src="/home5.jpg"
           /><img
             class="h-[275px] w-[355px] absolute object-cover top-[90px] right-[90px] object-center"
-            src="/"
+            src="/home6.jpg"
           />
         </div>
         <div class="flex justify-center">
