@@ -1,8 +1,13 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
   <button @click="vueSize">TEST</button>
-  <div >
-    <popup :data="DataSrc" :showPopup="isPopupVisible" @closePopup="closeChildPopup" @update_data='update_data'/>
+  <div>
+    <popup
+      :data="DataSrc"
+      :showPopup="isPopupVisible"
+      @closePopup="closeChildPopup"
+      @update_data="update_data"
+    />
   </div>
 </template>
 
@@ -18,7 +23,6 @@ import {
 
 const isPopupVisible = ref(false);
 
-
 const container = ref(null);
 import { useWindowSize } from "@vueuse/core";
 
@@ -27,16 +31,16 @@ import popup from "./popup.vue";
 const vueSize = () => {
   console.log(width.value, height.value);
 };
-const closeChildPopup = () =>{
-  console.log("emit")
-      isPopupVisible.value = false;
-}
-const update_data = (my_data) =>{
-  console.log("emit update")
+const closeChildPopup = () => {
+  console.log("emit");
+  isPopupVisible.value = false;
+};
+const update_data = (my_data) => {
+  console.log("emit update");
   DataSrc.value = my_data;
-  console.log(DataSrc)
-  console.log("finish update")
-}
+  console.log(DataSrc);
+  console.log("finish update");
+};
 // scene
 const scene = new THREE.Scene();
 
@@ -69,14 +73,18 @@ const changeTexture = (img) => {
   renderer.render(scene, camera);
 };
 const DataSrc = {
-  state: 0, //0: not spot 1: select  2: answer is right
+  state: 1, //0: not spot 1: select  2: answer is right
   pic: "../assets/test.jpg",
   state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
-  state_0_content: "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
+  state_0_content:
+    "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
   state_1_title: "California",
-  state_1_question: "Q：Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
-  state_2_answer: "algal bloom can cause mass fish kills, contaminate seafood, and lead to health issues in humans and marine organisms.",
-  state_2_fact: "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
+  state_1_question:
+    "Q：Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
+  state_2_answer:
+    "algal bloom can cause mass fish kills, contaminate seafood, and lead to health issues in humans and marine organisms.",
+  state_2_fact:
+    "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
   state_2_prize_index: 1,
   state_2_prize_src: "../assets/character.jpg",
   options: [
@@ -263,7 +271,7 @@ const canva_setup = () => {
       position: new THREE.Vector3(-1.75, 2.4, 2.75),
       mag: "coastal California",
     },
-    { position: new THREE.Vector3(0.8, 3.85, -0.75), mag: "Barents Sea"},
+    { position: new THREE.Vector3(0.8, 3.85, -0.75), mag: "Barents Sea" },
     { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea" },
     {
       position: new THREE.Vector3(2.85, 0.25, 2.81),
