@@ -3,7 +3,7 @@
   <button @click="vueSize">TEST</button>
   <div>
     <popup
-      :data="DataSrc"
+      :data="DataSrc[current_point]"
       :showPopup="isPopupVisible"
       @closePopup="closeChildPopup"
       @update_data="update_data"
@@ -72,41 +72,112 @@ const changeTexture = (img) => {
   sphere.material.map = newTexture;
   renderer.render(scene, camera);
 };
-const DataSrc = {
-  state: 1, //0: not spot 1: select  2: answer is right
-  pic: "../assets/test.jpg",
-  state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
-  state_0_content:
-    "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
-  state_1_title: "California",
-  state_1_question:
-    "Q：Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
-  state_2_answer:
-    "algal bloom can cause mass fish kills, contaminate seafood, and lead to health issues in humans and marine organisms.",
-  state_2_fact:
-    "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
-  state_2_prize_index: 1,
-  state_2_prize_src: "../assets/character.jpg",
-  options: [
-    {
-      description:
-        "It is responsible for a significant portion of the Earth's carbon fixation through photosynthesis",
-      is_ans: false,
-      show: false,
-    },
-    {
-      description: "It forms the base of marine food chains",
-      is_ans: false,
-      show: false,
-    },
-    {
-      description:
-        "Algal bloom, dense aquatic population of phytoplankton, only have positive effects on ocean ecosystem",
-      is_ans: true,
-      show: false,
-    },
-  ],
-};
+
+// current point 0: california, 1: Barents Sea 2: redsea 3, 4: other points
+const current_point = ref(0);
+
+const DataSrc = [
+  {
+    state: 1, //0: not spot 1: select  2: answer is right
+    pic: "../assets/test.jpg",
+    state_1_title: "California",
+    state_1_question:
+      "Q: Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
+    state_2_answer:
+      "algal bloom can cause mass fish kills, contaminate seafood, and lead to health issues in humans and marine organisms.",
+    state_2_fact:
+      "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
+    state_2_prize_index: 1,
+    state_2_prize_src: "../assets/character.jpg",
+    options: [
+      {
+        description:
+          "It is responsible for a significant portion of the Earth's carbon fixation through photosynthesis",
+        is_ans: false,
+      },
+      {
+        description: "It forms the base of marine food chains",
+        is_ans: false,
+      },
+      {
+        description:
+          "Algal bloom, dense aquatic population of phytoplankton, only have positive effects on ocean ecosystem",
+        is_ans: true,
+      },
+    ],
+  },
+  {
+    state: 1, //0: not spot 1: select  2: answer is right
+    pic: "../assets/test.jpg",
+    state_1_title: "Barents Sea",
+    state_1_question:
+      "Q: Coccolithophores are marine algae that possess calcite plates called coccoliths. Though they are little, about 2.0–75.0 μm in cell diameter, they play crucial roles in our everyday life since…(choose the wrong answer)",
+    state_2_answer:
+      "Coccolithophores are a group of marine microalgae known for their unique calcium carbonate plates called coccoliths. ",
+    state_2_fact:
+      "phytoplankton remove between 5-12 gigatons of carbon dioxide per year, which approxiately equivalent to the annual emissions of about 1.85 billion to 4.35 billion passenger cars (this is approximately the number of cars on the road worldwide).",
+    state_2_prize_index: 1,
+    state_2_prize_src: "../assets/character.jpg",
+    options: [
+      {
+        description: "they assimilate carbon during photosynthesis",
+        is_ans: false,
+      },
+      {
+        description:
+          "They are known for their ability to fix nitrogen in aquatic environments.",
+        is_ans: true,
+      },
+      {
+        description:
+          "their coccoliths(made up of CaCO3) removes carbon from the surface oceans when they die ",
+        is_ans: false,
+      },
+    ],
+  },
+  {
+    state: 1, //0: not spot 1: select  2: answer is right
+    pic: "../assets/test.jpg",
+    state_1_title: "Red Sea",
+    state_1_question:
+      "Q: One of the most notable effects of rising temperatures due to global warming in the Red Sea is the decline of its coral reefs. As the sea is warmer and warmer, zooxanthellae,  living within coral tissues and providing food from photosynthesis, is expelled from coral reef, causing the coral turning into white. The process is called coral bleaching. What is not the impact that coral bleaching brings?",
+    state_2_answer:
+      "Coral bleaching is a stress response in corals that can lead to the loss of their symbiotic algae, reduced coral health, and, in severe cases, coral mortality. This, in turn, can have a cascading effect on the health and diversity of the entire reef ecosystem.",
+    state_2_fact:
+      "Coral reef and zooxanthellae together provide home for countless species of fish and other marine creatures. But do you know that？Half of all net primary production in the world is from marine phytoplankton! This is how important these tiny creatures are! ",
+    state_2_prize_index: 1,
+    state_2_prize_src: "../assets/character.jpg",
+    options: [
+      {
+        description: "Increased coral growth and reef resilience.",
+        is_ans: true,
+      },
+      {
+        description: "Protect coastlines from erosion and storms.",
+        is_ans: false,
+      },
+      {
+        description:
+          "Regulating the Earth's climate by absorbing and storing carbon dioxide",
+        is_ans: false,
+      },
+    ],
+  },
+  {
+    state: 0, //0: not spot 1: select  2: answer is right
+    pic: "../assets/test.jpg",
+    state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
+    state_0_content:
+      "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
+  },
+  {
+    state: 0, //0: not spot 1: select  2: answer is right
+    pic: "../assets/test.jpg",
+    state_0_title: "Kalahari Desert",
+    state_0_content:
+      "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
+  },
+];
 // define functions needed to be exposed
 defineExpose({
   changeTexture,
@@ -270,16 +341,23 @@ const canva_setup = () => {
     {
       position: new THREE.Vector3(-1.75, 2.4, 2.75),
       mag: "coastal California",
+      // index: 0,
     },
-    { position: new THREE.Vector3(0.8, 3.85, -0.75), mag: "Barents Sea" },
-    { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea" },
+    {
+      position: new THREE.Vector3(0.8, 3.85, -0.75),
+      mag: "Barents Sea",
+      // index: 1,
+    },
+    { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea", index: 2 },
     {
       position: new THREE.Vector3(2.85, 0.25, 2.81),
       mag: "Equatorial Atlantic Ocean",
+      // index: 3,
     },
     {
       position: new THREE.Vector3(3.65, -1.6, -0.47),
       mag: "Ocean near Kalahari Desert",
+      // index: 4,
     },
   ];
   for (let i = 0; i < markerCount; i++) {
@@ -371,6 +449,9 @@ const canva_setup = () => {
         .easing(TWEEN.Easing.Cubic.Out)
         .start();
       isPopupVisible.value = true;
+      current_point.value = intersections[0].instanceId;
+      // current_point.value = markersData[iid].index;
+      // console.log(iid, current_point.value);
     }
   });
   // </Interaction>
