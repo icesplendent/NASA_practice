@@ -109,7 +109,7 @@
       </div>
       <div
         v-if="inner_pop && my_data.state == 2"
-        class="absolute right-10 top-0"
+        class="absolute w-[20%] right-10 top-0"
       >
         <img :src="my_data.state_2_prize_src" />
       </div>
