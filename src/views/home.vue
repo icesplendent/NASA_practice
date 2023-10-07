@@ -74,10 +74,16 @@
           collect the full manual of carbon cycle<br />which relates to the
           ocean and microscopic marine algae ( phytoplankton )
         </p>
-        <img
-          class="h-[300px] w-full object-cover object-center"
-          src="/home4.jpg"
-        />
+        <div
+          class="pt-12 w-full object-cover object-center flex flex-grow relative"
+        >
+          <img src="/L1.svg" class="w-[90%] relative" />
+          <img src="/L2.svg" class="w-[72%] relative bottom-24" />
+          <img src="/C.svg" class="w-[85%] relative" />
+          <img src="/R2.svg" class="w-[85%] relative bottom-24" />
+          <img src="/R1.svg" class="w-[95%] relative" />
+        </div>
+
         <a
           v-on:click="
             scrollToParagraph('Para5');
