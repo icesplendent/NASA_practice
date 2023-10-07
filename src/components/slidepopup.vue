@@ -41,7 +41,7 @@ export default {
   overflow: hidden;
   /* max-width: 0; */
   max-height: 0;
-  transition: max-width 0.3s ease-in;
+  transition: max-width 0.3s ease-in-out;
 }
 
 .expanded {
