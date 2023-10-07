@@ -32,7 +32,7 @@
       </button> -->
       <div class="galleries my-[1.5rem] gap-3 grid grid-cols-2 lg:grid-cols-4">
         <div v-for="(image, index) in imgCollections" :key="index" class="">
-          <div class="gallery bg-blue-700 p-[0.6em] rounded-md">
+          <div class="gallery bg-[#099B9B] p-[0.6em] rounded-md">
             <img :src="image" :alt="image.alt" />
           </div>
         </div>
@@ -156,6 +156,6 @@ import "../style.css";
   /* width: 0; */
   /* width: progress; */
   height: 100%;
-  background-color: #007bff;
+  background-color: #8AB4B1;
 }
 </style>
