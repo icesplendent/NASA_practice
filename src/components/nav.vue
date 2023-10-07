@@ -6,7 +6,7 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
       <a href="/" class="flex items-center">
-        <img src="/meichu_logo.svg" class="h-8 mr-3" alt="MeichuHackathon" />
+        <!-- <img src="/meichu_logo.svg" class="h-8 mr-3" alt="MeichuHackathon" /> -->
         <span
           class="font-jura self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
           >OGforOG</span

@@ -30,7 +30,6 @@
       >
         UPUP
       </button>
-      <!-- <div class="gallery flex flex-row gap-10 my-[2rem]"> -->
       <div class="gallery flex flex-row gap-10 my-[2rem]">
         <div class="bg-blue-700 p-[1rem] rounded-lg">
           <img src="/gallery1.png" class="" />

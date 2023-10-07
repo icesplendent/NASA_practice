@@ -2,11 +2,29 @@
 </script>
 
 <template>
-	<div class="w-full h-20 flex flex-row justify-center items-center">
-	<div id="sliderbar" class="flex flex-col justify-center items-center">
-		<input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider" min="2002" max="2023">
+	<div class="w-full h-20 flex flex-col justify-center items-center">
+		<div id="sliderbar" class="flex flex-col justify-center items-center">
+			<div class="season-mode flex flex-row">
+				<button
+					@click="emitSummer"
+					type="button"
+					id = "summerBtn"
+					dir="ltr"
+					class="text-white bg-blue-700 hover:bg-blue-800 rounded-s-lg text-sm px-4 py-2 text-center"
+				>Summer
+				</button>
+				<button
+					@click="emitWinter"
+					type="button"
+					id="winterBtn"
+					dir="rtl"
+					class="text-black bg-white hover:bg-blue-800 font-medium rounded-s-lg text-sm px-4 py-2 text-center"
+				>Winter 
+				</button>
+			</div>
+		<input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider mt-3" min="2002" max="2023">
 		<!-- <span class="rangeValue">{{sildervalue}}</span> -->
-		<div class="years flex flex-row gap-1.5 mt-3">
+		<div class="years flex flex-row gap-1.5 mt-3 mb-5">
 			<p class="year">2002</p>
 			<p class="year">2003</p>
 			<p class="year">2004</p>
@@ -31,13 +49,6 @@
 			<p class="year">2023</p>
 		</div>
 	</div>
-	<button
-	  @click="emitChangeSeason"
-	  type="button"
-	  class="ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-	>
-	  Switch Season
-	</button>
 	</div>
 </template>
 
@@ -46,17 +57,50 @@
 export default {
 	data () {
 		return {
-			sildervalue: 2002,
-			season: true
+			sildervalue: 2023,
+			summer: true,
+			winter: false
 		}
 	},
 	methods: {
 		emitSliderValue() {
 			this.$emit("sliderChange", this.sildervalue);
 		},
-		emitChangeSeason() {
-			this.season = !this.season;
-			this.$emit("seasonChange", this.season);
+		emitSummer() {
+			const summerBtn = document.getElementById('summerBtn');
+			const winterBtn = document.getElementById('winterBtn');
+			console.log("summerBtn click");
+			if(this.summer){
+				// this.summer = this.summer;
+			} 
+			else{
+				console.log("change to summer");
+				this.winter = false;
+				this.summer = true;
+				summerBtn.style.backgroundColor = 'blue';
+				summerBtn.style.color = 'white';
+				winterBtn.style.backgroundColor = 'white';
+				winterBtn.style.color = 'black';	
+			}
+			this.$emit("changeToSummer", this.summer);
+		},
+		emitWinter() {
+			const summerBtn = document.getElementById('summerBtn');
+			const winterBtn = document.getElementById('winterBtn');
+			console.log("winterBtn click");
+			if(this.winter){
+				// this.winter = this.winter;
+			} 
+			else{
+				console.log("change to winter");
+				this.winter = true;
+				this.summer = false;
+				summerBtn.style.backgroundColor = 'white';
+				summerBtn.style.color = 'black';
+				winterBtn.style.backgroundColor = 'blue';
+				winterBtn.style.color = 'white';
+			}
+			this.$emit("changeToWinter", this.summer);
 		}
 	}
 }
@@ -66,7 +110,7 @@ export default {
 .myslider {
 	/* position: absolute; */
 	bottom: 1rem;
-	width: 710px;
+	width: 700px;
 	height: 5px;
 	/* transform: translate(-50%, -50%); */
 	-webkit-appearance: none;
@@ -87,7 +131,7 @@ export default {
 	-webkit-appearance: none;
 	appearance: none;
 	height: 20px;
-	width: 20px;
+	width: 10px;
 	background-color: #868686;
 	/* border: 1px solid #000000;
 	border-radius: 1rem; */
@@ -110,6 +154,18 @@ export default {
 	color: #ffffff;
 	font-size: 0.5rem;
 	font-family: "Jura";
+}
+
+/* TODO: css of button */
+.summerBtn {
+	background-color: rgb(75, 25, 255);
+    color: rgb(255, 255, 255);
+}
+
+.winterBtn {
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	
 }
 
 </style>
