@@ -4,7 +4,7 @@
   <!-- <div class="h-20"></div> -->
   <div
     id="com"
-    class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black"
+    class="hidden md:block h-screen w-screen overflow-y-auto overflow-x-hidden pt-24 bg-black"
   >
     <section class="relative my-10 h-fit w-screen">
       <div
@@ -214,6 +214,9 @@
         <div class="min-w-[4rem] h-full"></div>
       </div>
     </section>
+    <section>
+      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">Copyright © 2023 OGforOG</p>
+    </section>
   </div>
   <div
     id="mobile"
@@ -411,6 +414,7 @@
         <div class="min-w-[1.5rem] h-full"></div>
       </div>
     </section>
+    
   </div>
 </template>
 
