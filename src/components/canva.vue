@@ -42,7 +42,9 @@ const closeChildPopup = () => {
 
 const update_data = (my_data) => {
   console.log("receive the emit update @ parent canva");
-  DataSrc.value = my_data;
+  DataSrc.value[current_point.value] = my_data;
+  collectionStore.correct_state(current_point.value)
+  console.log(my_data, DataSrc.value[current_point.value])
   // if (!collected.value.includes(current_point.value))
   //   collected.value.push(current_point.value);
   // console.log(DataSrc, collected.value); // debug
@@ -89,9 +91,9 @@ const collected = ref([]);
 
 const collectionStore = useCollectionStore();
 
-const DataSrc = [
+const DataSrc = ref([
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[0], //0: not spot 1: select  2: answer is right
     pic: "/pop_back0.jpg",
     character: "./character_0.svg",
     real: "./real_character_0.svg",
@@ -123,7 +125,7 @@ const DataSrc = [
     ],
   },
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[1], //0: not spot 1: select  2: answer is right
     pic: "/pop_back1.jpg",
     character: "./character_1.svg",
     real: "./real_character_1.svg",
@@ -154,7 +156,7 @@ const DataSrc = [
     ],
   },
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[2], //0: not spot 1: select  2: answer is right
     pic: "/pop_back2.jpg",
     real: "./real_character_2.svg",
     character: "./character_2.svg",
@@ -184,7 +186,7 @@ const DataSrc = [
     ],
   },
   {
-    state: 0, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[3], //0: not spot 1: select  2: answer is right
     pic: "/pop_back3.jpg",
     character: "./character_3.svg",
     real: "./real_character_3.svg",
@@ -193,7 +195,7 @@ const DataSrc = [
       "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
   },
   {
-    state: 0, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[4], //0: not spot 1: select  2: answer is right
     pic: "/pop_back4.jpg",
     character: "./character_4.svg",
     real: "./real_character_4.svg",
@@ -201,7 +203,7 @@ const DataSrc = [
     state_0_content:
       "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
   },
-];
+]);
 // define functions needed to be exposed
 defineExpose({
   changeTexture,

@@ -3,6 +3,7 @@
     v-if="showPopup"
     class="w-[90vw] h-[87vh] m-auto top-[10vh] left-[5vw] z-20 fixed justify-center items-center rounded-3xl"
   >
+  <!-- <button @click="test" class="cursor-pointer z-20">TEST</button> -->
     <div class="relative w-full h-full">
       <img
         class="absolute top-0 left-0 w-full h-full rounded-3xl"
@@ -11,14 +12,14 @@
       />
       <div class="relative w-full h-full rounded-3xl">
         <div
+        class="relative w-full h-full pl-10 py-10 bg-white rounded-3xl opacity-[75%]"
+        >
+        <div
           class="relative h-[5%] pl-4 cursor-pointer z-10"
           @click="closePopup()"
         >
           <img src="../assets/arrow_2.svg" class="relative h-full z-10" />
         </div>
-        <div
-          class="relative w-full h-full pl-10 py-10 bg-white rounded-3xl opacity-[75%]"
-        >
           <div class="flex items-stretch">
             <div class="basis-[70%] pr-10 shrink-0">
               <div v-if="my_data.state == 0" class="relative h-[100%] w-full">
@@ -35,7 +36,7 @@
                 </div>
                 <div class="flex">
                   <p class="basis-[70%] shrink-0 text-xl font-jura">
-                    {{ data.state_0_content }}
+                    {{ my_data.state_0_content }}
                   </p>
                   <div
                     class="basis-[30%] shrink flex flex-col justify-start rounded-l-3xl"
@@ -188,7 +189,7 @@ const change = () => {
 
 const test = () => {
   // console.log(my_data.value.options[0].is_ans, my_data.value.options[0].show);
-  console.log(my_data);
+  console.log(my_data.value, props.data);
 };
 
 const select_ans = (index) => {
@@ -196,7 +197,7 @@ const select_ans = (index) => {
     my_data.value.state = 2;
     inner_pop.value = true;
     isHover.value[index] = false;
-    emits("update_data", my_data);
+    emits("update_data", my_data.value);
   } else {
     my_data.value.options[index].show = true;
     inner_pop.value = true;
