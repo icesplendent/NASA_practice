@@ -27,7 +27,9 @@
             buttonSound();
           "
         >
-          <img src="../assets/home_down.svg" class="absolute bottom-0"
+          <img
+            src="../assets/home_down.svg"
+            class="absolute bottom-0 animate-bounce"
         /></a>
       </div>
       <img id="Para2" src="../assets/divLine.svg" class="py-12 px-24 w-full" />
@@ -60,7 +62,9 @@
             buttonSound();
           "
         >
-          <img src="../assets/home_down.svg" class="absolute bottom-12"
+          <img
+            src="../assets/home_down.svg"
+            class="absolute bottom-12 animate-bounce"
         /></a>
       </div>
       <img id="Para4" src="../assets/divLine.svg" class="w-full px-24" />
@@ -80,7 +84,9 @@
             buttonSound();
           "
         >
-          <img src="../assets/home_down.svg" class="absolute bottom-12"
+          <img
+            src="../assets/home_down.svg"
+            class="absolute bottom-12 animate-bounce"
         /></a>
       </div>
       <img id="Para5" src="../assets/divLine.svg" class="w-full px-24" />
@@ -102,7 +108,9 @@
               buttonSound();
             "
           >
-            <img src="../assets/home_down.svg" class="absolute bottom-12"
+            <img
+              src="../assets/home_down.svg"
+              class="absolute bottom-12 animate-bounce"
           /></a>
         </div>
       </div>

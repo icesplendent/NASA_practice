@@ -458,6 +458,7 @@ const canva_setup = () => {
   // <Interaction>
   let pointer = new THREE.Vector2();
   let raycaster = new THREE.Raycaster();
+  raycaster.params.Points.threshold = 100;
   let intersections;
   window.addEventListener("pointerdown", (event) => {
     const { width, height } = container.value.getBoundingClientRect();
@@ -465,7 +466,7 @@ const canva_setup = () => {
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     intersections = raycaster.intersectObject(markers).filter((m) => {
-      return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
+      return m.uv.subScalar(0.5).length() * 2 < 5;
     });
     if (intersections.length > 0) {
       const targetPosition = new THREE.Vector3();
