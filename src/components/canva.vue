@@ -1,6 +1,6 @@
 <template>
   <div :img="imgData" ref="container" class="w-full h-full"></div>
-  <button @click="vueSize">TEST</button>
+  
   <!-- <popup /> -->
 </template>
 
@@ -19,9 +19,6 @@ import { useWindowSize } from "@vueuse/core";
 
 const { width, height } = useWindowSize();
 // import popup from "./popup.vue";
-const vueSize = () => {
-  console.log(width.value, height.value);
-};
 
 // const width = ref(0);
 // const height = ref(0);

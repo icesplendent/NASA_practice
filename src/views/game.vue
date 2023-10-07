@@ -4,7 +4,7 @@
   <div class="flex flex-row w-screen">
     <div id="bar" class="w-0 shrink-0"></div>
     <div class="flex flex-col basis-[100%] shrink-0">
-      <!-- <div id="scene-container" class="w-full basis-[75%]"></div> -->
+      <slidepopup/>
       <canva ref="canvaRef" :imgData="img" />
       <div class="basis-1/4"></div>
     </div>
@@ -16,7 +16,7 @@
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
-  <img src="/chlor_a_color.jpg" class="fixed right-[2%] bottom-[1%] h-14">
+  <!-- <img src="/chlor_a_color.jpg" class="fixed right-[2%] bottom-[1%] h-14"> -->
   <sliderbar class="fixed right-0 bottom-0" 
     @sliderChange="changePicBySlider" 
     @changeToSummer="handleSeasonChange"
@@ -26,10 +26,11 @@
 
 <script setup>
 import { ref } from "vue";
-import label from "/src/components/label.vue";
+// import label from "/src/components/label.vue";
 import navbar from "/src/components/nav.vue";
 import canva from "/src/components/canva.vue";
 import sliderbar from "../components/sliderbar.vue";
+import slidepopup from "../components/slidepopup.vue";
 
 const canvaRef = ref(null);
 const img = ref("img/summer/2023.png");
@@ -42,12 +43,18 @@ const imgs = ["2002.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.
 "2008.png", "2009.png", "2010.png", "2011.png", "2012.png", "2013.png",
 "2014.png", "2015.png", "2016.png", "2017.png", "2018.png", "2019.png",
 "2020.png", "2021.png", "2022.png", "2023.png"];  // summer
-              
+
 const imgw = ref("w1.png");
 const imgsw = ["2003.png", "2003.png", "2004.png", "2005.png", "2006.png", "2007.png",
 "2008.png", "2009.png", "2010.png", "2011.png", "2012.png", "2013.png",
 "2014.png", "2015.png", "2016.png", "2017.png", "2018.png", "2019.png",
 "2020.png", "2021.png", "2022.png", "2023.png"];  // winter
+
+let expaneded = false;
+const toggleHint = () => {
+  expaneded = !expaneded;
+  console.log("click toggleHint");
+};
 
 const changePic = () => {
   index.value = (index.value + 1) % imgs.length;

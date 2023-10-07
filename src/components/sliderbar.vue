@@ -10,7 +10,7 @@
 					type="button"
 					id = "summerBtn"
 					dir="ltr"
-					class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-lg  text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					class="text-white bg-blue-700 hover:bg-blue-800 rounded-s-lg text-sm px-4 py-2 text-center"
 				>Summer
 				</button>
 				<button
@@ -18,7 +18,7 @@
 					type="button"
 					id="winterBtn"
 					dir="rtl"
-					class="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-s-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					class="text-black bg-white hover:bg-blue-800 font-medium rounded-s-lg text-sm px-4 py-2 text-center"
 				>Winter 
 				</button>
 			</div>
@@ -110,7 +110,7 @@ export default {
 .myslider {
 	/* position: absolute; */
 	bottom: 1rem;
-	width: 710px;
+	width: 700px;
 	height: 5px;
 	/* transform: translate(-50%, -50%); */
 	-webkit-appearance: none;
@@ -131,7 +131,7 @@ export default {
 	-webkit-appearance: none;
 	appearance: none;
 	height: 20px;
-	width: 20px;
+	width: 10px;
 	background-color: #868686;
 	/* border: 1px solid #000000;
 	border-radius: 1rem; */
