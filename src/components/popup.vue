@@ -3,8 +3,8 @@
     v-if="showPopup"
     class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] z-20 fixed justify-center items-center rounded-3xl"
   >
-    <div class="h-[5%] cursor-pointer" @click="closePopup()">
-      <img src="../assets/arrow.svg" class="h-full" />
+    <div class="h-[5%] pl-4 py-2 cursor-pointer" @click="closePopup()">
+      <img src="../assets/arrow_2.svg" class="h-full" />
     </div>
     <div class="flex h-full rounded-3xl absolute w-full">
       <div class="w-[70%] h-full p-10 bg-white rounded-l-3xl">
@@ -68,14 +68,14 @@
           </div>
         </div>
         <div v-if="my_data.state == 2" class="relative h-[100%] w-full">
-          <h1 class="text-3xl">answer correction</h1>
-          <p class="bg-gray-300 h-auto w-[70%] p-5 m-5 text-xl">
+          <h1 class="text-3xl font-jura">Ans correction</h1>
+          <p class="bg-gray-300 h-auto text-xl">
             {{ my_data.state_2_answer }}
           </p>
-          <p class="bg-gray-300 h-auto w-[70%] p-5 m-5 text-2xl">
+          <p class="bg-gray-300 h-auto w-[70%] text-2xl">
             💡 Interesting Facts：
           </p>
-          <p class="bg-gray-300 h-auto w-[70%] p-5 m-5 text-xl">
+          <p class="bg-gray-300 h-auto w-[70%] text-xl">
             {{ my_data.state_2_fact }}
           </p>
           <div class="absolute right-0 bottom-0 w-[30%]">
@@ -132,7 +132,7 @@ const select_ans = (index) => {
     inner_pop.value = true;
   }
   console.log("Method triggered", my_data.value.options[index].is_ans); // For debugging
-  console.log("Method triggered show", my_data.value.options[index].show); // Corrected line
+  // console.log("Method triggered show", my_data.value.options[index].show); // Corrected line
 };
 
 const closePopup = () => {
