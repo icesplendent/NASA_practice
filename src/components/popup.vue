@@ -3,6 +3,12 @@
     v-if="showPopup"
     class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] z-20 fixed justify-center items-center rounded-3xl"
   >
+    <div
+      v-if="!inner_pop || my_data.state != 2"
+      class="absolute top-0 right-[-9%] w-[20%] z-20"
+    >
+      <img :src="my_data.real" alt="" />
+    </div>
     <div class="h-[5%] pl-4 py-2 cursor-pointer" @click="closePopup()">
       <img src="../assets/arrow_2.svg" class="h-full" />
     </div>
@@ -101,7 +107,10 @@
           </div>
         </div>
       </div>
-      <div class="absolute right-10 top-0">
+      <div
+        v-if="inner_pop && my_data.state == 2"
+        class="absolute right-10 top-0"
+      >
         <img :src="my_data.state_2_prize_src" />
       </div>
       <img

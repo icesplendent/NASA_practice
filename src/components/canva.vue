@@ -89,6 +89,7 @@ const DataSrc = [
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
     character: "./character_0.svg",
+    real: "./real_character_0.svg",
     state_1_title: "California",
     state_1_question:
       "Q: Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
@@ -119,6 +120,7 @@ const DataSrc = [
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
     character: "./character_1.svg",
+    real: "./real_character_1.svg",
     state_1_title: "Barents Sea",
     state_1_question:
       "Q: Coccolithophores are marine algae that possess calcite plates called coccoliths. Though they are little, about 2.0–75.0 μm in cell diameter, they play crucial roles in our everyday life since…(choose the wrong answer)",
@@ -148,6 +150,7 @@ const DataSrc = [
   {
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
+    real: "./real_character_2.svg",
     character: "./character_2.svg",
     state_1_title: "Red Sea",
     state_1_question:
@@ -178,6 +181,7 @@ const DataSrc = [
     state: 0, //0: not spot 1: select  2: answer is right
     pic: "/prize_test.svg",
     character: "./character_3.svg",
+    real: "./real_character_3.svg",
     state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
     state_0_content:
       "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
@@ -186,6 +190,7 @@ const DataSrc = [
     state: 0, //0: not spot 1: select  2: answer is right
     pic: "/prize_test.svg",
     character: "./character_4.svg",
+    real: "./real_character_4.svg",
     state_0_title: "Kalahari Desert",
     state_0_content:
       "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
