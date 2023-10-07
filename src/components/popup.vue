@@ -1,72 +1,144 @@
 <template>
-	<div class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] bg-gray-200 z-100 fixed justify-center items-center rounded-3xl">
-		<div class="flex h-full rounded-3xl">
-            <div class="w-[70%] h-full px-10 py-5 bg-white rounded-l-3xl">
-                <div v-if='state==0'>
-                  <h1 class="text-3xl"> answer correction </h1>
+  <div
+    v-if="showPopup"
+    class="w-[80vw] h-[80vh] m-auto top-[10vh] left-[10vw] z-20 fixed justify-center items-center rounded-3xl"
+  >
+    <div class="h-[5%] pl-4 py-2 cursor-pointer" @click="closePopup()">
+      <img src="../assets/arrow_2.svg" class="h-full" />
+    </div>
+    <div class="flex h-full rounded-3xl absolute w-full">
+      <div class="w-[70%] h-full p-10 bg-white rounded-l-3xl">
+        <div v-if="my_data.state == 0" class="relative h-[100%] w-full">
+          <h1 class="text-3xl m-5 mt-10">{{ data.state_0_title }}</h1>
+          <p class="bg-gray-300 h-auto w-[80%] p-5 m-5 rounded-full">
+            I’m not the one you are looking for.
+          </p>
+          <p class="text-xl m-5 mr-[40%]">{{ data.state_0_content }}</p>
+          <img
+            src="../assets/character.jpg"
+            class="absolute right-0 bottom-0 w-[30%]"
+          />
+        </div>
+        <div v-if="my_data.state == 1">
+          <div>
+            <h1 class="text-4xl font-jura">{{ my_data.state_1_title }}</h1>
+            <p class="my-5 text-xl font-jura">
+              {{ my_data.state_1_question }}
+            </p>
+          </div>
+          <div class="">
+            <ul>
+              <li
+                v-for="(item, index) in my_data.options"
+                :key="index"
+                @click="select_ans(index)"
+                class="flex w-full h-fit my-5 items-stretch bg-gray-300 rounded-full"
+              >
+                <div
+                  class="shrink-0 relative aspect-square bg-fuchsia-300 rounded-full w-20 text-center"
+                >
+                  <div class="flex flex-col justify-center h-full">
+                    <p class="font-jura">{{ index + 1 }}.</p>
+                  </div>
                 </div>
-                <div v-if='state==1'>            
-                    <h1 class="text-3xl"> here is the popup </h1>
-                    <p class='my-5'> 
-                    Q：Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？
-                    </p>
-                    <div v-if="need_selected" class="mt-10">
-                        <ul>
-                            <li v-for="(item, index) in options" :key="index" 
-                            class="w-[90%] h-auto  bg-gray-300 rounded-full my-6 flex text-2xl relative">
-                                <div @click="select_ans(index)" class='flex'>
-                                    <div class=' h-auto aspect-[1/1] bg-fuchsia-300 rounded-full p-5' >
-                                    &ensp;{{index+1}}.  
-                                    </div>
-                                    {{item.description}}
-                                </div>
-                                <div v-if="!item.is_ans&&item.show" class="popup-container rounded-3xl bg-blue-500">
-                                    <!-- Popup content here -->
-                                    <h1 class='text-3xl m-3'> you're wrong</h1>
-                                    <button @click="item.show = false"  class='text-3xl bg-blue-200 rounded-full p-3'> 
-                                    try again 
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                
+                <div class="h-full p-3 flex flex-col justify-center">
+                  <p class="font-jura">
+                    {{ item.description }}
+                  </p>
                 </div>
-                <div v-if='state==2'>
-                  <h1 class="text-3xl"> answer correction </h1>
+              </li>
+              <div
+                v-if="inner_pop"
+                class="popup-container rounded-3xl bg-blue-500"
+              >
+                <!-- Popup content here -->
+                <div id="popup_content">
+                  <h1 class="text-3xl font-jura m-3">you're wrong</h1>
+                  <div class="flex justify-center">
+                    <button
+                      @click="inner_pop = false"
+                      class="text-3xl bg-blue-200 rounded-full px-5 py-3"
+                    >
+                      <p class="font-jura">try again</p>
+                    </button>
+                  </div>
                 </div>
-            </div>
-            <img src="../assets/test.jpg" class="w-[30%] h-full bg-gray-500 rounded-r-3xl"/>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div v-if="my_data.state == 2" class="relative h-[100%] w-full">
+          <h1 class="text-3xl font-jura">Ans correction</h1>
+          <p class="bg-gray-300 h-auto text-xl">
+            {{ my_data.state_2_answer }}
+          </p>
+          <p class="bg-gray-300 h-auto w-[70%] text-2xl">
+            💡 Interesting Facts：
+          </p>
+          <p class="bg-gray-300 h-auto w-[70%] text-xl">
+            {{ my_data.state_2_fact }}
+          </p>
+          <div class="absolute right-0 bottom-0 w-[30%]">
+            <img :src="data.state_2_prize_src" />
 
-            
-		</div>
-	</div>
+            <img src="../assets/character.jpg" />
+          </div>
+        </div>
+      </div>
+      <img
+        src="../assets/test.jpg"
+        class="w-[30%] h-full bg-gray-500 rounded-r-3xl"
+      />
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            state: 1,//0: not spot 1: select  2: answer is right
-            need_selected: true,
-            options:[
-                {description: "It is responsible for a significant portion of the Earth's carbon fixation through photosynthesis", is_ans: false, show: false},
-                {description: "It forms the base of marine food chains", is_ans: false, show: false},
-                {description: "Algal bloom, dense aquatic population of phytoplankton, only have positive effects on ocean ecosystem", is_ans: true, show:false},        
-            ]
-        }
-    },methods: {
-        select_ans(index){
-            if(this.options[index].is_ans){
-                this.state = 2;
-                // 要改腳色狀態
-            }else{
-                this.options[index].show = true
-            }
-        }
-    }
-}
+<script setup>
+import { computed, toRef, ref } from "vue";
 
+const props = defineProps({
+  data: {
+    type: Object,
+    default: () => [],
+  },
+  showPopup: {
+    type: Boolean,
+    default: () => false,
+  },
+});
+const emits = defineEmits(["closePopup", "update_data"]);
+
+// data
+const inner_pop = ref(false);
+
+const my_data = toRef(props, "data");
+const showPopup = toRef(props, "showPopup");
+
+const change = () => {
+  my_data.value.state = 2;
+};
+
+const test = () => {
+  console.log(my_data.value.options[0].is_ans, my_data.value.options[0].show);
+};
+
+const select_ans = (index) => {
+  if (my_data.value.options[index].is_ans) {
+    my_data.value.state = 2; // Corrected line
+    inner_pop.value = true;
+    emits("update_data", my_data);
+  } else {
+    my_data.value.options[index].show = true; // Corrected line
+    inner_pop.value = true;
+  }
+  console.log("Method triggered", my_data.value.options[index].is_ans); // For debugging
+  // console.log("Method triggered show", my_data.value.options[index].show); // Corrected line
+};
+
+const closePopup = () => {
+  inner_pop.value = false;
+  emits("closePopup");
+};
 </script>
 
 <style scoped>
@@ -76,11 +148,10 @@ export default {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 25%;
+  top: 37%;
   left: 25%;
   width: 50%;
-  height: 50%;
+  height: 30%;
   z-index: 999; /* Ensure the popup is above other content */
 }
-
 </style>
