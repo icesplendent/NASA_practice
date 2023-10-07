@@ -42,7 +42,9 @@ const closeChildPopup = () => {
 
 const update_data = (my_data) => {
   console.log("receive the emit update @ parent canva");
-  DataSrc.value = my_data;
+  DataSrc.value[current_point.value] = my_data;
+  collectionStore.correct_state(current_point.value);
+  console.log(my_data, DataSrc.value[current_point.value]);
   // if (!collected.value.includes(current_point.value))
   //   collected.value.push(current_point.value);
   // console.log(DataSrc, collected.value); // debug
@@ -89,12 +91,12 @@ const collected = ref([]);
 
 const collectionStore = useCollectionStore();
 
-const DataSrc = [
+const DataSrc = ref([
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[0], //0: not spot 1: select  2: answer is right
     pic: "/pop_back0.jpg",
-    character: "./character_0.svg",
-    real: "./real_character_0.svg",
+    character: "./character0.svg",
+    correction: "./correction0.svg",
     state_1_title: "California",
     state_1_question:
       "Q: Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
@@ -123,10 +125,10 @@ const DataSrc = [
     ],
   },
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[1], //0: not spot 1: select  2: answer is right
     pic: "/pop_back1.jpg",
-    character: "./character_1.svg",
-    real: "./real_character_1.svg",
+    character: "./character1.svg",
+    correction: "./correction1.svg",
     state_1_title: "Barents Sea",
     state_1_question:
       "Q: Coccolithophores are marine algae that possess calcite plates called coccoliths. Though they are little, about 2.0–75.0 μm in cell diameter, they play crucial roles in our everyday life since…(choose the wrong answer)",
@@ -154,10 +156,10 @@ const DataSrc = [
     ],
   },
   {
-    state: 1, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[2], //0: not spot 1: select  2: answer is right
     pic: "/pop_back2.jpg",
-    real: "./real_character_2.svg",
-    character: "./character_2.svg",
+    correction: "./correction2.svg",
+    character: "./character2.svg",
     state_1_title: "Red Sea",
     state_1_question:
       "Q: One of the most notable effects of rising temperatures due to global warming in the Red Sea is the decline of its coral reefs. As the sea is warmer and warmer, zooxanthellae,  living within coral tissues and providing food from photosynthesis, is expelled from coral reef, causing the coral turning into white. The process is called coral bleaching. What is not the impact that coral bleaching brings?",
@@ -184,24 +186,24 @@ const DataSrc = [
     ],
   },
   {
-    state: 0, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[3], //0: not spot 1: select  2: answer is right
     pic: "/pop_back3.jpg",
-    character: "./character_3.svg",
+    character: "./character3.svg",
     real: "./real_character_3.svg",
     state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
     state_0_content:
       "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
   },
   {
-    state: 0, //0: not spot 1: select  2: answer is right
+    state: collectionStore.point_states[4], //0: not spot 1: select  2: answer is right
     pic: "/pop_back4.jpg",
-    character: "./character_4.svg",
+    character: "./character4.svg",
     real: "./real_character_4.svg",
     state_0_title: "Kalahari Desert",
     state_0_content:
       "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
   },
-];
+]);
 // define functions needed to be exposed
 defineExpose({
   changeTexture,
