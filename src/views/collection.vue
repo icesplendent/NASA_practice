@@ -11,7 +11,7 @@
         </h1>
         <div class="flex-grow"></div>
         <h1 class="hidden md:block text-white text-5xl text-right font-jura">
-          1 / 3
+          {{curCollections}} / {{totalCollections}}
         </h1>
       </div>
       <div class="flex flex-row mt-[1rem]">
@@ -20,25 +20,21 @@
         </p>
         <div class="flex-grow"></div>
         <div class="progress-container mt-[0.5rem]">
-          <div class="progress-bar" id="progress-bar"></div>
+          <div class="progress-bar" id="progress-bar" :style="'width: ' + progress + '%'"></div>
         </div>
       </div>
       <hr class="mt-[1rem] mb-[0.5rem]" />
-      <button
+      <!-- <button
         @click="increaseProgress()"
         class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-4 py-2 text-center"
       >
         UPUP
-      </button>
-      <div class="gallery flex flex-row gap-10 my-[2rem]">
-        <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="" />
-        </div>
-        <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="" />
-        </div>
-        <div class="bg-blue-700 p-[1rem] rounded-lg">
-          <img src="/gallery1.png" class="" />
+      </button> -->
+      <div class="galleries my-[1.5rem] gap-3 grid grid-cols-2 lg:grid-cols-4">
+        <div v-for="(image, index) in imgCollections" :key="index" class="">
+          <div class="gallery bg-blue-700 p-[0.6em] rounded-md">
+            <img :src="image" :alt="image.alt" />
+          </div>
         </div>
       </div>
     </div>
@@ -46,24 +42,52 @@
 </template>
 
 <script setup>
+import { useCollectionStore } from "../stores/collection";
 import navbar from "../components/nav.vue";
 import "../style.css";
 
-let progress = 0;
+const useCollection = useCollectionStore();
 
-const increaseProgress = () => {
-  progress += 10;
-  if (progress > 100) {
-    progress = 100;
-  }
-  // console.log("click");
-  updateProgressBar(progress);
-};
+const totalCollections = 4; 
+let curCollections = useCollection.collection.length + 1;
 
-const updateProgressBar = (progress) => {
-  const progressBar = document.getElementById("progress-bar");
-  progressBar.style.width = progress + "%";
-};
+
+
+// california - 0
+// barent - 1
+// redsea - 2
+console.log('has collected: ', curCollections);
+// console.log(useCollection.collection[1]);
+
+let imgCollections = [];
+imgCollections.push('/img/collection3.png'); // default: Mr.chu
+useCollection.collection.forEach(idx => {
+  // console.log('idx = ', idx);
+  // console.log('/img/collection' + idx + '.png');
+  imgCollections.push('/img/collection' + idx + '.png');
+});
+
+// progress bar
+let progress = (curCollections / totalCollections) * 100;
+console.log('progress = ', progress);
+// const progressBar = document.getElementById("progress-bar");
+// progressBar.style.width = progress + "%";
+
+
+// let progress = 0;
+// const increaseProgress = () => {
+//   progress += (1 / totalCollections) * 100;
+//   if (progress > 100) {
+  //     progress = 100;
+  //   }
+  //   // console.log("click");
+  //   updateProgressBar(progress);
+  // };
+  
+// const updateProgressBar = (progress) => {
+//   const progressBar = document.getElementById("progress-bar");
+//   progressBar.style.width = progress + "%";
+// };
 </script>
 
 <!-- <template>
@@ -113,6 +137,11 @@ import "../style.css";
 </script> -->
 
 <style scoped>
+.gallery {
+  /* flex: 0 0 calc(25%); */
+  /* max-width: 30rem; */
+}
+
 .font-jura {
   font-family: "Jura";
 }
@@ -124,7 +153,8 @@ import "../style.css";
 }
 
 .progress-bar {
-  width: 0;
+  /* width: 0; */
+  /* width: progress; */
   height: 100%;
   background-color: #007bff;
 }
