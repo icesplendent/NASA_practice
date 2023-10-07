@@ -28,7 +28,7 @@ const container = ref(null);
 import { useWindowSize } from "@vueuse/core";
 
 const { width, height } = useWindowSize();
-// import popup from "./popup.vue";
+import popup from "./popup.vue";
 
 const closeChildPopup = () => {
   console.log("emit");
