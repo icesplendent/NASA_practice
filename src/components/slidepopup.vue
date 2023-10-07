@@ -9,8 +9,9 @@
         <span v-if="!expanded">▶️</span>
         <span v-else>◀️</span>
       </div>
-      <div class="toggle-text text-white bg-blue-700 fixed left-[3%] top-[15%]" :class="{ expanded: expanded }">
-          <p class="font-jura">Five legendary locations, each rumored to hold a quarter of the secret manual... Explore them and join the fun in helping Uncle Atuu recover his lost manual!</p>
+      <div class="toggle-text text-white bg-blue-700 fixed left-[3%] top-[15%] round-lg" :class="{ expanded: expanded }">
+          <p class="font-jura text-xl px-5 py-3">Game Hint</p>
+          <p class="font-jura px-5 pb-4">Five legendary locations, each rumored to hold a quarter of the secret manual... Explore them and join the fun in helping Uncle Atuu recover his lost manual!</p>
       </div>
 	  
 	</div>
@@ -40,7 +41,7 @@ export default {
   overflow: hidden;
   /* max-width: 0; */
   max-height: 0;
-  transition: max-width 0.3s ease-out;
+  transition: max-width 0.3s ease-in;
 }
 
 .expanded {
