@@ -6,6 +6,7 @@
     <div class="flex flex-col basis-[100%] shrink-0">
       <slidepopup />
       <canva ref="canvaRef" :imgData="img" />
+      <benchmark/>
       <div class="basis-1/4"></div>
     </div>
   </div>
@@ -16,7 +17,7 @@
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
-  <img src="/benchmark.png" class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14">
+  <!-- <img src="/benchmark.png" class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14"> -->
   <sliderbar class="fixed right-0 bottom-0" 
     @sliderChange="changePicBySlider" 
     @changeToSummer="handleSeasonChange"
@@ -31,6 +32,7 @@ import navbar from "/src/components/nav.vue";
 import canva from "/src/components/canva.vue";
 import sliderbar from "../components/sliderbar.vue";
 import slidepopup from "../components/slidepopup.vue";
+import benchmark from "../components/benchmark.vue";
 
 const canvaRef = ref(null);
 const img = ref("img/summer/2023.png");
