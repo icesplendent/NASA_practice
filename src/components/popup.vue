@@ -123,7 +123,7 @@
                   </div>
                 </div>
                 <div
-                  class="basis-[30%] flex flex-col justify-center bg-[#f8f8f8] rounded-r-3xl"
+                  class="basis-[30%] flex flex-col p-5 justify-center bg-[#f8f8f8] rounded-r-3xl"
                 >
                   <div v-if="my_data.state != 2" class="flex justify-center">
                     <img :src="my_data.character" alt="" class="w-[65%]" />
