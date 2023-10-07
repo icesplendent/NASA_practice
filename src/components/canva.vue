@@ -88,6 +88,7 @@ const DataSrc = [
   {
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
+    character: "./character_0.svg",
     state_1_title: "California",
     state_1_question:
       "Q: Diatoms are a significant group of phytoplankton in California waters and also largest species of phytoplankton in the world. Which are not true about phtoplankton like diatoms playing indispensable role in world's ecosystems and the overall health of the planet？",
@@ -96,7 +97,7 @@ const DataSrc = [
     state_2_fact:
       "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
     state_2_prize_index: 1,
-    state_2_prize_src: "../assets/character.jpg",
+    state_2_prize_src: "/prize_test.svg",
     options: [
       {
         description:
@@ -117,6 +118,7 @@ const DataSrc = [
   {
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
+    character: "./character_1.svg",
     state_1_title: "Barents Sea",
     state_1_question:
       "Q: Coccolithophores are marine algae that possess calcite plates called coccoliths. Though they are little, about 2.0–75.0 μm in cell diameter, they play crucial roles in our everyday life since…(choose the wrong answer)",
@@ -125,7 +127,7 @@ const DataSrc = [
     state_2_fact:
       "phytoplankton remove between 5-12 gigatons of carbon dioxide per year, which approxiately equivalent to the annual emissions of about 1.85 billion to 4.35 billion passenger cars (this is approximately the number of cars on the road worldwide).",
     state_2_prize_index: 1,
-    state_2_prize_src: "../assets/character.jpg",
+    state_2_prize_src: "/prize_test.svg",
     options: [
       {
         description: "they assimilate carbon during photosynthesis",
@@ -146,6 +148,7 @@ const DataSrc = [
   {
     state: 1, //0: not spot 1: select  2: answer is right
     pic: "../assets/test.jpg",
+    character: "./character_2.svg",
     state_1_title: "Red Sea",
     state_1_question:
       "Q: One of the most notable effects of rising temperatures due to global warming in the Red Sea is the decline of its coral reefs. As the sea is warmer and warmer, zooxanthellae,  living within coral tissues and providing food from photosynthesis, is expelled from coral reef, causing the coral turning into white. The process is called coral bleaching. What is not the impact that coral bleaching brings?",
@@ -154,7 +157,7 @@ const DataSrc = [
     state_2_fact:
       "Coral reef and zooxanthellae together provide home for countless species of fish and other marine creatures. But do you know that？Half of all net primary production in the world is from marine phytoplankton! This is how important these tiny creatures are! ",
     state_2_prize_index: 1,
-    state_2_prize_src: "../assets/character.jpg",
+    state_2_prize_src: "/prize_test.svg",
     options: [
       {
         description: "Increased coral growth and reef resilience.",
@@ -173,14 +176,16 @@ const DataSrc = [
   },
   {
     state: 0, //0: not spot 1: select  2: answer is right
-    pic: "../assets/test.jpg",
+    pic: "/prize_test.svg",
+    character: "./character_3.svg",
     state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
     state_0_content:
       "Over recent decades, it has soaked up 90% of the warming caused by the rise in greenhouse gases, with the uppermost few meters of the ocean containing as much heat as the entire Earth's atmosphere. - nasa",
   },
   {
     state: 0, //0: not spot 1: select  2: answer is right
-    pic: "../assets/test.jpg",
+    pic: "/prize_test.svg",
+    character: "./character_4.svg",
     state_0_title: "Kalahari Desert",
     state_0_content:
       "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
