@@ -170,16 +170,15 @@ const test = () => {
 
 const select_ans = (index) => {
   if (my_data.value.options[index].is_ans) {
-    my_data.value.state = 2; // Corrected line
+    my_data.value.state = 2;
     inner_pop.value = true;
     isHover.value[index] = false;
     emits("update_data", my_data);
   } else {
-    my_data.value.options[index].show = true; // Corrected line
+    my_data.value.options[index].show = true;
     inner_pop.value = true;
   }
-  console.log("Method triggered", my_data.value.options[index].is_ans); // For debugging
-  // console.log("Method triggered show", my_data.value.options[index].show); // Corrected line
+  console.log("Method triggered", my_data.value.options[index].is_ans);
 };
 
 const closePopup = () => {

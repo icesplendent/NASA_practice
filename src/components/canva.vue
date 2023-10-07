@@ -1,5 +1,10 @@
 <template>
-  <div :img="imgData" ref="container" class="w-full h-full"></div>
+  <div
+    :img="imgData"
+    ref="container"
+    id="rotatePlay"
+    class="w-full h-full"
+  ></div>
   <button @click="vueSize">TEST</button>
   <div>
     <popup
@@ -206,17 +211,11 @@ defineExpose({
 onMounted(() => {
   canva_setup();
   // resize listener
+
   window.addEventListener("resize", (event) => onWindowResize(event, sphere));
 });
 
 const canva_setup = () => {
-  // width.value = container.value.clientWidth;
-  // height.value = container.value.clientHeight;
-
-  // Use inner window as width
-
-  //   console.log(width.value, height.value, container.value);
-
   // update camera
   camera = new THREE.PerspectiveCamera(45, width.value / height.value, 1, 2000);
 
@@ -241,6 +240,7 @@ const canva_setup = () => {
   controls.enableDamping = true;
   controls.autoRotate = true;
   controls.autoRotateSpeed *= 0.25;
+  console.log(controls);
 
   let globalUniforms = {
     time: { value: 0 },
@@ -328,26 +328,29 @@ const canva_setup = () => {
       );
       //console.log(shader.vertexShader);
       shader.fragmentShader = `
-    	uniform float time;
-      varying float vPhase;
-    	${shader.fragmentShader}
-    `.replace(
+  uniform float time;
+  varying float vPhase;
+  ${shader.fragmentShader}
+`.replace(
         `vec4 diffuseColor = vec4( diffuse, opacity );`,
         `
-      vec2 lUv = (vUv - 0.5) * 2.;
-      float val = 0.;
-      float lenUv = length(lUv);
-      val = max(val, 1. - step(0.25, lenUv)); // central circle
-      val = max(val, step(0.4, lenUv) - step(0.5, lenUv)); // outer circle
+    vec2 lUv = (vUv - 0.5) * 2.;
+    float val = 0.;
+    float lenUv = length(lUv);
 
-      float tShift = fract(time * 0.5 + vPhase);
-      val = max(val, step(0.4 + (tShift * 0.6), lenUv) - step(0.5 + (tShift * 0.5), lenUv)); // ripple
+    float lineThickness = 0.35;
+    float line1 = abs(lUv.x - lUv.y);
+    float line2 = abs(lUv.x + lUv.y);
 
-      if (val < 0.5) discard;
+    val = max(val, 1.0 - step(lineThickness, line1));
+    val = max(val, 1.0 - step(lineThickness, line2));
 
-      vec4 diffuseColor = vec4( diffuse, opacity );`
+
+    if (val < 0.5) discard;
+
+    vec4 diffuseColor = vec4( diffuse, opacity );`
       );
-      //console.log(shader.fragmentShader)
+      // console.log(shader.fragmentShader);
     },
   });
   mMarker.defines = { USE_UV: " " }; // needed to be set to be able to work with UVs
@@ -382,6 +385,7 @@ const canva_setup = () => {
     //dummy.position.randomDirection().setLength(rad + 0.1);
     dummy.position.copy(markersData[i].position);
     dummy.lookAt(dummy.position.clone().setLength(rad + 1));
+    dummy.scale.set(0.5, 0.5);
     dummy.updateMatrix();
     markers.setMatrixAt(i, dummy.matrix);
     phase.push(Math.random());
@@ -467,6 +471,9 @@ const canva_setup = () => {
         .easing(TWEEN.Easing.Cubic.Out)
         .start();
       isPopupVisible.value = true;
+      const labelSound = new Audio("/sound/button.wav");
+      labelSound.volume = 0.05;
+      labelSound.play();
       current_point.value = intersections[0].instanceId;
       // current_point.value = markersData[iid].index;
       // console.log(iid, current_point.value);
@@ -484,6 +491,22 @@ const canva_setup = () => {
     renderer.render(scene, camera);
     labelRenderer.render(scene, camera);
     TWEEN.update();
+  });
+  let isMouseDown = false;
+
+  container.value.addEventListener("mousedown", () => {
+    isMouseDown = true;
+    setTimeout(() => {
+      isMouseDown = false;
+    }, 500);
+  });
+  container.value.addEventListener("mousemove", () => {
+    if (isMouseDown && !isPopupVisible.value) {
+      const earthRotate = new Audio("/sound/earth2.mp3");
+      earthRotate.volume = 0.5;
+      earthRotate.play();
+      isMouseDown = false;
+    }
   });
 };
 

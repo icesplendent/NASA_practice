@@ -21,7 +21,12 @@
             />
           </div>
         </div>
-        <a v-on:click="scrollToParagraph('Para2')">
+        <a
+          v-on:click="
+            scrollToParagraph('Para2');
+            buttonSound();
+          "
+        >
           <img src="../assets/home_down.svg" class="absolute bottom-0"
         /></a>
       </div>
@@ -49,7 +54,12 @@
             </p>
           </div>
         </div>
-        <a v-on:click="scrollToParagraph('Para4')">
+        <a
+          v-on:click="
+            scrollToParagraph('Para4');
+            buttonSound();
+          "
+        >
           <img src="../assets/home_down.svg" class="absolute bottom-12"
         /></a>
       </div>
@@ -64,7 +74,12 @@
           class="h-[300px] w-full object-cover object-center"
           src="/home4.jpg"
         />
-        <a v-on:click="scrollToParagraph('Para5')">
+        <a
+          v-on:click="
+            scrollToParagraph('Para5');
+            buttonSound();
+          "
+        >
           <img src="../assets/home_down.svg" class="absolute bottom-12"
         /></a>
       </div>
@@ -81,7 +96,12 @@
           />
         </div>
         <div class="flex justify-center">
-          <a v-on:click="scrollToParagraph('Para6')">
+          <a
+            v-on:click="
+              scrollToParagraph('Para6');
+              buttonSound();
+            "
+          >
             <img src="../assets/home_down.svg" class="absolute bottom-12"
           /></a>
         </div>
@@ -93,7 +113,10 @@
           of his carbon cycle manual! <br /><br />Let’s Go!!!!!!!!!!
         </p>
         <router-link to="/game" class="z-50">
-          <button class="bg-[#3EC6FF] text-[50px] py-4 px-8 rounded-full">
+          <button
+            v-on:click="buttonSound()"
+            class="bg-[#3EC6FF] text-[50px] py-4 px-8 rounded-full"
+          >
             Trip to Earth →
           </button>
         </router-link>
@@ -112,6 +135,11 @@ const scrollToParagraph = (id) => {
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
   }
+};
+const buttonSound = () => {
+  const audio = new Audio("/sound/button.wav");
+  audio.volume = 0.05;
+  audio.play();
 };
 import navbar from "../components/nav.vue";
 </script>
