@@ -3,11 +3,11 @@
 
 <template>
 	<div class="flex flex-col justify-center items-center">
-      <button @click="toggleHint()" class="fixed left-[0%] top-[15%] cursor-pointer text-white z-20">　</button>
-      <div class="fixed left-[0%] top-[15%] cursor-pointer">
+      <button @click="toggleHint()" class="fixed left-[1%] top-[15%] cursor-pointer text-white z-20">　</button>
+      <div class="fixed left-[1%] top-[15%] cursor-pointer">
         <!-- <p class="text-white">Game Hint</p>  -->
-        <span v-if="!expanded">▶️</span>
-        <span v-else>◀️</span>
+        <span v-if="!expanded" class="text-2xl">💡</span>
+        <span v-else class="text-2xl text-white">◀</span>
       </div>
       <div class="toggle-text text-white bg-blue-700 fixed left-[3%] top-[15%] round-lg" :class="{ expanded: expanded }">
           <p class="font-jura text-xl px-5 py-3">Game Hint</p>
@@ -41,7 +41,7 @@ export default {
   overflow: hidden;
   /* max-width: 0; */
   max-height: 0;
-  transition: max-width 0.3s ease-in;
+  transition: max-width 0.3s ease-in-out;
 }
 
 .expanded {

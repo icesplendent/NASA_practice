@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
+    class="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200"
   >
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
@@ -9,7 +9,7 @@
         <!-- <img src="/meichu_logo.svg" class="h-8 mr-3" alt="MeichuHackathon" /> -->
         <span
           class="font-jura self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-          >OGforOG</span
+          >　frOG</span
         >
       </a>
       <div class="flex md:order-2">
@@ -57,7 +57,7 @@
           <li>
             <RouterLink
               to="/"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:bg-transparent md:p-0 md:dark:text-blue-500"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:bg-transparent md:p-0 md:dark:text-blue-500 font-jura"
               aria-current="page"
             >
               Home
@@ -66,14 +66,14 @@
           <li>
             <RouterLink
               to="/game"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-jura"
             >
               Game
             </RouterLink>
           </li>
           <li>
             <RouterLink
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-jura"
               to="/about"
             >
               About
@@ -81,16 +81,16 @@
           </li>
           <li>
             <RouterLink
-              to="/knowledge"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              to="/collection"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-jura"
             >
-              Knowledge
+              Collection
             </RouterLink>
           </li>
           <li>
             <RouterLink
               to="/contact"
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-jura"
               >Contact</RouterLink
             >
           </li>

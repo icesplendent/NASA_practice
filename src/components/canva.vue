@@ -103,7 +103,8 @@ const DataSrc = [
     state_2_fact:
       "40% of the organic carbon annually comes from the photosynthesis of diatoms, making diatoms a significant contributor to the removal of carbon dioxide from the atmosphere.",
     state_2_prize_index: 1,
-    state_2_prize_src: "/prize_test.svg",
+    state_2_prize_src: "/img/collection0.png",
+    // state_2_prize_src: "../assets/character.jpg",
     options: [
       {
         description:
@@ -134,7 +135,7 @@ const DataSrc = [
     state_2_fact:
       "phytoplankton remove between 5-12 gigatons of carbon dioxide per year, which approxiately equivalent to the annual emissions of about 1.85 billion to 4.35 billion passenger cars (this is approximately the number of cars on the road worldwide).",
     state_2_prize_index: 1,
-    state_2_prize_src: "/prize_test.svg",
+    state_2_prize_src: "/img/collection1.png",
     options: [
       {
         description: "they assimilate carbon during photosynthesis",
@@ -165,7 +166,7 @@ const DataSrc = [
     state_2_fact:
       "Coral reef and zooxanthellae together provide home for countless species of fish and other marine creatures. But do you know that？Half of all net primary production in the world is from marine phytoplankton! This is how important these tiny creatures are! ",
     state_2_prize_index: 1,
-    state_2_prize_src: "/prize_test.svg",
+    state_2_prize_src: "/img/collection2.png",
     options: [
       {
         description: "Increased coral growth and reef resilience.",
@@ -361,15 +362,19 @@ const canva_setup = () => {
   let markersData = [
     {
       position: new THREE.Vector3(-1.75, 2.4, 2.75),
-      mag: "coastal California",
+      mag: "coastal California", //
       // index: 0,
     },
     {
       position: new THREE.Vector3(0.8, 3.85, -0.75),
-      mag: "Barents Sea",
+      mag: "Barents Sea", //
       // index: 1,
     },
-    { position: new THREE.Vector3(2.9, 1.5, -2.3), mag: "Red Sea", index: 2 },
+    {
+      position: new THREE.Vector3(2.9, 1.5, -2.3),
+      mag: "Red Sea", //
+      index: 2,
+    },
     {
       position: new THREE.Vector3(2.85, 0.25, 2.81),
       mag: "Equatorial Atlantic Ocean",
