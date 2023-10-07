@@ -85,6 +85,9 @@ const changeTexture = (img) => {
   renderer.render(scene, camera);
 };
 
+// markers
+let markersData;
+
 // current point 0: california, 1: Barents Sea 2: redsea 3, 4: other points
 const current_point = ref(0);
 const collected = ref([]);
@@ -204,10 +207,22 @@ const DataSrc = ref([
       "40% of the human-produced CO2 in the ocean, worldwide, was originally absorbed from the atmosphere into the Southern Ocean, making it one of the most important carbon sinks on our planet. -nasa",
   },
 ]);
+
+const rotateCamera = (index) => {
+  const targetPosition = new THREE.Vector3();
+  targetPosition.copy(markersData[index].position);
+  targetPosition.normalize().multiplyScalar(camera.position.length());
+  new TWEEN.Tween(camera.position)
+    .to(targetPosition, 1500)
+    .easing(TWEEN.Easing.Cubic.Out)
+    .start();
+};
+
 // define functions needed to be exposed
 defineExpose({
   changeTexture,
   isPopupVisible,
+  rotateCamera,
 });
 
 // onMounted
@@ -361,7 +376,7 @@ const canva_setup = () => {
   let dummy = new THREE.Object3D();
   let phase = [];
 
-  let markersData = [
+  markersData = [
     {
       position: new THREE.Vector3(-1.75, 2.4, 2.75),
       mag: "coastal California", //

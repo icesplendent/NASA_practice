@@ -1,10 +1,10 @@
 <template>
-  <!-- <label></label> -->
   <navbar @change_pic="changePic" />
   <div class="flex flex-row w-screen mouse">
     <div id="bar" class="w-0 shrink-0"></div>
     <div class="flex flex-col basis-[100%] shrink-0">
       <slidepopup />
+      <person @personClicked="toggleRotate" />
       <canva ref="canvaRef" :imgData="img" />
       <div class="basis-1/4"></div>
     </div>
@@ -16,9 +16,13 @@
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
-  <img src="/benchmark.png" class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14">
-  <sliderbar class="fixed right-0 bottom-0" 
-    @sliderChange="changePicBySlider" 
+  <img
+    src="/benchmark.png"
+    class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14"
+  />
+  <sliderbar
+    class="fixed right-0 bottom-0"
+    @sliderChange="changePicBySlider"
     @changeToSummer="handleSeasonChange"
     @changeToWinter="handleSeasonChange"
   />
@@ -26,7 +30,7 @@
 
 <script setup>
 import { ref } from "vue";
-// import label from "/src/components/label.vue";
+import person from "../components/person.vue";
 import navbar from "/src/components/nav.vue";
 import canva from "/src/components/canva.vue";
 import sliderbar from "../components/sliderbar.vue";
@@ -131,9 +135,14 @@ const handleSeasonChange = (newSeason) => {
   console.log("New season:", newSeason);
   console.log("\n");
 };
+
+const toggleRotate = (position) => {
+  console.log(position);
+  canvaRef.value.rotateCamera(position);
+};
 </script>
 
-<style  scoped>
+<style scoped>
 .mouse {
   cursor: none;
   cursor: url("../assets/boat.svg"), auto;
