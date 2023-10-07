@@ -1,7 +1,7 @@
 <template>
   <!-- <label></label> -->
   <navbar @change_pic="changePic" />
-  <div class="flex flex-row w-screen">
+  <div class="flex flex-row w-screen mouse">
     <div id="bar" class="w-0 shrink-0"></div>
     <div class="flex flex-col basis-[100%] shrink-0">
       <slidepopup/>
@@ -95,4 +95,9 @@ const handleSeasonChange = (newSeason) => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+.mouse {
+  cursor: none;
+  cursor: url("../assets/boat.svg"), auto;
+}
+</style>
