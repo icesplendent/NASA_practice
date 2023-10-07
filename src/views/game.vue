@@ -16,7 +16,7 @@
     <div class="text" id="magnitude"></div>
     <div class="text" id="coordinates"></div>
   </div>
-  <!-- <img src="/chlor_a_color.jpg" class="fixed right-[2%] bottom-[1%] h-14"> -->
+  <img src="/benchmark.png" class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14">
   <sliderbar class="fixed right-0 bottom-0" 
     @sliderChange="changePicBySlider" 
     @changeToSummer="handleSeasonChange"

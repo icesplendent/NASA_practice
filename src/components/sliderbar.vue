@@ -3,14 +3,14 @@
 
 <template>
 	<div class="w-full h-20 flex flex-col justify-center items-center">
-		<div id="sliderbar" class="flex flex-col justify-center items-center">
+		<div id="sliderbar" class="w-full flex flex-col justify-center items-center">
 			<div class="season-mode flex flex-row">
 				<button
 					@click="emitSummer"
 					type="button"
 					id = "summerBtn"
 					dir="ltr"
-					class="text-white bg-blue-700 hover:bg-blue-800 rounded-s-lg text-sm px-4 py-2 text-center"
+					class="text-white bg-[#099B9B] hover:bg-[#8AB4B1] rounded-s-lg text-sm px-4 py-1 text-center font-jura"
 				>Summer
 				</button>
 				<button
@@ -18,13 +18,13 @@
 					type="button"
 					id="winterBtn"
 					dir="rtl"
-					class="text-black bg-white hover:bg-blue-800 font-medium rounded-s-lg text-sm px-4 py-2 text-center"
+					class="text-black bg-white hover:bg-[#8AB4B1] font-medium rounded-s-lg text-sm px-4 py-1 text-center font-jura"
 				>Winter 
 				</button>
 			</div>
-		<input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider mt-3" min="2002" max="2023">
+		<input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider mt-2" min="2002" max="2023">
 		<!-- <span class="rangeValue">{{sildervalue}}</span> -->
-		<div class="years flex flex-row gap-1.5 mt-3 mb-5">
+		<div class="years flex flex-row justify-between items-cente mt-2 mb-5">
 			<p class="year">2002</p>
 			<p class="year">2003</p>
 			<p class="year">2004</p>
@@ -77,7 +77,7 @@ export default {
 				console.log("change to summer");
 				this.winter = false;
 				this.summer = true;
-				summerBtn.style.backgroundColor = 'blue';
+				summerBtn.style.backgroundColor = '#099B9B';
 				summerBtn.style.color = 'white';
 				winterBtn.style.backgroundColor = 'white';
 				winterBtn.style.color = 'black';	
@@ -97,7 +97,7 @@ export default {
 				this.summer = false;
 				summerBtn.style.backgroundColor = 'white';
 				summerBtn.style.color = 'black';
-				winterBtn.style.backgroundColor = 'blue';
+				winterBtn.style.backgroundColor = '#099B9B';
 				winterBtn.style.color = 'white';
 			}
 			this.$emit("changeToWinter", this.summer);
@@ -110,7 +110,7 @@ export default {
 .myslider {
 	/* position: absolute; */
 	bottom: 1rem;
-	width: 700px;
+	width: 68%;
 	height: 5px;
 	/* transform: translate(-50%, -50%); */
 	-webkit-appearance: none;
@@ -150,6 +150,9 @@ export default {
 
 }
 
+.years {
+	width: 71%;
+}
 .year{
 	color: #ffffff;
 	font-size: 0.5rem;
@@ -158,7 +161,7 @@ export default {
 
 /* TODO: css of button */
 .summerBtn {
-	background-color: rgb(75, 25, 255);
+	background-color: #099B9B;
     color: rgb(255, 255, 255);
 }
 
@@ -166,6 +169,10 @@ export default {
 	background-color: rgb(255, 255, 255);
 	color: rgb(0, 0, 0);
 	
+}
+
+.font-jura {
+	font-family: "Jura";
 }
 
 </style>
