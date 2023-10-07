@@ -1,20 +1,25 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
 	<div class="w-full h-20 flex flex-col justify-center items-center">
 		<div id="sliderbar" class="w-full flex flex-col justify-center items-center">
 			<div class="season-mode flex flex-row">
 				<button
-					@click="emitSummer"
+        @click="
+            emitSummer();
+            buttonSound();
+          "
 					type="button"
 					id = "summerBtn"
 					dir="ltr"
 					class="text-white bg-[#099B9B] hover:bg-[#8AB4B1] rounded-s-lg text-sm px-4 py-1 text-center font-jura"
-				>Summer
+          >Summer
 				</button>
 				<button
-					@click="emitWinter"
+        @click="
+            emitWinter();
+            buttonSound();
+          "
 					type="button"
 					id="winterBtn"
 					dir="rtl"
@@ -22,7 +27,7 @@
 				>Winter 
 				</button>
 			</div>
-		<input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider mt-2" min="2002" max="2023">
+      <input v-model="sildervalue" @input="emitSliderValue" type="range" class="myslider mt-2" min="2002" max="2023">
 		<!-- <span class="rangeValue">{{sildervalue}}</span> -->
 		<div class="years flex flex-row justify-between items-cente mt-2 mb-5">
 			<p class="year">2002</p>
@@ -51,7 +56,6 @@
 	</div>
 	</div>
 </template>
-
 
 <script>
 export default {
@@ -118,36 +122,34 @@ export default {
 	background-color: #ffffff;
 	/* border: 1px solid #ffffff;
 	border-radius: 1rem; */
-	opacity: 0.7;
-	transition: opacity .2s ease-in;
-	-webkit-transition: opacity .2s ease-in;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in;
+  -webkit-transition: opacity 0.2s ease-in;
 }
 
 .myslider:hover {
-	opacity: 1;
+  opacity: 1;
 }
 
-.myslider::-webkit-slider-thumb {  
-	-webkit-appearance: none;
-	appearance: none;
-	height: 20px;
-	width: 10px;
-	background-color: #868686;
-	/* border: 1px solid #000000;
+.myslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 10px;
+  background-color: #868686;
+  /* border: 1px solid #000000;
 	border-radius: 1rem; */
-	-webkit-transition: all .3s ease-in;
-	transition: all .3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .myslider::-webkit-slider-thumb:hover {
-	box-shadow: 2px 2px 20px rgba(0, 0, 0, 0,4);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0, 4);
 }
 
-
 .rangeValue {
-	color: #ffffff;
-	text-align: center;
-
+  color: #ffffff;
+  text-align: center;
 }
 
 .years {
@@ -166,10 +168,10 @@ export default {
 }
 
 .winterBtn {
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
-	
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
+
 
 .font-jura {
 	font-family: "Jura";
