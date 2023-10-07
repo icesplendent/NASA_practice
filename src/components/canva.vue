@@ -92,7 +92,7 @@ const collectionStore = useCollectionStore();
 const DataSrc = [
   {
     state: 1, //0: not spot 1: select  2: answer is right
-    pic: "../assets/test.jpg",
+    pic: "/pop_back0.jpg",
     character: "./character_0.svg",
     real: "./real_character_0.svg",
     state_1_title: "California",
@@ -124,7 +124,7 @@ const DataSrc = [
   },
   {
     state: 1, //0: not spot 1: select  2: answer is right
-    pic: "../assets/test.jpg",
+    pic: "/pop_back1.jpg",
     character: "./character_1.svg",
     real: "./real_character_1.svg",
     state_1_title: "Barents Sea",
@@ -155,7 +155,7 @@ const DataSrc = [
   },
   {
     state: 1, //0: not spot 1: select  2: answer is right
-    pic: "../assets/test.jpg",
+    pic: "/pop_back2.jpg",
     real: "./real_character_2.svg",
     character: "./character_2.svg",
     state_1_title: "Red Sea",
@@ -185,7 +185,7 @@ const DataSrc = [
   },
   {
     state: 0, //0: not spot 1: select  2: answer is right
-    pic: "/prize_test.svg",
+    pic: "/pop_back3.jpg",
     character: "./character_3.svg",
     real: "./real_character_3.svg",
     state_0_title: "Equatorial Atlantic Ocean ( Amazon River Plume )",
@@ -194,7 +194,7 @@ const DataSrc = [
   },
   {
     state: 0, //0: not spot 1: select  2: answer is right
-    pic: "/prize_test.svg",
+    pic: "/pop_back4.jpg",
     character: "./character_4.svg",
     real: "./real_character_4.svg",
     state_0_title: "Kalahari Desert",
@@ -458,6 +458,7 @@ const canva_setup = () => {
   // <Interaction>
   let pointer = new THREE.Vector2();
   let raycaster = new THREE.Raycaster();
+  raycaster.params.Points.threshold = 100;
   let intersections;
   window.addEventListener("pointerdown", (event) => {
     const { width, height } = container.value.getBoundingClientRect();
@@ -465,7 +466,7 @@ const canva_setup = () => {
     pointer.y = -(event.clientY / height) * 2 + 1;
     raycaster.setFromCamera(pointer, camera);
     intersections = raycaster.intersectObject(markers).filter((m) => {
-      return m.uv.subScalar(0.5).length() * 2 < 0.25; // check, if we're in the central circle only
+      return m.uv.subScalar(0.5).length() * 2 < 5;
     });
     if (intersections.length > 0) {
       const targetPosition = new THREE.Vector3();

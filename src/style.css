@@ -25,7 +25,7 @@
   font-family: "Jura";
   font-weight: normal;
   font-style: normal;
-  src: url("/fonts/Jura-Regular.ttf")
+  src: url("/fonts/Jura-Regular.ttf");
 }
 
 body {
