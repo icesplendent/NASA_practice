@@ -23,7 +23,7 @@
           class="p-20 h-fit bg-white rounded-3xl z-10 leading-relaxed"
         >
           <p class="text-[#117090] font-jura text-[32px] font-bold pb-8">
-            Background Information
+            Background Information Reference
           </p>
           <p class="text-[#117090] font-jura text-[20px] font-bold">
             Ocean Chlorophyll Concentrations
@@ -74,6 +74,54 @@
             class="text-[#117090] font-jura text-[20px]"
           >
             https://www.sciencedirect.com/science/article/pii/S0079661120300598
+          </a>
+          <p class="text-[#117090] font-jura text-[32px] font-bold py-8">
+            Space Agency Data
+          </p>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            NASA Chlorophyll-a data
+          </p>
+          <a
+            href="https://oceandata.sci.gsfc.nasa.gov/directdataaccess/Level-3%20Mapped/Aqua-MODIS/2023/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://oceandata.sci.gsfc.nasa.gov/directdataaccess/Level-3%20Mapped/Aqua-MODIS/2023/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            NASA Ocean Color gallery
+          </p>
+          <a
+            href="https://oceancolor.gsfc.nasa.gov/gallery/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://oceancolor.gsfc.nasa.gov/gallery/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            NASA Oceanography
+          </p>
+          <a
+            href="https://science.nasa.gov/earth-science/focus-areas/oceanography"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://science.nasa.gov/earth-science/focus-areas/oceanography
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Carbon Cycle
+          </p>
+          <a
+            href="https://airs.jpl.nasa.gov/resources/157/carbon-cycle/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://airs.jpl.nasa.gov/resources/157/carbon-cycle/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            What Color is the Ocean
+          </p>
+          <a
+            href="https://reurl.cc/v608YA"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://reurl.cc/v608YA
           </a>
           <p class="text-[#117090] font-jura text-[32px] font-bold py-8">
             Dev. Tools / References
