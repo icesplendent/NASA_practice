@@ -22,6 +22,26 @@
         </div>
         <img src='../assets/slash2.png' class='bg-cover ml-[32%] mr-[52%] w-[16%] h-[16vh] flex flex-row-reverse'/>
       </section>
+      <section>
+        <div class='flex'>
+          <img src='img/how_to_play/play1.jpg' class='ml-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash.png' class='bg-cover ml-[52%] w-[16%] h-[16vh] '/>
+      </section>
+      <section>
+        <div class='flex flex-row-reverse'>
+          <img src='img/how_to_play/play1.jpg' class='mr-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash2.png' class='bg-cover ml-[32%] mr-[52%] w-[16%] h-[16vh] flex flex-row-reverse'/>
+      </section>
+      <section>
+        <div class='flex'>
+          <img src='img/how_to_play/play1.jpg' class='ml-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+      </section>
     </div>
     
   </div>
