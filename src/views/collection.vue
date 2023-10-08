@@ -2,8 +2,44 @@
   <navbar />
   <div
     id="com"
-    class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black"
+    class="block h-screen w-screen overflow-y-auto py-24 bg-black relative"
   >
+    <div
+      v-show="progress == 100 && !isPopupClosed"
+      @click="closePopup"
+      class="absolute h-full w-full z-10 top-16"
+    >
+      <div
+        ref="popup"
+        class="font-jura mt-12 mx-24 px-16 py-10 w-auto h-auto bg-white flex justify-between rounded-3xl"
+      >
+        <div class="basis-1/2">
+          <h1 class="text-[50px]">Congratulations!</h1>
+          <p class="text-[24px]">
+            You've successfully pieced together the manual of your adventure,
+            and now Mr.Chu can go back to Meichu planet and save his marine
+            organisms!
+            <br />
+            <br />
+            Through challenges, you've reclaimed what was lost. But remember,
+            the journey never truly ends. Keep exploring.
+            <br />
+            <br />
+            Keep solving, and keep embracing the beauty and mysteriousness of
+            the ocean.
+            <br />
+            <br />
+            Until next time, my friend!
+          </p>
+        </div>
+        <div class="flex">
+          <img
+            class="items-center my-auto basis-1/2 scale-90"
+            src="/finish.png"
+          />
+        </div>
+      </div>
+    </div>
     <div class="relative my-10 h-fit mx-[4rem]">
       <div class="flex flex-row">
         <h1 class="hidden md:block text-white text-5xl font-jura">
@@ -11,7 +47,7 @@
         </h1>
         <div class="flex-grow"></div>
         <h1 class="hidden md:block text-white text-5xl text-right font-jura">
-          {{curCollections}} / {{totalCollections}}
+          {{ curCollections }} / {{ totalCollections }}
         </h1>
       </div>
       <div class="flex flex-row mt-[1rem]">
@@ -20,19 +56,17 @@
         </p>
         <div class="flex-grow"></div>
         <div class="progress-container mt-[0.5rem]">
-          <div class="progress-bar" id="progress-bar" :style="'width: ' + progress + '%'"></div>
+          <div
+            class="progress-bar"
+            id="progress-bar"
+            :style="'width: ' + progress + '%'"
+          ></div>
         </div>
       </div>
       <hr class="mt-[1rem] mb-[0.5rem]" />
-      <!-- <button
-        @click="increaseProgress()"
-        class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-4 py-2 text-center"
-      >
-        UPUP
-      </button> -->
       <div class="galleries my-[1.5rem] gap-3 grid grid-cols-2 lg:grid-cols-4">
         <div v-for="(image, index) in imgCollections" :key="index" class="">
-          <div class="gallery bg-blue-700 p-[0.6em] rounded-md">
+          <div class="gallery bg-[#099B9B] p-[0.6em] rounded-md">
             <img :src="image" :alt="image.alt" />
           </div>
         </div>
@@ -42,99 +76,42 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useCollectionStore } from "../stores/collection";
 import navbar from "../components/nav.vue";
 import "../style.css";
 
+let isPopupClosed = ref(false);
+
+const popupRef = ref(null);
+
+const closePopup = (event) => {
+  isPopupClosed.value = !isPopupClosed.value;
+};
+
 const useCollection = useCollectionStore();
 
-const totalCollections = 4; 
+const totalCollections = 4;
 let curCollections = useCollection.collection.length + 1;
-
-
 
 // california - 0
 // barent - 1
 // redsea - 2
-console.log('has collected: ', curCollections);
+console.log("has collected: ", curCollections);
 // console.log(useCollection.collection[1]);
 
 let imgCollections = [];
-imgCollections.push('/img/collection3.png'); // default: Mr.chu
-useCollection.collection.forEach(idx => {
+imgCollections.push("/img/collection3.png"); // default: Mr.chu
+useCollection.collection.forEach((idx) => {
   // console.log('idx = ', idx);
   // console.log('/img/collection' + idx + '.png');
-  imgCollections.push('/img/collection' + idx + '.png');
+  imgCollections.push("/img/collection" + idx + ".png");
 });
 
 // progress bar
 let progress = (curCollections / totalCollections) * 100;
-console.log('progress = ', progress);
-// const progressBar = document.getElementById("progress-bar");
-// progressBar.style.width = progress + "%";
-
-
-// let progress = 0;
-// const increaseProgress = () => {
-//   progress += (1 / totalCollections) * 100;
-//   if (progress > 100) {
-  //     progress = 100;
-  //   }
-  //   // console.log("click");
-  //   updateProgressBar(progress);
-  // };
-  
-// const updateProgressBar = (progress) => {
-//   const progressBar = document.getElementById("progress-bar");
-//   progressBar.style.width = progress + "%";
-// };
+console.log("progress = ", progress);
 </script>
-
-<!-- <template>
-  <navbar />
-  <div id="com" class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black">
-    <section class="relative my-10 h-fit w-screen">
-      <div id="title1" class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-96 h-64 rounded-r-3xl">
-        <h1 class="hidden md:block text-white text-5xl font-jura">
-          References
-        </h1>
-      </div>
-      <div class="w-full h-24"></div>
-      <div class="flex flex-row w-full justify-center z-20">
-        <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 w-5/6 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1] font-jura">
-            Ocean makes up 70% of Earth by area, and...
-          </p>
-        </div>
-        <div class="min-w-[4rem] h-full"></div>
-      </div>
-    </section>
-    <section class="relative relative my-10 h-fit w-screen">
-      <div id="title2" class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-80 h-64 rounded-r-3xl">
-        <h1 class="hidden md:block text-white text-5xl font-jura">
-          License
-        </h1>
-      </div>
-      <div class="w-full h-24"></div>
-      <div class="flex flex-row w-full justify-center z-20">
-        <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 w-5/6 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1] font-jura">
-            Ocean makes up 70% of Earth by area, and
-          </p>
-        </div>
-        <div class="min-w-[4rem] h-full"></div>
-      </div>
-    </section>
-  </div>
-</template> 
-
-
-<script setup>
-import navbar from "../components/nav.vue";
-import "../style.css";
-</script> -->
 
 <style scoped>
 .gallery {
@@ -156,6 +133,6 @@ import "../style.css";
   /* width: 0; */
   /* width: progress; */
   height: 100%;
-  background-color: #007bff;
+  background-color: #099b9b;
 }
 </style>
