@@ -9,8 +9,8 @@
         <span v-if="!expanded" class="text-2xl">💡</span>
         <span v-else class="text-2xl text-white">X</span>
       </div>
-      <div class="toggle-text text-white bg-[##117090] fixed left-[3%] top-[15%] rounded-lg" :class="{ expanded: expanded }">
-          <p class="font-jura text-xl px-5 py-3">Game Hint</p>
+      <div class="toggle-text text-white bg-[##117090] fixed left-[3%] top-[13%] rounded-lg" :class="{ expanded: expanded }">
+          <p class="font-jura text-3xl px-5 py-3">Game Hint</p>
           <p class="font-jura px-5 pb-4">Five legendary locations, each rumored to hold a quarter of the secret manual... Explore them and join the fun in helping Uncle Atuu recover his lost manual!</p>
       </div>
 	  

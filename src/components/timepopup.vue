@@ -10,7 +10,7 @@
         <span v-else class="text-2xl text-white">X</span>
       </div>
       <div class="toggle-text text-white  fixed right-[8%] bottom-[8%] rounded-lg" :class="{ expanded_time: expanded_time }">
-          <p class="font-jura text-xl px-5 py-3">Timeline</p>
+          <p class="font-jura text-3xl px-5 py-3">Timeline</p>
           <p class="font-jura px-5 pb-4">The 3D Earth model displays the distribution of marine chlorophyll over time and throughout the seasons. Click the 'Seasons' button and drag the timeline to observe variations in chlorophyll distribution at different points in time.</p>
       </div>
 	  

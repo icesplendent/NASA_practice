@@ -10,7 +10,7 @@
         <span v-else class="text-2xl text-white">X</span>
       </div>
       <div class="toggle-text text-white  fixed right-[7rem] top-[10%] rounded-lg" :class="{ expanded_conc: expanded_conc }">
-          <p class="font-jura text-xl px-5 py-3">Colorbar</p>
+          <p class="font-jura text-3xl px-5 pt-1 pb-3">Colorbar</p>
           <p class="font-jura px-5 pb-4">The points on the chlorophyll-a concentration color bar tell you what the concentration of chlorophyll indicates and how it represents the concentration of phytoplankton in the ocean. The green color represents a high concentration of chlorophyll, the white color corresponds to concentrations in the middle range, the blue color indicates lower concentrations, and the black color represents areas with no available data.</p>
       </div>
 	  
