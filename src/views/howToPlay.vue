@@ -13,7 +13,7 @@
       </div>
       <section>
         <div class="mt-20 flex">
-          <img src="img/how_to_play/play1.png" class="ml-[12%] w-[40%]" />
+          <img src="/img/how_to_play/play1.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">1.</h1>
             <p class="text-lg">
@@ -28,7 +28,7 @@
       </section>
       <section>
         <div class="flex flex-row-reverse">
-          <img src="img/how_to_play/play2.png" class="mr-[12%] w-[40%]" />
+          <img src="/img/how_to_play/play2.png" class="mr-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white ml-[12%]">
             <h1 class="text-7xl my-2">2.</h1>
             <p class="text-lg">
@@ -44,7 +44,7 @@
       </section>
       <section>
         <div class="flex">
-          <img src="img/how_to_play/play3.png" class="ml-[12%] w-[40%]" />
+          <img src="/img/how_to_play/play3.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">3.</h1>
             <p class="text-lg">
@@ -61,7 +61,7 @@
       </section>
       <section>
         <div class="flex flex-row-reverse">
-          <img src="img/how_to_play/play4.png" class="mr-[12%] w-[40%]" />
+          <img src="/img/how_to_play/play4.png" class="mr-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white ml-[12%]">
             <h1 class="text-7xl my-2">4.</h1>
             <p class="text-lg">
@@ -77,7 +77,7 @@
       </section>
       <section>
         <div class="flex">
-          <img src="img/how_to_play/play5.png" class="ml-[12%] w-[40%]" />
+          <img src="/img/how_to_play/play5.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">5.</h1>
             <p class="text-lg">
