@@ -1,13 +1,20 @@
 <template>
   <navbar @change_pic="changePic" />
+  <div id="circle" class="circle border-8 border-yellow-500"></div>
   <div class="flex flex-row w-screen mouse">
     <div id="bar" class="w-0 shrink-0"></div>
     <div class="flex flex-col basis-[100%] shrink-0">
       <slidepopup />
-      <person @personClicked="toggleRotate" />
+      <person @personClicked="toggleRotate" @stopRotation="backRotateBench"/>
       <canva ref="canvaRef" :imgData="img" />
       <timepopup />
       <concentrationpopup />
+      <sliderbar
+    class="fixed right-0 bottom-0"
+    @sliderChange="changePicBySlider"
+    @changeToSummer="handleSeasonChange"
+    @changeToWinter="handleSeasonChange"
+  />
       <benchmark
         @toggleBench="toggleRotateBench"
         @backBench="backRotateBench"
@@ -23,12 +30,7 @@
     <div class="text" id="coordinates"></div>
   </div>
   <!-- <img src="/benchmark.png" class="fixed w-1/4 h-auto right-[2%] top-[15%] h-14"> -->
-  <sliderbar
-    class="fixed right-0 bottom-0"
-    @sliderChange="changePicBySlider"
-    @changeToSummer="handleSeasonChange"
-    @changeToWinter="handleSeasonChange"
-  />
+  
 </template>
 
 <script setup>
@@ -143,17 +145,27 @@ const handleSeasonChange = (newSeason) => {
 
 const toggleRotate = (position) => {
   console.log(position);
-  canvaRef.value.rotateCamera(position);
+  canvaRef.value.rotateCameraBench(position);
 };
 
 const toggleRotateBench = (position) => {
   console.log(position);
   canvaRef.value.rotateCameraBench(position);
+  let circleElement = document.getElementById('circle')
+
+  setTimeout(() => {
+    circleElement.style.display = 'block';
+  }, 1500)
+  
 };
 
 const backRotateBench = () => {
   canvaRef.value.backCameraBench();
   console.log("backRotateBench");
+  let circleElement = document.getElementById('circle')
+  console.log(circleElement)
+  circleElement.style.display = 'none';
+  console.log(circleElement)
 };
 </script>
 
@@ -161,5 +173,17 @@ const backRotateBench = () => {
 .mouse {
   cursor: none;
   cursor: url("../assets/boat.svg"), auto;
+}
+
+.circle {
+  width: 120px; /* Adjust the width of the circle as needed */
+  height: 120px; /* Adjust the height of the circle as needed */
+  /* background-color: #3498db; Change the background color as desired */
+  border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
 </style>

@@ -34,7 +34,7 @@
 <script setup>
 import { ref } from "vue";
 
-const emits = defineEmits(["personClicked"]);
+const emits = defineEmits(["personClicked", "stopRotation"]);
 
 const persons = ref([
   {
@@ -66,8 +66,6 @@ const persons = ref([
 ]);
 
 const personClicked = (index) => {
-  emits("personClicked", persons.value[index].position);
-
   if (persons.value[index].show == false) {
     persons.value[index].show = true;
     for (let i = 0; i < 3; i++) {
@@ -75,8 +73,10 @@ const personClicked = (index) => {
         persons.value[i].show = false;
       }
     }
+    emits("personClicked", persons.value[index].position);
   } else {
     persons.value[index].show = false;
+    emits("stopRotation")
   }
 
   //   persons.value[index].show = !persons.value[index].show;

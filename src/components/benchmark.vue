@@ -200,9 +200,11 @@ export default {
       this.greenExpanded = !this.greenExpanded;
       if (this.whiteExpanded) {
         this.whiteExpanded = false;
+				this.$emit("backBench");
       }
       if (this.blueExpanded) {
         this.blueExpanded = false;
+				this.$emit("backBench");
       }
 
       if (!this.greenExpanded && !this.whiteExpanded && !this.blueExpanded) {
@@ -221,11 +223,14 @@ export default {
     },
     // white
     toggleWhite() {
+			this.whiteCurPage = 1;
       if (this.greenExpanded) {
         this.greenExpanded = false;
+				this.$emit("backBench");
       }
       if (this.blueExpanded) {
         this.blueExpanded = false;
+				this.$emit("backBench");
       }
       this.whiteExpanded = !this.whiteExpanded;
       if (!this.greenExpanded && !this.whiteExpanded && !this.blueExpanded) {
@@ -243,16 +248,20 @@ export default {
     },
     // blue
     toggleBlue() {
+			this.blueCurPage = 1;
       if (this.whiteExpanded) {
         this.whiteExpanded = false;
+				this.$emit("backBench");
       }
       if (this.greenExpanded) {
         this.greenExpanded = false;
+				this.$emit("backBench");
       }
       this.blueExpanded = !this.blueExpanded;
       if (!this.greenExpanded && !this.whiteExpanded && !this.blueExpanded) {
         this.$emit("backBench");
       }
+			console.log('blue')
     },
     blueNextPage() {
       this.blueCurPage += 1;
@@ -262,6 +271,7 @@ export default {
       if (this.blueCurPage > 3) {
         this.blueExpanded = !this.blueExpanded;
         this.$emit("backBench");
+				this.blueCurPage = 1
       }
     },
 		toggleBlack() {

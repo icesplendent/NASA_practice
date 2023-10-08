@@ -88,6 +88,9 @@ const changeTexture = (img) => {
 // markers
 let markersData;
 
+// controls
+let controls
+
 // current point 0: california, 1: Barents Sea 2: redsea 3, 4: other points
 const current_point = ref(0);
 const collected = ref([]);
@@ -216,6 +219,7 @@ const rotateCamera = (index) => {
     .to(targetPosition, 1500)
     .easing(TWEEN.Easing.Cubic.Out)
     .start();
+  controls.autoRotate = false;
 };
 
 const rotateCameraBench = (index) => {
@@ -237,6 +241,7 @@ const rotateCameraBench = (index) => {
     .start();
 
   console.log("rotateCameraBench");
+  controls.autoRotate = false;
 };
 
 const backCameraBench = () => {
@@ -251,6 +256,7 @@ const backCameraBench = () => {
       camera.updateProjectionMatrix();
     })
     .start();
+  controls.autoRotate = true;
 };
 
 // define functions needed to be exposed
@@ -288,7 +294,7 @@ const canva_setup = () => {
   container.value.appendChild(labelRenderer.domElement);
 
   //   control the camera view point
-  let controls = new OrbitControls(camera, labelRenderer.domElement);
+  controls = new OrbitControls(camera, labelRenderer.domElement);
   controls.enablePan = false;
   controls.minDistance = 6;
   controls.maxDistance = 15;
