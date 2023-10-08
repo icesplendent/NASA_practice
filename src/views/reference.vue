@@ -2,7 +2,7 @@
   <navbar />
   <div
     id="com"
-    class="hidden md:block h-screen w-screen overflow-y-auto overflow-x-hidden pt-24 bg-black"
+    class="hidden md:block h-screen w-screen overflow-y-auto overflow-x-hidden pt-24 bg-[#434343]"
   >
     <section class="relative my-10 h-fit w-screen">
       <div

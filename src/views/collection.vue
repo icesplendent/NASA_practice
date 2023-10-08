@@ -2,7 +2,7 @@
   <navbar />
   <div
     id="com"
-    class="block h-screen w-screen overflow-y-auto pt-24 bg-black relative"
+    class="block h-screen w-screen overflow-y-auto pt-24 bg-[#434343] relative"
   >
     <div
       v-show="progress == 100 && !isPopupClosed"

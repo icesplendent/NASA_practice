@@ -1,6 +1,8 @@
 <template>
   <navbar />
-  <div class="h-screen w-screen overflow-y-auto bg-black text-white font-jura">
+  <div
+    class="h-screen w-screen overflow-y-auto bg-[#434343] text-white font-jura"
+  >
     <div class="container mx-auto overflow-x-hidden">
       <div class="h-16"></div>
       <div class="relative flex flex-col items-center">

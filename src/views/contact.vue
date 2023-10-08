@@ -4,7 +4,7 @@
   <!-- <div class="h-20"></div> -->
   <div
     id="com"
-    class="hidden md:block h-screen w-screen overflow-y-auto overflow-x-hidden pt-24 bg-black"
+    class="hidden md:block h-screen w-screen overflow-y-auto overflow-x-hidden pt-24 bg-[#434343]"
   >
     <section class="relative my-10 h-fit w-screen">
       <div
@@ -29,10 +29,18 @@
         <div class="min-w-[4rem] h-full"></div>
         <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
           <p class="text-[#117090] font-jura">
-            Ocean makes up 70% of Earth by area , but we have consistently overlooked the significance of the ocean for a long time. 
+            Ocean makes up 70% of Earth by area , but we have consistently
+            overlooked the significance of the ocean for a long time.
           </p>
           <p class="text-[#117090] font-jura pt-2">
-            The ocean and phytoplankton are indispensable. Phytoplankton, by generating more than half of our oxygen, underpin our breathable atmosphere. They're also critical in absorbing substantial carbon dioxide, a crucial climate change buffer. The ocean's role in temperature regulation, supporting diverse ecosystems, and sustaining economies cannot be overstated. Preserving these ecosystems is crucial for a sustainable future.          </p>
+            The ocean and phytoplankton are indispensable. Phytoplankton, by
+            generating more than half of our oxygen, underpin our breathable
+            atmosphere. They're also critical in absorbing substantial carbon
+            dioxide, a crucial climate change buffer. The ocean's role in
+            temperature regulation, supporting diverse ecosystems, and
+            sustaining economies cannot be overstated. Preserving these
+            ecosystems is crucial for a sustainable future.
+          </p>
         </div>
         <div class="min-w-[4rem] h-full"></div>
       </div>
@@ -60,10 +68,19 @@
         <div class="min-w-[4rem] h-full"></div>
         <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
           <p class="text-[#117090] font-jura">
-            To raise people’s awareness about how important are ocean and phytoplankton in our everyday life, our team integrates solid knowledge with interactive games.
+            To raise people’s awareness about how important are ocean and
+            phytoplankton in our everyday life, our team integrates solid
+            knowledge with interactive games.
           </p>
           <p class="text-[#117090] font-jura pt-2">
-            We depict the marine ecosystem as a garden and engage players in a “treasure hunt game” that progressively imparts knowledge about ocean, carbon cycle, and phytoplankton. Additionally, our team transforms chlorophyll data from 2002 to 2023 into a visual 3D Earth, allowing players to observe the real-time state of the oceans and phytoplankton while playing the game. Through this project, we aim to bridge the knowledge gap among the general public and lawmakers regarding marine resources.
+            We depict the marine ecosystem as a garden and engage players in a
+            “treasure hunt game” that progressively imparts knowledge about
+            ocean, carbon cycle, and phytoplankton. Additionally, our team
+            transforms chlorophyll data from 2002 to 2023 into a visual 3D
+            Earth, allowing players to observe the real-time state of the oceans
+            and phytoplankton while playing the game. Through this project, we
+            aim to bridge the knowledge gap among the general public and
+            lawmakers regarding marine resources.
           </p>
         </div>
         <div class="min-w-[4rem] h-full"></div>
@@ -81,10 +98,10 @@
       <div class="w-full h-24"></div>
       <div class="flex flex-row w-full justify-center z-20">
         <div class="min-w-[4rem] h-full"></div>
-        <section
-          class="overflow-y-auto h-fit bg-white z-20 rounded-3xl"
-        >
-          <div class="overflow-y-auto py-4 px-4 mx-auto w-full lg:py-6 lg:px-12">
+        <section class="overflow-y-auto h-fit bg-white z-20 rounded-3xl">
+          <div
+            class="overflow-y-auto py-4 px-4 mx-auto w-full lg:py-6 lg:px-12"
+          >
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <div
                 v-for="mate in team"
@@ -99,25 +116,16 @@
                   />
                 </a>
                 <div class="p-3">
-                  <h3
-                    class="text-xl font-bold tracking-tight text-gray-900"
-                  >
+                  <h3 class="text-xl font-bold tracking-tight text-gray-900">
                     <a href="#" class="font-jura">{{ mate.name }}</a>
                   </h3>
-                  <span class="text-gray-500">{{
-                    mate.dept
-                  }}</span>
-                  <p
-                    class="mt-3 mb-4 font-light text-gray-500 font-jura"
-                  >
+                  <span class="text-gray-500">{{ mate.dept }}</span>
+                  <p class="mt-3 mb-4 font-light text-gray-500 font-jura">
                     {{ mate.words }}
                   </p>
                   <ul class="flex space-x-4 sm:mt-0">
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           class="w-5 h-5"
                           fill="currentColor"
@@ -132,12 +140,9 @@
                         </svg>
                       </a>
                     </li>
-                    
+
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           class="w-5 h-5"
                           fill="currentColor"
@@ -152,7 +157,6 @@
                         </svg>
                       </a>
                     </li>
-                    
                   </ul>
                 </div>
               </div>
@@ -163,7 +167,9 @@
       </div>
     </section>
     <section>
-      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">Copyright © 2023 OGforOG</p>
+      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">
+        Copyright © 2023 OGforOG
+      </p>
     </section>
   </div>
   <div
@@ -245,9 +251,7 @@
       <div class="w-full h-16"></div>
       <div class="flex flex-row w-full justify-center z-20">
         <div class="min-w-[1.5rem] h-full"></div>
-        <section
-          class="overflow-y-auto h-fit bg-white z-10 rounded-3xl"
-        >
+        <section class="overflow-y-auto h-fit bg-white z-10 rounded-3xl">
           <div class="overflow-y-auto py-4 px-4 mx-auto w-full lg:py-6 lg:px-8">
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <div
@@ -263,25 +267,16 @@
                   />
                 </a>
                 <div class="py-5 px-10 sm:px-0 sm:pr-10">
-                  <h3
-                    class="text-xl font-bold tracking-tight text-gray-900"
-                  >
+                  <h3 class="text-xl font-bold tracking-tight text-gray-900">
                     <a href="#" class="font-jura">{{ mate.name }}</a>
                   </h3>
-                  <span class="text-gray-500">{{
-                    mate.dept
-                  }}</span>
-                  <p
-                    class="mt-3 mb-4 font-light text-gray-500 font-jura"
-                  >
+                  <span class="text-gray-500">{{ mate.dept }}</span>
+                  <p class="mt-3 mb-4 font-light text-gray-500 font-jura">
                     {{ mate.words }}
                   </p>
                   <ul class="flex place-content-between sm:space-x-4 sm:mt-0">
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           class="w-5 h-5"
                           fill="currentColor"
@@ -297,10 +292,7 @@
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 50 50"
@@ -313,10 +305,7 @@
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           class="w-5 h-5"
                           fill="currentColor"
@@ -332,10 +321,7 @@
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        class="text-gray-500 hover:text-gray-900"
-                      >
+                      <a href="#" class="text-gray-500 hover:text-gray-900">
                         <svg
                           class="p-[1.42px] w-5 h-5"
                           xmlns="http://www.w3.org/2000/svg"
@@ -362,7 +348,6 @@
         <div class="min-w-[1.5rem] h-full"></div>
       </div>
     </section>
-    
   </div>
 </template>
 
