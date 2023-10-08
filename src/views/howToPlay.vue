@@ -4,7 +4,7 @@
     <div class="relative h-fit">
       <div
         id="title1"
-        class="py-7 pr-10 bg-[#099B9B] w-fit h-fit rounded-r-3xl my-10"
+        class="py-5 pr-10 bg-[#099B9B] w-fit h-fit rounded-r-3xl my-10"
       >
         <h1 class="text-white text-5xl text-jula pl-16">How to Play</h1>
       </div>
