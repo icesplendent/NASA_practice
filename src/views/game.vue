@@ -6,7 +6,10 @@
       <slidepopup />
       <person @personClicked="toggleRotate" />
       <canva ref="canvaRef" :imgData="img" />
-      <benchmark />
+      <benchmark
+        @toggleBench="toggleRotateBench"
+        @backBench="backRotateBench"
+      />
       <div class="basis-1/4"></div>
     </div>
   </div>
@@ -138,6 +141,16 @@ const handleSeasonChange = (newSeason) => {
 const toggleRotate = (position) => {
   console.log(position);
   canvaRef.value.rotateCamera(position);
+};
+
+const toggleRotateBench = (position) => {
+  console.log(position);
+  canvaRef.value.rotateCameraBench(position);
+};
+
+const backRotateBench = () => {
+  canvaRef.value.backCameraBench();
+  console.log("backRotateBench");
 };
 </script>
 

@@ -218,11 +218,48 @@ const rotateCamera = (index) => {
     .start();
 };
 
+const rotateCameraBench = (index) => {
+  const targetPosition = new THREE.Vector3();
+  targetPosition.copy(markersData[index].position);
+  targetPosition.normalize().multiplyScalar(camera.position.length());
+  new TWEEN.Tween({
+    fov: camera.fov,
+    position: camera.position,
+  })
+    .to({ fov: 30, position: targetPosition }, 1500)
+    .easing(TWEEN.Easing.Quadratic.InOut) // You can choose different easing functions
+    .onUpdate((obj) => {
+      // Update the camera position during the animation
+      camera.fov = obj.fov;
+      camera.lookAt(targetPosition);
+      camera.updateProjectionMatrix();
+    })
+    .start();
+
+  console.log("rotateCameraBench");
+};
+
+const backCameraBench = () => {
+  new TWEEN.Tween({
+    fov: camera.fov,
+  })
+    .to({ fov: 45 }, 500)
+    .easing(TWEEN.Easing.Quadratic.InOut) // You can choose different easing functions
+    .onUpdate((obj) => {
+      // Update the camera position during the animation
+      camera.fov = obj.fov;
+      camera.updateProjectionMatrix();
+    })
+    .start();
+};
+
 // define functions needed to be exposed
 defineExpose({
   changeTexture,
   isPopupVisible,
   rotateCamera,
+  rotateCameraBench,
+  backCameraBench,
 });
 
 // onMounted
