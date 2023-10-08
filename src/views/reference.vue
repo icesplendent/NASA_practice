@@ -70,6 +70,9 @@
         <div class="min-w-[4rem] h-full"></div>
       </div>
     </section>
+    <section>
+      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">Copyright © 2023 OGforOG</p>
+    </section>
   </div>
 </template>
 
