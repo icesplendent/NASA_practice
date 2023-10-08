@@ -2,7 +2,7 @@
 
 <template>
   <div class="flex flex-col justify-center items-center">
-    <img src="/img/benchmark0.png" class="fixed h-[31rem] right-12 top-[11rem]" />
+    <img src="/img/benchmark0.png" class="fixed h-[30.7rem] right-12 top-[10.8rem]" />
     <button
       @click="toggleGreen()"
       class="fixed right-12 top-[11rem] cursor-pointer text-white z-20 text-white text-2xl"
@@ -11,13 +11,19 @@
     </button>
     <button
       @click="toggleWhite()"
-      class="fixed right-12 top-[32rem] cursor-pointer text-white z-20 text-white text-2xl"
+      class="fixed right-12 top-[33rem] cursor-pointer text-white z-20 text-white text-2xl"
     >
       　
     </button>
     <button
       @click="toggleBlue()"
       class="fixed right-12 top-[40rem] cursor-pointer text-white z-20 text-white text-2xl"
+    >
+      　
+    </button>
+    <button
+      @click="toggleBlack()"
+      class="fixed right-12 top-[42rem] cursor-pointer text-white z-20 text-white text-2xl"
     >
       　
     </button>
@@ -63,7 +69,7 @@
       </div>
     </div>
     <!-- toggle white -->
-    <div class="fixed right-12 top-[32rem] cursor-pointer">
+    <div class="fixed right-12 top-[33rem] cursor-pointer">
       <span v-if="!whiteExpanded" class="text-2xl text-white">○</span>
       <p v-else class="text-2xl text-white">×</p>
     </div>
@@ -114,15 +120,27 @@
           NEXT
         </button>
       </div>
+			<!-- toggle black -->
+			<div class="fixed right-12 top-[41.5rem] cursor-pointer">
+				<span v-if="!blackExpanded" class="text-2xl text-white">○</span>
+				<p v-else class="text-2xl text-white">×</p>
+			</div>
+			<div class="whiteToggle-text text-white bg-[#444444] bg-opacity-50 fixed right-[5rem] top-[40.5rem] rounded-lg overflow-x-scroll z-40" :class="{ blackExpanded: blackExpanded }">
+				<div class="px-5">
+					<p class="font-jura py-2 text-lg">No data!</p>
+				</div>
+				
+			</div>
     </div>
 
     
     <!-- scale -->
-    <div class="fixed right-2.5 top-[10.6rem] flex flex-col title">
+    <div class="fixed right-2.5 top-[10.4rem] flex flex-col title">
       <p class="text-white text-xs font-jura">-　20</p>
       <p class="text-white text-xs mt-[190px] font-jura">-　3</p>
       <p class="text-white text-xs mt-[144px] font-jura">-　0.1</p>
-      <p class="text-white text-xs mt-[110px] text-center font-jura">-　0.01</p>
+      <p class="text-white text-xs mt-[105px] text-center font-jura">-　0.01</p>
+      <p class="text-white text-xs mt-[3px] text-center font-jura">-　0.00</p>
     </div>
   </div>
 </template>
@@ -141,6 +159,7 @@ export default {
       whiteCurPage: 1,
       blueExpanded: false,
       blueCurPage: 1,
+			blackExpanded: false,
       data: [
         {
           // high
@@ -245,6 +264,9 @@ export default {
         this.$emit("backBench");
       }
     },
+		toggleBlack() {
+			this.blackExpanded = !this.blackExpanded;
+		}
   },
 };
 </script>
@@ -281,6 +303,10 @@ export default {
   max-height: 180px;
 }
 .blueExpanded {
+  max-width: 400px;
+  max-height: 200px;
+}
+.blackExpanded {
   max-width: 400px;
   max-height: 200px;
 }
