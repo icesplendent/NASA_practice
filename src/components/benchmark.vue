@@ -122,10 +122,10 @@
       </div>
 			<!-- toggle black -->
 			<div class="fixed right-12 top-[41.5rem] cursor-pointer">
-				<span v-if="!blackExpanded" class="text-2xl text-white">○</span>
+				<span v-if="!blackExpanded" class="text-2xl text-white bg-[#020514]">○</span>
 				<p v-else class="text-2xl text-white">×</p>
 			</div>
-			<div class="whiteToggle-text text-white bg-[#444444] bg-opacity-50 fixed right-[5rem] top-[40.5rem] rounded-lg overflow-x-scroll z-40" :class="{ blackExpanded: blackExpanded }">
+			<div class="whiteToggle-text text-white bg-[#444444] bg-opacity-70 fixed right-[5rem] top-[40.5rem] rounded-lg overflow-x-scroll z-40" :class="{ blackExpanded: blackExpanded }">
 				<div class="px-5">
 					<p class="font-jura py-2 text-lg">No data!</p>
 				</div>
