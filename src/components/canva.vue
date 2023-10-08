@@ -489,11 +489,40 @@ const canva_setup = () => {
       const targetPosition = new THREE.Vector3();
       targetPosition.copy(intersections[0].point);
       targetPosition.normalize().multiplyScalar(camera.position.length());
-      new TWEEN.Tween(camera.position)
-        .to(targetPosition, 1500)
-        .easing(TWEEN.Easing.Cubic.Out)
-        .start();
+      // new TWEEN.Tween(camera.position)
+      //   .to(targetPosition, 1500)
+      //   .easing(TWEEN.Easing.Cubic.Out)
+      //   .start();
       isPopupVisible.value = true;
+
+      new TWEEN.Tween({
+        fov: camera.fov,
+        position: camera.position,
+      })
+        .to({ fov: 30, position: targetPosition }, 1500)
+        .easing(TWEEN.Easing.Quadratic.InOut) // You can choose different easing functions
+        .onUpdate((obj) => {
+          // Update the camera position during the animation
+          camera.fov = obj.fov;
+          camera.lookAt(targetPosition);
+          camera.updateProjectionMatrix();
+        })
+        .start();
+
+      setTimeout(() => {
+        new TWEEN.Tween({
+          fov: camera.fov,
+        })
+          .to({ fov: 45, position: targetPosition }, 0)
+          .easing(TWEEN.Easing.Quadratic.InOut) // You can choose different easing functions
+          .onUpdate((obj) => {
+            // Update the camera position during the animation
+            camera.fov = obj.fov;
+            camera.updateProjectionMatrix();
+          })
+          .start();
+      }, 1500);
+
       const labelSound = new Audio("/sound/button.wav");
       labelSound.volume = 0.05;
       labelSound.play();
