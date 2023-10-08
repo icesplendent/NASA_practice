@@ -7,6 +7,7 @@
       <person @personClicked="toggleRotate" />
       <canva ref="canvaRef" :imgData="img" />
       <timepopup />
+      <concentrationpopup />
       <benchmark
         @toggleBench="toggleRotateBench"
         @backBench="backRotateBench"
@@ -39,7 +40,7 @@ import sliderbar from "../components/sliderbar.vue";
 import slidepopup from "../components/slidepopup.vue";
 import timepopup from "../components/timepopup.vue";
 import benchmark from "../components/benchmark.vue";
-
+import concentrationpopup from "../components/concentrationpopup.vue";
 const canvaRef = ref(null);
 const img = ref("img/summer/2023.png");
 let index = ref(0);
