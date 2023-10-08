@@ -4,6 +4,7 @@ import Game from "../src/views/game.vue";
 import Collection from "../src/views/collection.vue";
 import Contact from "../src/views/contact.vue";
 import howToPlay from "../src/views/howToPlay.vue";
+import Reference from "../src/views/reference.vue";
 
 const routes = [
   {
@@ -30,6 +31,12 @@ const routes = [
     path: "/contact",
     name: "Contact",
     component: Contact,
+  },
+  ,
+  {
+    path: "/ref",
+    name: "Reference",
+    component: Reference,
   },
 ];
 

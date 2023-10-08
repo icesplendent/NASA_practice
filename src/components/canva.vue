@@ -374,8 +374,8 @@ const canva_setup = () => {
     },
     {
       position: new THREE.Vector3(2.9, 1.5, -2.3),
-      mag: "Red Sea", //
-      index: 2,
+      mag: "Red Sea",
+      //index: 2,
     },
     {
       position: new THREE.Vector3(2.85, 0.25, 2.81),
@@ -387,9 +387,23 @@ const canva_setup = () => {
       mag: "Ocean near Kalahari Desert",
       // index: 4,
     },
+    {
+      position: new THREE.Vector3(1.1, 2.75, 2.7),
+      mag: "Gulf of Maine", //
+      // index: 5,
+    },
+    {
+      position: new THREE.Vector3(1.6, 0.4, -3.65),
+      mag: "Indian Ocean", //
+      // index: 6,
+    },
+    {
+      position: new THREE.Vector3(2.05, 1.7, 3),
+      mag: "the middle of the North Atlantic", //
+      // index: 7,
+    },
   ];
   for (let i = 0; i < markerCount; i++) {
-    //dummy.position.randomDirection().setLength(rad + 0.1);
     dummy.position.copy(markersData[i].position);
     dummy.lookAt(dummy.position.clone().setLength(rad + 1));
     dummy.scale.set(0.5, 0.5);

@@ -10,13 +10,13 @@
 @media screen and (min-width: 768px) {
   .router-link-exact-active {
     background: transparent;
-    color: rgb(29 78 216);
+    color: #099b9b;
   }
 }
 
 @media screen and (max-width: 768px) {
   .router-link-exact-active {
-    background-color: rgb(29 78 216);
+    background-color: #099b9b;
     color: white;
   }
 }
