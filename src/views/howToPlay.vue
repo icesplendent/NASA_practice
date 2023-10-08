@@ -4,12 +4,48 @@
     <div class="relative h-fit">
       <div
         id="title1"
-        class="py-5 pr-10 absolute top-0 left-0 bg-[#099B9B] w-fit h-fit rounded-r-3xl"
+        class="py-5 pr-10 bg-[#099B9B] w-fit h-fit rounded-r-3xl"
       >
         <h1 class="text-white text-5xl text-jula">How to Play</h1>
       </div>
+      <section>
+        <div class='mt-20 flex'>
+          <img src='img/how_to_play/play1.jpg' class='ml-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash.png' class='bg-cover ml-[52%] w-[16%] h-[16vh] '/>
+      </section>
+      <section>
+        <div class='flex flex-row-reverse'>
+          <img src='img/how_to_play/play1.jpg' class='mr-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash2.png' class='bg-cover ml-[32%] mr-[52%] w-[16%] h-[16vh] flex flex-row-reverse'/>
+      </section>
+      <section>
+        <div class='flex'>
+          <img src='img/how_to_play/play1.jpg' class='ml-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash.png' class='bg-cover ml-[52%] w-[16%] h-[16vh] '/>
+      </section>
+      <section>
+        <div class='flex flex-row-reverse'>
+          <img src='img/how_to_play/play1.jpg' class='mr-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+        <img src='../assets/slash2.png' class='bg-cover ml-[32%] mr-[52%] w-[16%] h-[16vh] flex flex-row-reverse'/>
+      </section>
+      <section>
+        <div class='flex'>
+          <img src='img/how_to_play/play1.jpg' class='ml-[12%] w-[40%] '/>
+          <div class='bg-white'>iofasdhfpcuamoiefmasoid;jcaowhfsailudhxmuiuwhflidshaf</div>
+        </div>
+      </section>
     </div>
+    
   </div>
+  
 </template>
 
 <script setup>
@@ -58,4 +94,11 @@ console.log("progress = ", progress);
   height: 100%;
   background-color: #007bff;
 }
+.slanted-line {
+  width: 200px; /* 设置斜线的宽度 */
+  height: 20px; /* 设置斜线的长度 */
+  background-image: linear-gradient(to bottom right, transparent 49%, #333 50%, transparent 51%); /* 创建斜线的背景图像 */
+  background-repeat: no-repeat;
+}
+
 </style>
