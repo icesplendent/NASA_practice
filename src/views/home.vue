@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="bg-cover bg-center bg-[url('/home3.png')]">
-          <div class="px-24 pt-36 pb-72">
+          <div class="px-24 pt-32 pb-52">
             <p class="text-[27px] text-center mx-52">
               Mr.Chu finds out that the unbalanced concentration of CO2 and O2
               (the former one is too high while the latter one is too low)
@@ -61,7 +61,7 @@
       </div>
       <img id="Para4" src="../assets/divLine.svg" class="w-full px-24" />
       <div class="relative px-24 pb-36 flex flex-col items-center">
-        <p class="py-36 text-[27px]">
+        <p class="pt-24 pb-32 text-[27px]">
           To save his cute marine organisms,<br />the only way he can do is to
           collect the full manual of carbon cycle<br />which relates to the
           ocean and microscopic marine algae ( phytoplankton )
@@ -95,7 +95,7 @@
           </p>
           <img src="/home5.png" class="scale-[0.75] basis-1/2" />
         </div>
-        <div class="h-[300px]"></div>
+        <div class="h-[280px]"></div>
         <img src="/home6.png" class="absolute bottom-0 w-full" />
         <div class="flex justify-center">
           <a
@@ -117,9 +117,9 @@
           Follow Mr.Chu on an adventure<br />to search for the 3 missing pieces
           of his carbon cycle manual! <br /><br />Let’s Go!!!!!!!!!!
         </p>
-        <router-link to="/game" class="z-50">
+        <router-link to="/instr" class="z-50">
           <button
-            v-on:click="buttonSound()"
+            v-on:click="playSound()"
             class="bg-[#3EC6FF] text-[50px] py-4 px-8 rounded-full"
           >
             Trip to Earth →
@@ -146,6 +146,11 @@ const scrollToParagraph = (id) => {
 const buttonSound = () => {
   const audio = new Audio("/sound/button.wav");
   audio.volume = 0.05;
+  audio.play();
+};
+const playSound = () => {
+  const audio = new Audio("/sound/earth2.mp3");
+  audio.volume = 0.5;
   audio.play();
 };
 import navbar from "../components/nav.vue";
