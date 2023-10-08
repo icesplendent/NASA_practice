@@ -3,13 +3,13 @@
 
 <template>
 	<div class="flex flex-col justify-center items-center">
-      <button @click="toggleHint_conc()" class="fixed right-[4%] top-[10%] cursor-pointer text-white z-20">　</button>
-      <div class="fixed right-[4%] top-[10%] cursor-pointer">
+      <button @click="toggleHint_conc()" class="fixed right-[3.2rem] top-[4.3rem] cursor-pointer text-white z-20">　</button>
+      <div class="fixed right-[3rem] top-[4.3rem] cursor-pointer">
         <!-- <p class="text-white">Game Hint</p>  -->
         <span v-if="!expanded_conc" class="text-2xl">💡</span>
         <span v-else class="text-2xl text-white">X</span>
       </div>
-      <div class="toggle-text text-white  fixed right-[8%] top-[10%] rounded-lg" :class="{ expanded_conc: expanded_conc }">
+      <div class="toggle-text text-white  fixed right-[7rem] top-[10%] rounded-lg" :class="{ expanded_conc: expanded_conc }">
           <p class="font-jura text-xl px-5 py-3">Colorbar</p>
           <p class="font-jura px-5 pb-4">The points on the chlorophyll-a concentration color bar tell you what the concentration of chlorophyll indicates and how it represents the concentration of phytoplankton in the ocean. The green color represents a high concentration of chlorophyll, the white color corresponds to concentrations in the middle range, the blue color indicates lower concentrations, and the black color represents areas with no available data.</p>
       </div>

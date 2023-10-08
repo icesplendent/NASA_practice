@@ -29,7 +29,7 @@
     </button>
 
 		<!-- title -->
-    <div class="fixed right-5 top-[6.3rem] flex flex-col title">
+    <div class="fixed right-5 top-[6.6rem] flex flex-col title">
       <p class="text-white text-xs font-jura">Chlorophyll_a</p>
       <p class="text-white text-xs font-jura">Concentration</p>
       <p class="text-white text-xs text-center font-jura">(mg/m-3)</p>

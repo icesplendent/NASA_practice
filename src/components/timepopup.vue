@@ -3,8 +3,8 @@
 
 <template>
 	<div class="flex flex-col justify-center items-center">
-      <button @click="toggleHint_time()" class="fixed right-[12%] bottom-[4%] cursor-pointer text-white z-20">　</button>
-      <div class="fixed right-[12%] bottom-[4%] cursor-pointer">
+      <button @click="toggleHint_time()" class="fixed right-[7.7rem] bottom-[1.5rem] cursor-pointer text-white z-20">　</button>
+      <div class="fixed right-[7.7rem] bottom-[1.5rem] cursor-pointer">
         <!-- <p class="text-white">Game Hint</p>  -->
         <span v-if="!expanded_time" class="text-2xl">💡</span>
         <span v-else class="text-2xl text-white">X</span>
