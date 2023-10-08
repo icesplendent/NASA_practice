@@ -1,6 +1,6 @@
 <template>
   <navbar />
-  <div id="com" class="h-screen w-screen overflow-y-auto py-24 bg-[#272727]">
+  <div id="com" class="h-screen w-screen overflow-y-auto py-24 bg-[#272727] font-jura">
     <div class="relative h-fit">
       <div
         id="title1"
