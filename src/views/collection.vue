@@ -2,16 +2,16 @@
   <navbar />
   <div
     id="com"
-    class="block h-screen w-screen overflow-y-auto py-24 bg-black relative"
+    class="block h-screen w-screen overflow-y-auto pt-24 bg-black relative"
   >
     <div
       v-show="progress == 100 && !isPopupClosed"
       @click="closePopup"
-      class="absolute h-full w-full z-10 top-16"
+      class="absolute h-fit w-full z-10 top-16"
     >
       <div
         ref="popup"
-        class="font-jura mt-12 mx-24 px-16 py-10 w-auto h-auto bg-white flex justify-between rounded-3xl"
+        class="font-jura mt-12 mx-12 px-16 pt-8 pb-10 w-auto h-auto bg-white flex justify-between rounded-3xl border-2 border-black"
       >
         <div class="basis-1/2">
           <h1 class="text-[50px]">Congratulations!</h1>
@@ -64,9 +64,20 @@
         </div>
       </div>
       <hr class="mt-[1rem] mb-[0.5rem]" />
-      <div class="galleries my-[1.5rem] gap-3 grid grid-cols-2 lg:grid-cols-4">
+      <div class="flex w-full justify-center">
+        <div
+          v-if="progress == 100"
+          class="bg-[#099B9B] p-[0.6em] rounded-md flex justify-center w-[48%]"
+        >
+          <img src="/CC_Finished.png" class="w-full" />
+        </div>
+      </div>
+      <div
+        v-if="progress != 100"
+        class="my-[1.5rem] gap-3 grid grid-cols-2 lg:grid-cols-4"
+      >
         <div v-for="(image, index) in imgCollections" :key="index" class="">
-          <div class="gallery bg-[#099B9B] p-[0.6em] rounded-md">
+          <div class="bg-[#099B9B] p-[0.6em] rounded-md">
             <img :src="image" :alt="image.alt" />
           </div>
         </div>
