@@ -1,5 +1,5 @@
 # frOG - NASA Hackathon
-🔗 Demo Platform : https://fr-og-nasahackathon-1b6k-8gn495ml7-icesplendents-projects.vercel.app/game <br>
+🔗 Demo Platform : https://fr-og-nasahackathon-1b6k-8gn495ml7-icesplendents-projects.vercel.app/game <br><br>
 📹 Demo : https://youtu.be/bXeM-20pthI<bur><br>
 To raise people’s awareness about how important ocean and phytoplankton are in human’s everyday life, our team integrates ocean knowledge with interactive games. We depict the marine ecosystem as a garden and engage players in a “treasure hunt game” that progressively imparts knowledge about ocean, carbon cycle, and phytoplankton. Through this user-friendly website, we aim to bridge the knowledge gap among the general public and hope to raise the awareness of ocean ecosystem.
 
