@@ -18,60 +18,152 @@
       <div class="w-full h-24"></div>
       <div class="flex flex-row w-full justify-center z-20">
         <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#117090] font-jura">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
-            sapiente nisi, veniam necessitatibus maiores deleniti, vitae
-            corrupti voluptates tempore quasi fuga reprehenderit est blanditiis
-            aliquid quae illo nam, autem minima molestias! Sequi optio explicabo
-            non neque enim cupiditate, id voluptate incidunt, quas perferendis
-            dicta perspiciatis iste eaque repellendus? Quae iste distinctio
-            alias tempora culpa repellat veniam voluptatum error labore animi
-            placeat, quo accusantium. Ex, accusamus! Veniam vero repudiandae
-            assumenda corporis. Eius sint pariatur suscipit assumenda quae nisi
-            aspernatur delectus. Quia commodi ratione corporis deserunt beatae
-            illum? Velit sint libero quia voluptate recusandae qui quis
-            veritatis possimus. Fugit eligendi quae voluptatem.
+        <div
+          id="content1"
+          class="p-20 h-fit bg-white rounded-3xl z-10 leading-relaxed"
+        >
+          <!-- <p class="text-[#117090] font-jura text-[32px] font-bold pb-8">
+            GitHub Repo.
           </p>
-        </div>
-        <div class="min-w-[4rem] h-full"></div>
-      </div>
-    </section>
-    <section class="relative my-10 h-fit w-screen">
-      <div
-        id="title2"
-        class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#099B9B] w-fit h-fit rounded-r-3xl"
-      >
-        <h1 class="hidden md:block text-white text-5xl font-jura">Licenses</h1>
-        <h1 class="hidden md:block invisible text-white text-5xl">Licenses</h1>
-        <h1 class="hidden md:block invisible text-white text-5xl">Licenses</h1>
-        <h1 class="md:hidden text-white text-5xl font-jura">Licenses</h1>
-        <h1 class="invisible md:hidden text-white text-5xl">Licenses</h1>
-        <h1 class="invisible md:hidden text-white text-5xl">Licenses</h1>
-      </div>
-      <div class="w-full h-24"></div>
-      <div class="flex flex-row w-full justify-center z-20">
-        <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#117090] font-jura">
-            To raise people‘s awareness about how important are ocean and
-            phytoplankton in our everyday life, our team integrates solid
-            knowledge with interactive games. We depict the marine ecosystem as
-            a garden and engage players in a “treasure hunt game” that
-            progressively imparts knowledge about ocean, carbon cycle, and
-            phytoplankton. Additionally, our team transforms chlorophyll data
-            from 2000 to 2022 into a visual 3D Earth, allowing players to
-            observe the real-time state of the oceans and phytoplankton while
-            playing the game. Through this project, we aim to bridge the
-            knowledge gap among the general public and lawmakers regarding
-            marine resources.
+          <a
+            href="https://github.com/icesplendent/NASA_practice"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://github.com/icesplendent/NASA_practice
+          </a> -->
+          <p class="text-[#117090] font-jura text-[32px] font-bold pb-8">
+            Background Information
           </p>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Ocean Chlorophyll Concentrations
+          </p>
+          <a
+            href="https://www.globalchange.gov/browse/indicators/ocean-chlorophyll-concentrations"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://www.globalchange.gov/browse/indicators/ocean-chlorophyll-concentrations
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Roxy M. K.**, A. Modi, R. Murutugudde, V. Valsala, S. Panickal, S.
+            Prasanna Kumar, M. Ravichandran, M. Vichi and M. Levy, 2015: A
+            reduction in marine primary productivity driven by rapid warming
+            over the tropical Indian Ocean.*Geophys. Res. Lett.*, 42,
+            doi:10.1002/2015gl066979
+          </p>
+          <a
+            href="http://www.rocksea.org/bin/research/roxy_phytoplankton_indian_ocean_warming_grl_2015.pdf"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            http://www.rocksea.org/bin/research/roxy_phytoplankton_indian_ocean_warming_grl_2015.pdf
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Declining Marine Phytoplankton in a rapidly warming Indian Ocean
+          </p>
+          <a
+            href="https://www.climate.rocksea.org/research/marine-phytoplankton-warm-indian-ocean/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://www.climate.rocksea.org/research/marine-phytoplankton-warm-indian-ocean/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Coastal Phytoplankton on the Rise
+          </p>
+          <a
+            href="https://earthobservatory.nasa.gov/images/151374/coastal-phytoplankton-on-the-rise"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://earthobservatory.nasa.gov/images/151374/coastal-phytoplankton-on-the-rise
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Climate effects on temporal and spatial dynamics of phytoplanktonand
+            zooplankton in the BarentsSea
+          </p>
+          <a
+            href="https://www.sciencedirect.com/science/article/pii/S0079661120300598"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://www.sciencedirect.com/science/article/pii/S0079661120300598
+          </a>
+          <p class="text-[#117090] font-jura text-[32px] font-bold py-8">
+            Dev. Tools / References
+          </p>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Earth Model Reference
+          </p>
+          <a
+            href="https://codepen.io/prisoner849/pen/oNopjyb"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://codepen.io/prisoner849/pen/oNopjyb
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">Vue</p>
+          <a
+            href="https://vuejs.org/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://vuejs.org/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            Vue Router
+          </p>
+          <a
+            href="https://router.vuejs.org/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://router.vuejs.org/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">Pinia</p>
+          <a
+            href="https://pinia.vuejs.org/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://pinia.vuejs.org/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">Three.js</p>
+          <a
+            href="https://threejs.org/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://threejs.org/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">tween.js</p>
+          <a
+            href="https://github.com/tweenjs/tween.js"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://github.com/tweenjs/tween.js
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">
+            tailwind.css
+          </p>
+          <a
+            href="https://tailwindcss.com/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://tailwindcss.com/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">Vercel</p>
+          <a
+            href="https://vercel.com/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://vercel.com/
+          </a>
+          <p class="text-[#117090] font-jura text-[20px] font-bold">GitHub</p>
+          <a
+            href="https://github.com/"
+            class="text-[#117090] font-jura text-[20px]"
+          >
+            https://github.com/
+          </a>
         </div>
         <div class="min-w-[4rem] h-full"></div>
       </div>
     </section>
     <section>
-      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">Copyright © 2023 OGforOG</p>
+      <p class="text-white text-center pt-[3%] pb-[1%] font-jura">
+        Copyright © 2023 OGforOG
+      </p>
     </section>
   </div>
 </template>
