@@ -3,12 +3,18 @@ import Home from "../src/views/home.vue";
 import Game from "../src/views/game.vue";
 import Collection from "../src/views/collection.vue";
 import Contact from "../src/views/contact.vue";
+import howToPlay from "../src/views/howToPlay.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/instr",
+    name: "Instruction",
+    component: howToPlay,
   },
   {
     path: "/game",

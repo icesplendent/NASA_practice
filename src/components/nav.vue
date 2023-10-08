@@ -65,20 +65,21 @@
           </li>
           <li>
             <RouterLink
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-jura"
+              to="/instr"
+            >
+              Instructions
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink
               to="/game"
               class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-jura"
             >
               Game
             </RouterLink>
           </li>
-          <!-- <li>
-            <RouterLink
-              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-300 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-jura"
-              to="/about"
-            >
-              About
-            </RouterLink>
-          </li> -->
+
           <li>
             <RouterLink
               to="/collection"

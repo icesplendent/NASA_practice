@@ -3,29 +3,34 @@
   <div class="h-screen w-screen overflow-y-auto bg-black text-white font-jura">
     <div class="container mx-auto overflow-x-hidden">
       <div class="h-16"></div>
-      <div class="relative flex flex-col items-center pt-32">
-        <div class="absolute top-6 left-0 px-24">
-          <h1 id="Para1" class="pt-24 pb-3 text-[88px]">frOG</h1>
+      <div class="relative flex flex-col items-center">
+        <div class="pt-24 px-24 self-start">
+          <h1 id="Para1" class="pb-3 text-[88px]">frOG</h1>
           <p class="text-[27px]">
             Mr.Chu runs a small ocean garden in Meichu Planet,<br />
             and everything is fine <br /><br />
             Until recently...
           </p>
         </div>
-        <img class="w-full object-cover object-center" src="/home1.png" />
-        <img id="Para2" src="../assets/divLine.svg" class="px-24 pb-8 w-full" />
+        <div class="h-[360px]"></div>
+        <img
+          class="absolute bottom-0 w-full object-cover object-center"
+          src="/home1.png"
+        />
+
         <a
           v-on:click="
             scrollToParagraph('Para2');
             buttonSound();
           "
-          class="absolute bottom-24"
+          class="absolute bottom-12"
         >
           <img src="../assets/home_down.svg" class="animate-bounce"
         /></a>
       </div>
+      <img id="Para2" src="../assets/divLine.svg" class="px-24 w-full" />
       <div class="relative flex flex-col items-center">
-        <div class="flex w-full px-24 relative pb-8 overflow-x-hidden">
+        <div class="flex w-full px-24 relative py-8 overflow-x-hidden">
           <div class="basis-1/2 py-20">
             <p class="text-[27px]">
               his marine organisms are getting sick one after another …
