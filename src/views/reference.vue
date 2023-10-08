@@ -22,15 +22,6 @@
           id="content1"
           class="p-20 h-fit bg-white rounded-3xl z-10 leading-relaxed"
         >
-          <!-- <p class="text-[#117090] font-jura text-[32px] font-bold pb-8">
-            GitHub Repo.
-          </p>
-          <a
-            href="https://github.com/icesplendent/NASA_practice"
-            class="text-[#117090] font-jura text-[20px]"
-          >
-            https://github.com/icesplendent/NASA_practice
-          </a> -->
           <p class="text-[#117090] font-jura text-[32px] font-bold pb-8">
             Background Information
           </p>
