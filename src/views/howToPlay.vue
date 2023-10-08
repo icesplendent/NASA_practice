@@ -13,11 +13,11 @@
       </div>
       <section>
         <div class="mt-20 flex">
-          <img src="img/how_to_play/play1.jpg" class="ml-[12%] w-[40%]" />
+          <img src="img/how_to_play/play1.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">1.</h1>
             <p class="text-lg">
-              Take a look at the game hints and characters on the left..
+              Take a look at the game hints and characters on the left...
             </p>
           </div>
         </div>
@@ -28,12 +28,12 @@
       </section>
       <section>
         <div class="flex flex-row-reverse">
-          <img src="img/how_to_play/play1.jpg" class="mr-[12%] w-[40%]" />
+          <img src="img/how_to_play/play2.png" class="mr-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white ml-[12%]">
             <h1 class="text-7xl my-2">2.</h1>
             <p class="text-lg">
               Click those emoji on the left. They may take you to the marked
-              locations and tell you how the ocean affects their daily lives
+              locations and tell you how the ocean affects their daily lives.
             </p>
           </div>
         </div>
@@ -44,13 +44,13 @@
       </section>
       <section>
         <div class="flex">
-          <img src="img/how_to_play/play1.jpg" class="ml-[12%] w-[40%]" />
+          <img src="img/how_to_play/play3.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">3.</h1>
             <p class="text-lg">
               Click on the marked locations on the globe, answer the multiple
               choice questions about phytoplankton, and try to get the correct
-              answers to win the lost manual
+              answers to win the lost manual.
             </p>
           </div>
         </div>
@@ -61,12 +61,12 @@
       </section>
       <section>
         <div class="flex flex-row-reverse">
-          <img src="img/how_to_play/play1.jpg" class="mr-[12%] w-[40%]" />
+          <img src="img/how_to_play/play4.png" class="mr-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white ml-[12%]">
             <h1 class="text-7xl my-2">4.</h1>
             <p class="text-lg">
               View the “Collection Page” to learn about how many pieces of
-              manual you have helped Mr. Chu collect
+              manual you have helped Mr. Chu collect.
             </p>
           </div>
         </div>
@@ -77,12 +77,12 @@
       </section>
       <section>
         <div class="flex">
-          <img src="img/how_to_play/play1.jpg" class="ml-[12%] w-[40%]" />
+          <img src="img/how_to_play/play5.png" class="ml-[12%] w-[40%]" />
           <div class="my-10 mx-12 text-white mr-[12%]">
             <h1 class="text-7xl my-2">5.</h1>
             <p class="text-lg">
               Explore 5 legendary locations and enjoy helping Mr. Chu recover
-              his lost manual
+              his lost manual.
             </p>
           </div>
         </div>
