@@ -25,22 +25,26 @@
               >
                 <!-- <div class="relative w-[90%] h-full pl-10 py-10 rounded-3xl">  -->
                 <div class="flex w-[90%] items-stretch">
-                  <div
-                    class="basis-[70%] shrink-0 p-5 bg-white opacity-[75%] rounded-l-3xl"
-                  >
-                    <div
-                      v-if="my_data.state == 0"
-                      class="relative h-[100%] w-full"
-                    >
+                  <div v-if="inner_pop" class="popup-container rounded-3xl bg-[#8AB4B1] z-50 ">
+                    <!-- Popup content here -->
+                    <div class="popup_content px-3 ">
+                      <h1 class="text-3xl font-jura text-center text-white m-3">you're wrong</h1>
+                      <img src="/img/wrong_ans.png" class="opacity-100">
+                      <button
+                        @click="inner_pop = false"
+                        class="text-xl w-full bg-blue-200 rounded-lg px-5 py-2 my-2 font-jura"
+                      >try again</button>
+                    </div>
+                  </div>
+                  <div class="basis-[70%] shrink-0 p-5 bg-white opacity-[75%] rounded-l-3xl" >
+                    <div v-if="my_data.state == 0" class="relative h-[100%] w-full" >
                       <h1 class="text-3xl font-jura">
                         {{ data.state_0_title }}
                       </h1>
                       <div class="mt-10 rounded-full flex justify-end">
                         <div class="relative w-[60%] text-center">
                           <img class="w-full" src="/dialog.svg" alt="" />
-                          <p
-                            class="absolute w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-120%] font-jura"
-                          >
+                          <p class="absolute w-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-120%] font-jura">
                             I'm not the one you are looking for.
                           </p>
                         </div>
@@ -92,23 +96,7 @@
                             </div>
                           </li>
                         </ul>
-                        <div
-                          v-if="inner_pop"
-                          class="popup-container rounded-3xl bg-blue-500 z-50"
-                        >
-                          <!-- Popup content here -->
-                          <div id="popup_content">
-                            <h1 class="text-3xl font-jura m-3">you're wrong</h1>
-                            <div class="flex justify-center">
-                              <button
-                                @click="inner_pop = false"
-                                class="text-3xl bg-blue-200 rounded-full px-5 py-3"
-                              >
-                                <p class="font-jura">try again</p>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
+
                       </div>
                     </div>
                     <div
@@ -191,7 +179,7 @@ const test = () => {
 const select_ans = (index) => {
   if (my_data.value.options[index].is_ans) {
     my_data.value.state = 2;
-    inner_pop.value = true;
+    inner_pop.value = false;
     isHover.value[index] = false;
     emits("update_data", my_data.value);
   } else {
@@ -209,16 +197,21 @@ const closePopup = () => {
 </script>
 
 <style scoped>
+.popup_content {
+  opacity: 1 !important; 
+}
+
 .popup-container {
+  opacity: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 37%;
+  top: 30%;
   left: 25%;
-  width: 50%;
-  height: 30%;
+  /* width: 40%; */
+  height: 50%;
   /* animation: popup 0.3s ease-in-out; */
   /* z-index: 999; Ensure the popup is above other content */
 }

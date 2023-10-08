@@ -90,57 +90,9 @@ console.log('progress = ', progress);
 // };
 </script>
 
-<!-- <template>
-  <navbar />
-  <div id="com" class="hidden md:block h-screen w-screen overflow-y-auto py-24 bg-black">
-    <section class="relative my-10 h-fit w-screen">
-      <div id="title1" class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-96 h-64 rounded-r-3xl">
-        <h1 class="hidden md:block text-white text-5xl font-jura">
-          References
-        </h1>
-      </div>
-      <div class="w-full h-24"></div>
-      <div class="flex flex-row w-full justify-center z-20">
-        <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 w-5/6 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1] font-jura">
-            Ocean makes up 70% of Earth by area, and...
-          </p>
-        </div>
-        <div class="min-w-[4rem] h-full"></div>
-      </div>
-    </section>
-    <section class="relative relative my-10 h-fit w-screen">
-      <div id="title2" class="py-5 pl-16 pr-10 absolute top-0 left-0 bg-[#0E2DD1] w-80 h-64 rounded-r-3xl">
-        <h1 class="hidden md:block text-white text-5xl font-jura">
-          License
-        </h1>
-      </div>
-      <div class="w-full h-24"></div>
-      <div class="flex flex-row w-full justify-center z-20">
-        <div class="min-w-[4rem] h-full"></div>
-        <div id="content1" class="p-20 w-5/6 h-fit bg-white rounded-3xl z-10">
-          <p class="text-[#0E2DD1] font-jura">
-            Ocean makes up 70% of Earth by area, and
-          </p>
-        </div>
-        <div class="min-w-[4rem] h-full"></div>
-      </div>
-    </section>
-  </div>
-</template> 
-
-
-<script setup>
-import navbar from "../components/nav.vue";
-import "../style.css";
-</script> -->
 
 <style scoped>
-.gallery {
-  /* flex: 0 0 calc(25%); */
-  /* max-width: 30rem; */
-}
+
 
 .font-jura {
   font-family: "Jura";

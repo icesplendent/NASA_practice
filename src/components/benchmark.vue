@@ -70,7 +70,7 @@
         </div>
     
       <!-- title -->
-	  <div class="fixed right-5 bottom-[5%] flex flex-col title">
+	  <div class="fixed right-5 top-[88%] flex flex-col title">
         <p class="text-white text-xs font-jura">Chlorophyll_a</p>
         <p class="text-white text-xs font-jura">Concentration</p>
         <p class="text-white text-xs text-center font-jura"> (mg/m-3)</p>
