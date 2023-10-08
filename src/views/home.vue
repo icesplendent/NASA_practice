@@ -122,7 +122,7 @@
             v-on:click="playSound()"
             class="bg-[#3EC6FF] text-[50px] py-4 px-8 rounded-full"
           >
-            Trip to Earth →
+            Let’s go →
           </button>
         </router-link>
         <img
